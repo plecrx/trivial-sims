@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint": "eslint src/**/*.{js,ts,tsx} --fix",
     "tsc": "tsc --noEmit"
   },
   "jest": {

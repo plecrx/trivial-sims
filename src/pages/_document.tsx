@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Document, {Head, Html, Main, NextScript} from 'next/document';
-import {Provider as StyletronProvider} from 'styletron-react';
-import {Server, Sheet} from 'styletron-engine-atomic';
-import {styletron} from '../styletron';
+import * as React from 'react'
+import Document, {Head, Html, Main, NextScript} from 'next/document'
+import {Provider as StyletronProvider} from 'styletron-react'
+import {Server, Sheet} from 'styletron-engine-atomic'
+import {styletron} from '../styletron'
 
 class MyDocument extends Document<{stylesheets: Sheet[]}> {
 	static getInitialProps(props: any) {
@@ -11,9 +11,9 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
 			<StyletronProvider value={styletron}>
 				<App {...props} />
 			</StyletronProvider>
-		));
-		const stylesheets = (styletron as Server).getStylesheets() || [];
-		return {...page, stylesheets};
+		))
+		const stylesheets = (styletron as Server).getStylesheets() || []
+		return {...page, stylesheets}
 	}
 
 	render() {
@@ -22,7 +22,7 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
 				<Head>
 					{this.props.stylesheets.map((sheet, i) => (
 						<style
-							className="_styletron_hydrate_"
+							className='_styletron_hydrate_'
 							dangerouslySetInnerHTML={{__html: sheet.css}}
 							media={sheet.attrs.media}
 							data-hydrate={sheet.attrs['data-hydrate']}
@@ -31,12 +31,12 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
 					))}
 				</Head>
 				<body>
-				<Main />
-				<NextScript />
+					<Main />
+					<NextScript />
 				</body>
 			</Html>
-		);
+		)
 	}
 }
 
-export default MyDocument;
+export default MyDocument

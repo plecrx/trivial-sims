@@ -1,57 +1,52 @@
-import React, {useEffect, useState, Fragment} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Ride} from '../../api/RidesApi/types/ride'
 import {RidesClient} from '../../api/RidesApi/ridesClient'
-import {ListHeading, ListItem, ListItemLabel} from 'baseui/list'
+import {ListHeading, ListItem} from 'baseui/list'
 import styled from '@emotion/styled'
-import {
-	Display,
-	Display3,
-	Display4,
-	H4,
-	H5,
-	Label1,
-	Label2,
-} from 'baseui/typography'
+import {H1} from 'baseui/typography'
+import {Spinner} from 'baseui/spinner'
+import {ArrowDown} from 'baseui/icon'
 
 const Container = styled.div`
 	margin-inline: 20em;
+	padding: 5em;
 `
 
 export const Rides = () => {
 	const [rides, setRides] = useState<Ride[]>([])
+	const [loading, setLoading] = useState<boolean>(false)
 
 	const fetchRides = async () => {
 		const baseUrl = 'https://paristaxiflares.herokuapp.com'
 		const ridesClient = new RidesClient(baseUrl)
 		const _rides = await ridesClient.getRides()
 		setRides(_rides)
+		setLoading(false)
 	}
 
 	useEffect(() => {
+		setLoading(true)
 		fetchRides()
 	}, [])
 
 	return (
 		<Container>
-			<ListHeading heading={<Display4>Popular</Display4>} />
-			{rides.map(ride => (
-				<ListItem
-					key={`ride-${ride.id}`}
-					endEnhancer={() => <ListItemLabel>€{ride.price}</ListItemLabel>}
-				>
-					<ListItemLabel
-						description={
-							<Fragment>
-								<>{ride.startTime}</>
-								<div style={{width: '18px'}} />
-								<>{ride.distance} km</>
-							</Fragment>
-						}
-					>
-						{ride.date}
-					</ListItemLabel>
-				</ListItem>
-			))}
+			<ListItem artwork={ArrowDown} artworkSize={64}>
+				<H1>Choose a trip</H1>
+			</ListItem>
+			{!loading ? (
+				rides.map(ride => (
+					<ListHeading
+						key={`ride-${ride.id}`}
+						heading={ride.date}
+						subHeading={ride.startTime}
+						endEnhancer={`€${ride.price}`}
+						endEnhancerDescription={`${ride.distance} km`}
+					/>
+				))
+			) : (
+				<Spinner />
+			)}
 		</Container>
 	)
 }

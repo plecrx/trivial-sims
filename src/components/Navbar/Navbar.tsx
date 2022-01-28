@@ -11,12 +11,10 @@ import {H4, Label1} from 'baseui/typography'
 import {Checkbox, STYLE_TYPE} from 'baseui/checkbox'
 
 type NavbarProps = {
-	isDark: boolean
 	onOpen: () => void
-	setTheme: () => void
 }
 
-const Navbar = ({onOpen, setTheme, isDark}: NavbarProps) => {
+const Navbar = ({onOpen}: NavbarProps) => {
 	return (
 		<HeaderNavigation>
 			<NavigationList $align={ALIGN.left}>
@@ -35,11 +33,6 @@ const Navbar = ({onOpen, setTheme, isDark}: NavbarProps) => {
 				</NavigationItem>
 			</NavigationList>
 			<NavigationList $align={ALIGN.right}>
-				<NavigationItem>
-					<Button onClick={setTheme} kind={KIND.tertiary}>
-						<Checkbox checked={isDark} checkmarkType={STYLE_TYPE.toggle_round} />
-					</Button>
-				</NavigationItem>
 				<NavigationItem>
 					<Button onClick={onOpen} kind={KIND.tertiary}>
 						<Menu size={24} />

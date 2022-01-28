@@ -1,15 +1,13 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import {Rides} from '../../components/Rides/Rides'
 import Menu from '../../components/Menu/Menu'
 import Navbar from '../../components/Navbar/Navbar'
 import {Block} from 'baseui/block'
 import {useStyletron} from 'baseui'
-import {Display3} from 'baseui/typography'
-import {ArrowDown} from 'baseui/icon'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
-	margin: 0px;
+	margin: 0;
 `
 
 type HomeProps = {
@@ -43,7 +41,7 @@ const Home = ({setTheme, isDark}: HomeProps) => {
 			>
 				<Rides />
 			</Block>
-			<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark}/>
+			<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
 		</Container>
 	)
 }

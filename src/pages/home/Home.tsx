@@ -12,6 +12,7 @@ const Container = styled.div`
 	position: static;
 	width: 100%;
 	height: 100%;
+
 `
 
 type HomeProps = {

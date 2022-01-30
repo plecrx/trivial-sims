@@ -8,6 +8,7 @@ import {Spinner} from 'baseui/spinner'
 import {ArrowDown} from 'baseui/icon'
 
 const Container = styled.div`
+	margin-top: 5em;
 	margin-inline: 20em;
 	padding: 5em;
 `

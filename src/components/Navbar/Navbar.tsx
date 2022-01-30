@@ -8,7 +8,6 @@ import {
 import {Button, KIND} from 'baseui/button'
 import {Menu} from 'baseui/icon'
 import {H4, Label1} from 'baseui/typography'
-import {Checkbox, STYLE_TYPE} from 'baseui/checkbox'
 
 type NavbarProps = {
 	onOpen: () => void

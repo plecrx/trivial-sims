@@ -71,19 +71,10 @@ export const Rides = () => {
 							endEnhancer={`€${ride.price}`}
 							endEnhancerDescription={`${ride.distance} km`}
 							overrides={{
-								EndEnhancerContainer: {
-									style: ({$theme}) => ({
-										color: $theme.colors.primary,
-									}),
-								},
-								EndEnhancerDescriptionContainer: {
-									style: ({$theme}) => ({
-										color: $theme.colors.primary,
-									}),
-								},
 								Root: {
 									style: ({$theme}) => ({
 										backgroundColor: $theme.colors.backgroundSecondary,
+										color: $theme.colors.primary,
 									}),
 								},
 							}}

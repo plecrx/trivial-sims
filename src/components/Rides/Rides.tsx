@@ -6,11 +6,18 @@ import styled from '@emotion/styled'
 import {H1} from 'baseui/typography'
 import {Spinner} from 'baseui/spinner'
 import {ArrowDown} from 'baseui/icon'
+import {Block} from 'baseui/block'
 
-const Container = styled.div`
-	margin-top: 5em;
-	margin-inline: 20em;
-	padding: 5em;
+const Container = styled(Block)`
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+`
+
+const StyledList = styled.div`
+	width: 60em;
 `
 
 export const Rides = () => {
@@ -31,23 +38,61 @@ export const Rides = () => {
 	}, [])
 
 	return (
-		<Container>
-			<ListItem artwork={ArrowDown} artworkSize={64}>
-				<H1>Choose a trip</H1>
-			</ListItem>
-			{!loading ? (
-				rides.map(ride => (
-					<ListHeading
-						key={`ride-${ride.id}`}
-						heading={ride.date}
-						subHeading={ride.startTime}
-						endEnhancer={`€${ride.price}`}
-						endEnhancerDescription={`${ride.distance} km`}
-					/>
-				))
-			) : (
-				<Spinner />
-			)}
+		<Container
+			overrides={{
+				Block: {
+					style: ({$theme}) => ({
+						backgroundColor: $theme.colors.backgroundPrimary,
+					}),
+				},
+			}}
+		>
+			<StyledList>
+				<ListItem
+					artwork={ArrowDown}
+					artworkSize={64}
+					overrides={{
+						Root: {
+							style: ({$theme}) => ({
+								color: $theme.colors.primary,
+								backgroundColor: $theme.colors.backgroundSecondary,
+							}),
+						},
+					}}
+				>
+					<H1>Choose a trip</H1>
+				</ListItem>
+				{!loading ? (
+					rides.map(ride => (
+						<ListHeading
+							key={`ride-${ride.id}`}
+							heading={ride.date}
+							subHeading={ride.startTime}
+							endEnhancer={`€${ride.price}`}
+							endEnhancerDescription={`${ride.distance} km`}
+							overrides={{
+								EndEnhancerContainer: {
+									style: ({$theme}) => ({
+										color: $theme.colors.primary,
+									}),
+								},
+								EndEnhancerDescriptionContainer: {
+									style: ({$theme}) => ({
+										color: $theme.colors.primary,
+									}),
+								},
+								Root: {
+									style: ({$theme}) => ({
+										backgroundColor: $theme.colors.backgroundSecondary,
+									}),
+								},
+							}}
+						/>
+					))
+				) : (
+					<Spinner />
+				)}
+			</StyledList>
 		</Container>
 	)
 }

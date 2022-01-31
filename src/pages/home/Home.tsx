@@ -40,9 +40,9 @@ const Home = ({setTheme, isDark}: HomeProps) => {
 		>
 			<Block className={css({position: 'sticky', left: 0, top: 0})}>
 				<Navbar onOpen={open} />
+				<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
 			</Block>
 			<Rides />
-			<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
 		</Container>
 	)
 }

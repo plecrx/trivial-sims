@@ -5,7 +5,6 @@ import {useState} from 'react'
 import {Block} from 'baseui/block'
 import Navbar from '../components/Navbar/Navbar'
 import Menu from '../components/Menu/Menu'
-import {Breadcrumbs} from 'baseui/breadcrumbs'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
@@ -17,10 +16,12 @@ const Container = styled.div`
 `
 
 const BodyBlock = styled(Block)`
+	position: relative;
 	margin: 0;
 	display: flex;
 	justify-content: center;
-	min-height: 100vh;
+	min-height: 100%;
+	z-index: 1;
 `
 
 const THEME = {
@@ -49,7 +50,15 @@ const Index: React.FC = () => {
 					backgroundSize: 'cover',
 				})}
 			>
-				<Block className={css({position: 'sticky', left: 0, top: 0})}>
+				<Block
+					className={css({
+						position: 'sticky',
+						left: 0,
+						top: 0,
+						zIndex: 99,
+						backgroundColor: theme.colors.backgroundPrimary,
+					})}
+				>
 					<Navbar onOpen={open} />
 					<Menu
 						isOpen={isOpen}

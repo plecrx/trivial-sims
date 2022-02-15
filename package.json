@@ -1,5 +1,5 @@
 {
-  "name": "paristaxiflares-ui",
+  "name": "trivial-sims",
   "private": true,
   "scripts": {
     "dev": "next dev",

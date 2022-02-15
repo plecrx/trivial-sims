@@ -18,7 +18,7 @@ const Navbar = ({onOpen}: NavbarProps) => {
 		<HeaderNavigation>
 			<NavigationList $align={ALIGN.left}>
 				<NavigationItem>
-					<H4 margin={'-10px'}>Ubeetch</H4>
+					<H4 margin={'-10px'}>Trivial Sims</H4>
 				</NavigationItem>
 			</NavigationList>
 			<NavigationList $align={ALIGN.center} />

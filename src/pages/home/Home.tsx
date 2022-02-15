@@ -1,5 +1,4 @@
 import React from 'react'
-import {Rides} from '../../components/Rides/Rides'
 import Menu from '../../components/Menu/Menu'
 import Navbar from '../../components/Navbar/Navbar'
 import {Block} from 'baseui/block'
@@ -42,7 +41,6 @@ const Home = ({setTheme, isDark}: HomeProps) => {
 				<Navbar onOpen={open} />
 				<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
 			</Block>
-			<Rides />
 		</Container>
 	)
 }

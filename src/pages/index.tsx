@@ -21,7 +21,6 @@ const BodyBlock = styled(Block)`
 	display: flex;
 	justify-content: center;
 	min-height: 100%;
-	z-index: 1;
 `
 
 const THEME = {
@@ -55,7 +54,6 @@ const Index: React.FC = () => {
 						position: 'sticky',
 						left: 0,
 						top: 0,
-						zIndex: 99,
 						backgroundColor: theme.colors.backgroundPrimary,
 					})}
 				>

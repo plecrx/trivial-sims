@@ -1,47 +1,60 @@
 import React from 'react'
-import Menu from '../../components/Menu/Menu'
-import Navbar from '../../components/Navbar/Navbar'
 import {Block} from 'baseui/block'
-import {useStyletron} from 'baseui'
+import {Breadcrumbs} from 'baseui/breadcrumbs'
 import styled from '@emotion/styled'
+import {DisplaySmall, LabelLarge, ParagraphMedium} from 'baseui/typography'
+import {homeItems} from '../../utils/data'
+import {StyledLink} from 'baseui/link'
+import {ChevronRight} from 'baseui/icon'
+import {useStyletron} from 'baseui'
 
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: static;
+const HomeContainer = styled(Block)`
+	margin: 1em 20em 5em 20em;
 	width: 100%;
-	height: 100%;
 `
 
-type HomeProps = {
-	isDark: boolean
-	setTheme: () => void
-}
-
-const Home = ({setTheme, isDark}: HomeProps) => {
+const Home = () => {
 	const [css, theme] = useStyletron()
-	const [isOpen, setIsOpen] = React.useState(false)
-
-	const close = () => {
-		setIsOpen(false)
-	}
-
-	const open = () => {
-		setIsOpen(true)
-	}
 
 	return (
-		<Container
-			className={css({
-				minHeight: '100vh',
-				backgroundSize: 'cover',
-			})}
-		>
-			<Block className={css({position: 'sticky', left: 0, top: 0})}>
-				<Navbar onOpen={open} />
-				<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
-			</Block>
-		</Container>
+		<HomeContainer>
+			<Breadcrumbs>
+				<span>Home</span>
+			</Breadcrumbs>
+			{homeItems.map((item, index) => (
+				<Block
+					key={`home-item-${index}`}
+					overrides={{
+						Block: {
+							style: ({$theme}) => ({
+								backgroundColor: $theme.colors.backgroundPrimary,
+								padding: '3em',
+								marginTop: '1.5em',
+							}),
+						},
+					}}
+				>
+					<DisplaySmall marginBottom='scale500'>
+						<strong>{item.title}</strong>
+					</DisplaySmall>
+					<ParagraphMedium>{item.description}</ParagraphMedium>
+					<LabelLarge>
+						<StyledLink
+							href={item.link.url}
+							className={css({
+								alignItems: 'center',
+								color: theme.colors.contentPrimary,
+								display: 'flex',
+								paddingBottom: theme.sizing.scale500,
+							})}
+						>
+							<strong>{item.link.label}</strong>
+							<ChevronRight size={30} />
+						</StyledLink>
+					</LabelLarge>
+				</Block>
+			))}
+		</HomeContainer>
 	)
 }
 

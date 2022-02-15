@@ -13,6 +13,14 @@ const Container = styled.div`
 	height: 100%;
 `
 
+const BodyBlock = styled(Block)`
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+`
+
 type HomeProps = {
 	isDark: boolean
 	setTheme: () => void
@@ -41,6 +49,17 @@ const Home = ({setTheme, isDark}: HomeProps) => {
 				<Navbar onOpen={open} />
 				<Menu isOpen={isOpen} onClose={close} setTheme={setTheme} isDark={isDark} />
 			</Block>
+			<BodyBlock
+				overrides={{
+					Block: {
+						style: ({$theme}) => ({
+							backgroundColor: $theme.colors.backgroundSecondary,
+						}),
+					},
+				}}
+			>
+				{}
+			</BodyBlock>
 		</Container>
 	)
 }

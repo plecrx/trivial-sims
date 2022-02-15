@@ -9,7 +9,7 @@ const THEME = {
 }
 
 const Index: React.FC = () => {
-	const [theme, setTheme] = useState<Theme>(THEME.dark)
+	const [theme, setTheme] = useState<Theme>(THEME.light)
 	return (
 		<ThemeProvider theme={theme}>
 			<Home

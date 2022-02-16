@@ -3,7 +3,7 @@ import {Block} from 'baseui/block'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import styled from '@emotion/styled'
 import {DisplaySmall, LabelLarge, ParagraphMedium} from 'baseui/typography'
-import {homeItems} from '../../utils/data'
+import {homeItems} from '../utils/data'
 import {StyledLink} from 'baseui/link'
 import {ChevronRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
@@ -13,7 +13,7 @@ const HomeContainer = styled(Block)`
 	width: 100%;
 `
 
-const Home = () => {
+export const Home = () => {
 	const [css, theme] = useStyletron()
 
 	return (
@@ -57,5 +57,3 @@ const Home = () => {
 		</HomeContainer>
 	)
 }
-
-export default Home

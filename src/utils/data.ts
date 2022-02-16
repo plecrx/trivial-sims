@@ -4,7 +4,7 @@ export const homeItems = [
 		description: 'Simulateur de crédit immobilier',
 		link: {
 			label: 'Simulateur de crédit immobilier',
-			url: '/sim-immo',
+			url: '/immo',
 		},
 	},
 	{
@@ -12,7 +12,7 @@ export const homeItems = [
 		description: 'Simulateur de coût SASU',
 		link: {
 			label: 'Simulateur de coût SASU',
-			url: '/sim-sasu',
+			url: '/freelance',
 		},
 	},
 	{

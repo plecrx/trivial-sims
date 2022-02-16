@@ -27,6 +27,9 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "11.5.0",
+    "@emotion/styled": "11.3.0",
+    "@tanstack/react-location": "^3.6.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.34",
@@ -34,8 +37,6 @@
     "@types/styletron-react": "^5.0.3",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
-    "@emotion/react": "11.5.0",
-    "@emotion/styled": "11.3.0",
     "axios": "^0.24.0",
     "baseui": "^10.8.0",
     "eslint": "^8.1.0",
@@ -47,6 +48,7 @@
     "prettier": "^2.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-location": "^3.3.4",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
     "ts-jest": "^27.0.7",

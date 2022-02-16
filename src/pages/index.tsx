@@ -1,11 +1,12 @@
 import * as React from 'react'
 import {LightTheme, DarkTheme, ThemeProvider, Theme, useStyletron} from 'baseui'
-import Home from './home/Home'
 import {useState} from 'react'
 import {Block} from 'baseui/block'
 import Navbar from '../components/Navbar/Navbar'
 import Menu from '../components/Menu/Menu'
 import styled from '@emotion/styled'
+import {ReactLocation, Router, Outlet} from 'react-location'
+import {routes} from '../routes'
 
 const Container = styled.div`
 	display: flex;
@@ -32,6 +33,7 @@ const Index: React.FC = () => {
 	const [theme, setTheme] = useState<Theme>(THEME.light)
 	const [css] = useStyletron()
 	const [isOpen, setIsOpen] = React.useState(false)
+	const location = new ReactLocation()
 
 	const close = () => {
 		setIsOpen(false)
@@ -74,7 +76,9 @@ const Index: React.FC = () => {
 						},
 					}}
 				>
-					<Home />
+					<Router location={location} routes={routes}>
+						<Outlet />
+					</Router>
 				</BodyBlock>
 			</Container>
 		</ThemeProvider>

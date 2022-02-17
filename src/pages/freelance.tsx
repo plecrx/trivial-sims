@@ -15,7 +15,7 @@ const Freelance = () => {
 		<FullPageLayout>
 			<FreelanceContainer>
 				<Breadcrumbs>
-					<StyledLink href='/'>Home</StyledLink>
+					<StyledLink href='/'>Home </StyledLink>
 					<span>Freelance</span>
 				</Breadcrumbs>
 			</FreelanceContainer>

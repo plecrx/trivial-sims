@@ -60,3 +60,5 @@ export const Home = () => {
 		</FullPageLayout>
 	)
 }
+
+export default Home

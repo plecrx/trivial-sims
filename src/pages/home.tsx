@@ -10,8 +10,9 @@ import {useStyletron} from 'baseui'
 import {FullPageLayout} from '../layouts/fullpage.layout'
 
 const HomeContainer = styled(Block)`
+	display: flex;
+	flex-direction: column;
 	margin: 1em 20em 5em 20em;
-	width: 100%;
 `
 
 export const Home = () => {

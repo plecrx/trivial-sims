@@ -6,8 +6,9 @@ import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 
 const ImmoContainer = styled(Block)`
+	display: flex;
+	flex-direction: column;
 	margin: 1em 20em 5em 20em;
-	width: 100%;
 `
 
 const Immo = () => {

@@ -6,8 +6,9 @@ import {Block} from 'baseui/block'
 import {StyledLink} from 'baseui/link'
 
 const FreelanceContainer = styled(Block)`
+	display: flex;
+	flex-direction: column;
 	margin: 1em 20em 5em 20em;
-	width: 100%;
 `
 
 const Freelance = () => {

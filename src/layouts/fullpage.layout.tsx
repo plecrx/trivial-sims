@@ -6,13 +6,25 @@ import Menu from '../components/Menu/Menu'
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-const Container = styled.div`
+const Container = styled(Block)`
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
+	min-height: 100vh;
+	background-color: red;
+`
+const Header = styled(Block)`
+	position: sticky;
+	left: 0;
+	top: 0;
 `
 
-const BodyBlock = styled(Block)`
+const Body = styled(Block)`
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100vh;
 `
 
 const THEME = {
@@ -40,14 +52,7 @@ export const FullPageLayout = ({children}: FullPageLayoutProps) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Container>
-				<Block
-					className={css({
-						position: 'sticky',
-						left: 0,
-						top: 0,
-						backgroundColor: theme.colors.backgroundPrimary,
-					})}
-				>
+				<Header className={css({backgroundColor: theme.colors.backgroundPrimary})}>
 					<Navbar onOpen={open} />
 					<Menu
 						isOpen={isOpen}
@@ -55,18 +60,10 @@ export const FullPageLayout = ({children}: FullPageLayoutProps) => {
 						setTheme={() => setTheme(theme === THEME.dark ? THEME.light : THEME.dark)}
 						isDark={theme === THEME.dark}
 					/>
-				</Block>
-				<BodyBlock
-					overrides={{
-						Block: {
-							style: ({$theme}) => ({
-								backgroundColor: $theme.colors.backgroundSecondary,
-							}),
-						},
-					}}
-				>
+				</Header>
+				<Body className={css({backgroundColor: theme.colors.backgroundSecondary})}>
 					{children}
-				</BodyBlock>
+				</Body>
 			</Container>
 		</ThemeProvider>
 	)

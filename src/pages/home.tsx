@@ -9,9 +9,20 @@ import {ChevronRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
 import {FullPageLayout} from '../layouts/fullpage.layout'
 
+const ItemBlock = styled(Block)`
+	padding: 3em;
+	margin-top: 1.5em;
+	width: 100%;
+`
+
+const ItemLink = styled(StyledLink)`
+	display: flex;
+	align-items: center;
+`
+
 const HomeContainer = styled(Block)`
-	align-items: flex-start;
-	padding: 2em 7.5em;
+	width: 50%;
+	padding-top: 1.5em;
 `
 
 export const Home = () => {
@@ -24,37 +35,27 @@ export const Home = () => {
 					<span>Home</span>
 				</Breadcrumbs>
 				{homeItems.map((item, index) => (
-					<Block
+					<ItemBlock
 						key={`home-item-${index}`}
-						overrides={{
-							Block: {
-								style: ({$theme}) => ({
-									backgroundColor: $theme.colors.backgroundPrimary,
-									padding: '3em',
-									marginTop: '1.5em',
-								}),
-							},
-						}}
+						className={css({backgroundColor: theme.colors.backgroundPrimary})}
 					>
 						<DisplaySmall marginBottom='scale500'>
 							<strong>{item.title}</strong>
 						</DisplaySmall>
 						<ParagraphMedium>{item.description}</ParagraphMedium>
 						<LabelLarge>
-							<StyledLink
+							<ItemLink
 								href={item.link.url}
 								className={css({
-									alignItems: 'center',
 									color: theme.colors.contentPrimary,
-									display: 'flex',
 									paddingBottom: theme.sizing.scale500,
 								})}
 							>
 								<strong>{item.link.label}</strong>
 								<ChevronRight size={30} />
-							</StyledLink>
+							</ItemLink>
 						</LabelLarge>
-					</Block>
+					</ItemBlock>
 				))}
 			</HomeContainer>
 		</FullPageLayout>

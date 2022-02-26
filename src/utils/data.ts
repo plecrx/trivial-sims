@@ -21,41 +21,37 @@ export const immoItems = [
 	{
 		id: 1,
 		title: "Simulez votre capacité d'emprunt",
-		description:
+		content:
 			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
-		callToAction: {
-			label: "CALCUL CAPACITE D'EMPRUNT",
-			link: 'dd',
-		},
+		cta: "CALCUL CAPACITE D'EMPRUNT",
+		href: '/immo/emprunt',
+		illustrationSlug: 'under_construction.svg',
 	},
 	{
 		id: 2,
 		title: 'Simulez votre rachat de crédit',
-		description:
+		content:
 			'Calculez les économies que vous pouvez réaliser en renégociant votre prêt.',
-		callToAction: {
-			label: 'SIMULATION RACHAT DE CREDIT',
-			link: 'dd',
-		},
+		cta: 'SIMULATION RACHAT DE CREDIT',
+		href: '/immo/rachat',
+		illustrationSlug: 'under_construction.svg',
 	},
 	{
 		id: 3,
 		title: 'Estimez le montant de vos frais de notaire',
-		description:
+		content:
 			"Simulez le montant des frais d'acquisition de votre achat immobilier.",
-		callToAction: {
-			label: 'CALCUL FRAIS DE NOTAIRE',
-			link: 'dd',
-		},
+		cta: 'CALCUL FRAIS DE NOTAIRE',
+		href: '/immo/notaire',
+		illustrationSlug: 'under_construction.svg',
 	},
 	{
 		id: 4,
 		title: 'Simulez votre prêt à taux zéro',
-		description:
+		content:
 			'Vérifiez votre éligibilité et simulez le montant de votre prêt à taux zéro',
-		callToAction: {
-			label: 'SIMULATION PTZ',
-			link: 'dd',
-		},
+		cta: 'SIMULATION PTZ',
+		href: '/immo/ptz',
+		illustrationSlug: 'under_construction.svg',
 	},
 ]

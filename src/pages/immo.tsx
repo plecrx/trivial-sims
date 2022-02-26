@@ -10,12 +10,15 @@ import {LabelMedium} from 'baseui/typography'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
-	padding-top: 1.5em;
+	margin: 2.5em 0 5em 0;
 `
 
 const MainBlock = styled(Block)`
-	padding: 2.5em 5em;
+	padding-left: calc(8.33333%);
+	padding-right: calc(8.33333%);
+	padding-block: 2.5em 1em;
 	margin-top: 1.5em;
+	border-radius: 8px;
 	background: #0c806b;
 `
 
@@ -25,13 +28,17 @@ const SimWrapper = styled(Block)`
 	flex-direction: row;
 	margin: 2em 0;
 	gap: 24px;
+	padding: 0 0 24px;
 `
 
 const SimBlock = styled(Block)`
-	border: 1px solid green;
+	display: flex;
+	box-sizing: border-box;
+	border: 1px solid rgb(211, 211, 211);
 	border-radius: 8px;
-	padding: 1em;
-	justify-content: center;
+	padding: 24px;
+	flex: 1 0 242px;
+	transition: border-color 300ms ease-in-out 0s;
 `
 
 const SimContent = styled.div`
@@ -45,20 +52,17 @@ const SimContent = styled.div`
 
 const Immo = () => {
 	const [css, theme] = useStyletron()
+	const textColor = theme.colors.primary50
 
 	return (
 		<FullPageLayout>
 			<ImmoContainer>
 				<Breadcrumbs>
 					<StyledLink href='/'>Home</StyledLink>
-					<span>Immo</span>
+					<span>Simulation de crédit immobilier</span>
 				</Breadcrumbs>
 				<MainBlock>
-					<LabelMedium
-						className={css({
-							color: theme.colors.primaryB,
-						})}
-					>
+					<LabelMedium color={textColor}>
 						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
 					</LabelMedium>
 					<SimWrapper>
@@ -70,9 +74,15 @@ const Immo = () => {
 								})}
 							>
 								<SimContent>
+									<img
+										height='88'
+										width='130'
+										loading='lazy'
+										src={item.illustrationSlug}
+									/>
 									<strong>{item.title}</strong>
-									{item.description}
-									<a href={item.callToAction.link}>{item.callToAction.label}</a>
+									{item.content}
+									<a href={item.href}>{item.cta}</a>
 								</SimContent>
 							</SimBlock>
 						))}

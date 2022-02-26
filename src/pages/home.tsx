@@ -25,8 +25,8 @@ const ItemLink = styled(StyledLink)`
 `
 
 const HomeContainer = styled(Block)`
-	width: 50%;
-	padding-top: 1.5em;
+	width: 70%;
+	padding-top: 2%;
 `
 
 export const Home = () => {

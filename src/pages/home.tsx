@@ -15,6 +15,10 @@ const ItemBlock = styled(Block)`
 	width: 100%;
 `
 
+const ItemTitle = styled(DisplaySmall)`
+	font-size: calc(1.1rem + 2vw);
+`
+
 const ItemLink = styled(StyledLink)`
 	display: flex;
 	align-items: center;
@@ -39,9 +43,9 @@ export const Home = () => {
 						key={`home-item-${index}`}
 						className={css({backgroundColor: theme.colors.backgroundPrimary})}
 					>
-						<DisplaySmall marginBottom='scale500'>
+						<ItemTitle marginBottom='scale500'>
 							<strong>{item.title}</strong>
-						</DisplaySmall>
+						</ItemTitle>
 						<ParagraphMedium>{item.description}</ParagraphMedium>
 						<LabelLarge>
 							<ItemLink

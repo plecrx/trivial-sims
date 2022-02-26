@@ -11,7 +11,6 @@ const Container = styled(Block)`
 	flex-direction: column;
 	overflow-x: hidden;
 	min-height: 100vh;
-	background-color: red;
 `
 const Header = styled(Block)`
 	position: sticky;
@@ -21,10 +20,13 @@ const Header = styled(Block)`
 
 const Body = styled(Block)`
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	justify-content: start;
 	flex-direction: column;
+	align-items: center;
 	min-height: 100vh;
+	padding-top: 2em;
+
+	width: 100%;
 `
 
 const THEME = {
@@ -51,7 +53,9 @@ export const FullPageLayout = ({children}: FullPageLayoutProps) => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<Container>
+			<Container
+				className={css({backgroundColor: theme.colors.backgroundSecondary})}
+			>
 				<Header className={css({backgroundColor: theme.colors.backgroundPrimary})}>
 					<Navbar onOpen={open} />
 					<Menu
@@ -61,9 +65,7 @@ export const FullPageLayout = ({children}: FullPageLayoutProps) => {
 						isDark={theme === THEME.dark}
 					/>
 				</Header>
-				<Body className={css({backgroundColor: theme.colors.backgroundSecondary})}>
-					{children}
-				</Body>
+				<Body>{children}</Body>
 			</Container>
 		</ThemeProvider>
 	)

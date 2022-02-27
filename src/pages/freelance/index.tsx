@@ -30,7 +30,13 @@ const Freelance = () => {
 					<span>Freelance</span>
 				</Breadcrumbs>
 				<MainBlock>
-					<img height='200' width='200' loading='lazy' src={'/warning.svg'} alt='' />
+					<img
+						height='200'
+						width='200'
+						loading='lazy'
+						src={'/warning_orange.svg'}
+						alt=''
+					/>
 				</MainBlock>
 			</FreelanceContainer>
 		</FullPageLayout>

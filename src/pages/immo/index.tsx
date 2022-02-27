@@ -1,12 +1,13 @@
 import React from 'react'
-import {FullPageLayout} from '../layouts/fullpage.layout'
-import {immoItems} from '../utils/data'
+import {FullPageLayout} from '../../layouts/fullpage.layout'
+import {immoItems} from '../../utils/data'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
 import {LabelMedium} from 'baseui/typography'
+import Image from 'next/image'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
@@ -66,26 +67,36 @@ const Immo = () => {
 						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
 					</LabelMedium>
 					<SimWrapper>
-						{immoItems.map(item => (
-							<SimBlock
-								key={`immo-item-${item.id}`}
-								className={css({
-									backgroundColor: theme.colors.backgroundPrimary,
-								})}
-							>
-								<SimContent>
-									<img
-										height='88'
-										width='130'
-										loading='lazy'
-										src={item.illustrationSlug}
-									/>
-									<strong>{item.title}</strong>
-									{item.content}
-									<a href={item.href}>{item.cta}</a>
-								</SimContent>
-							</SimBlock>
-						))}
+						{immoItems.map(
+							(item: {
+								id: number
+								illustrationSlug: string
+								title: string
+								content: string
+								href: string
+								cta: string
+							}) => (
+								<SimBlock
+									key={`immo-item-${item.id}`}
+									className={css({
+										backgroundColor: theme.colors.backgroundPrimary,
+									})}
+								>
+									<SimContent>
+										<Image
+											height='88'
+											width='130'
+											loading='lazy'
+											src={item.illustrationSlug}
+											alt=''
+										/>
+										<strong>{item.title}</strong>
+										{item.content}
+										<a href={item.href}>{item.cta}</a>
+									</SimContent>
+								</SimBlock>
+							),
+						)}
 					</SimWrapper>
 				</MainBlock>
 			</ImmoContainer>

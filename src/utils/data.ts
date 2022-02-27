@@ -25,7 +25,7 @@ export const immoItems = [
 			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
 		cta: "CALCUL CAPACITE D'EMPRUNT",
 		href: '/immo/emprunt',
-		illustrationSlug: 'under_construction.svg',
+		illustrationSlug: '/under_construction.svg',
 	},
 	{
 		id: 2,
@@ -34,7 +34,7 @@ export const immoItems = [
 			'Calculez les économies que vous pouvez réaliser en renégociant votre prêt.',
 		cta: 'SIMULATION RACHAT DE CREDIT',
 		href: '/immo/rachat',
-		illustrationSlug: 'under_construction.svg',
+		illustrationSlug: '/under_construction.svg',
 	},
 	{
 		id: 3,
@@ -43,7 +43,7 @@ export const immoItems = [
 			"Simulez le montant des frais d'acquisition de votre achat immobilier.",
 		cta: 'CALCUL FRAIS DE NOTAIRE',
 		href: '/immo/notaire',
-		illustrationSlug: 'under_construction.svg',
+		illustrationSlug: '/under_construction.svg',
 	},
 	{
 		id: 4,
@@ -52,6 +52,6 @@ export const immoItems = [
 			'Vérifiez votre éligibilité et simulez le montant de votre prêt à taux zéro',
 		cta: 'SIMULATION PTZ',
 		href: '/immo/ptz',
-		illustrationSlug: 'under_construction.svg',
+		illustrationSlug: '/under_construction.svg',
 	},
 ]

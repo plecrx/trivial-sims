@@ -1,5 +1,5 @@
 import React from 'react'
-import {FullPageLayout} from '../layouts/fullpage.layout'
+import {FullPageLayout} from '../../layouts/fullpage.layout'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'

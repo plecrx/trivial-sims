@@ -3,8 +3,8 @@ import {Block} from 'baseui/block'
 import {FullPageLayout} from '../../layouts/fullpage.layout'
 import Image from 'next/image'
 import React from 'react'
-import { Breadcrumbs } from 'baseui/breadcrumbs'
-import { StyledLink } from 'baseui/link'
+import {Breadcrumbs} from 'baseui/breadcrumbs'
+import {StyledLink} from 'baseui/link'
 
 const PtzContainer = styled(Block)`
 	width: 80%;

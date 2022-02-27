@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import Image from 'next/image'
 import React from 'react'
-import { Breadcrumbs } from 'baseui/breadcrumbs'
-import { StyledLink } from 'baseui/link'
+import {Breadcrumbs} from 'baseui/breadcrumbs'
+import {StyledLink} from 'baseui/link'
 
 const RachatContainer = styled(Block)`
 	width: 80%;

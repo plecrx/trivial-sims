@@ -7,7 +7,6 @@ import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
 import {LabelMedium} from 'baseui/typography'
-import Image from 'next/image'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
@@ -83,7 +82,7 @@ const Immo = () => {
 									})}
 								>
 									<SimContent>
-										<Image
+										<img
 											height='88'
 											width='130'
 											loading='lazy'

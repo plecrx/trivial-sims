@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import {FullPageLayout} from '../../layouts/fullpage.layout'
-import Image from 'next/image'
 import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
@@ -32,13 +31,7 @@ const Ptz = () => {
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
 				<MainBlock>
-					<Image
-						height='200'
-						width='200'
-						loading='lazy'
-						src={'/warning.svg'}
-						alt=''
-					/>
+					<img height='200' width='200' loading='lazy' src={'/warning.svg'} alt='' />
 				</MainBlock>
 			</PtzContainer>
 		</FullPageLayout>

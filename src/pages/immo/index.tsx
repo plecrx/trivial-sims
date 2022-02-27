@@ -33,6 +33,8 @@ const SimWrapper = styled(Block)`
 
 const SimBlock = styled(Block)`
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	box-sizing: border-box;
 	border: 1px solid rgb(211, 211, 211);
 	border-radius: 8px;

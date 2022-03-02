@@ -6,13 +6,17 @@ import {ArrowLeft, ArrowRight} from 'baseui/icon'
 import {Question} from '../../types/question.type'
 import {useState} from 'react'
 
-type FormItemProps = {
+type FormQuestionProps = {
 	currentQuestion: Question
 	onPrevious: () => void
 	onValidate: (answer: string) => void
 }
 
-const FormItem = ({currentQuestion, onPrevious, onValidate}: FormItemProps) => {
+const FormQuestion = ({
+	currentQuestion,
+	onPrevious,
+	onValidate,
+}: FormQuestionProps) => {
 	const [css, theme] = useStyletron()
 	const [value, setValue] = useState('')
 
@@ -70,4 +74,4 @@ const FormItem = ({currentQuestion, onPrevious, onValidate}: FormItemProps) => {
 	)
 }
 
-export default FormItem
+export default FormQuestion

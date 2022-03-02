@@ -1,4 +1,4 @@
-import FormItem from './FormItem'
+import FormQuestion from './FormQuestion'
 import React, {useState} from 'react'
 import {Form} from '../../types/form.type'
 
@@ -32,7 +32,7 @@ const Form = ({form}: FormProps) => {
 			{showScore ? (
 				<>Résultats</>
 			) : (
-				<FormItem
+				<FormQuestion
 					onPrevious={navigateToPrevious}
 					onValidate={navigateToNext}
 					currentQuestion={form[currentQuestion]}

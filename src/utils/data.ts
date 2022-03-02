@@ -66,13 +66,13 @@ export const ptz_form: Form = [
 			'un investissement locatif',
 		],
 		placeholder: undefined,
-		type: 'pickOption',
+		type: 'select',
 	},
 	{
 		question: 'Est-ce votre premier achat ?',
 		answerOptions: ['oui', 'non'],
 		placeholder: undefined,
-		type: 'pickOption',
+		type: 'select',
 	},
 	{
 		question: 'Dans quelle ville se situe le logement ?',
@@ -84,13 +84,13 @@ export const ptz_form: Form = [
 		question: 'Combien de personnes habiteront dans le nouveau logement ?',
 		answerOptions: ['1', '2', '3', '4', '5', '6', '7', '8+'],
 		placeholder: undefined,
-		type: 'pickOption',
+		type: 'select',
 	},
 	{
 		question: "Quel est votre revenu fiscal de référence de l'année N-2 ?",
 		answerOptions: undefined,
 		placeholder: 'revenu fiscal',
-		type: 'number',
+		type: 'money',
 	},
 	{
 		question: 'Quelle est la nature du logement ?',
@@ -103,18 +103,18 @@ export const ptz_form: Form = [
 			'Acquisition HLM',
 		],
 		placeholder: undefined,
-		type: 'pickOption',
+		type: 'select',
 	},
 	{
 		question: 'Quel est le coût du projet ?',
 		answerOptions: undefined,
 		placeholder: 'coût du projet',
-		type: 'number',
+		type: 'money',
 	},
 	{
 		question: "A combien s'élève votre apport personnel ?",
 		answerOptions: undefined,
 		placeholder: 'apport personnel',
-		type: 'number',
+		type: 'money',
 	},
 ]

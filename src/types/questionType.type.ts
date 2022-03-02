@@ -1,1 +1,1 @@
-export type QuestionType = 'city' | 'number' | 'pickOption'
+export type QuestionType = 'city' | 'money' | 'select'

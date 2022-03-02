@@ -21,6 +21,7 @@ const MainBlock = styled(Block)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: #0c806b;
 `
 
 const Ptz = () => {
@@ -42,9 +43,7 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock
-					className={css({backgroundColor: theme.colors.backgroundOverlayLight})}
-				>
+				<MainBlock>
 					<Block
 						className={css({
 							padding: '2em',

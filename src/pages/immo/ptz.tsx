@@ -16,6 +16,7 @@ const PtzContainer = styled(Block)`
 const MainBlock = styled(Block)`
 	padding-left: calc(8.33333%);
 	padding-right: calc(8.33333%);
+	min-height: 56.5vh;
 	margin-top: 1.5em;
 	border-radius: 8px;
 	display: flex;
@@ -25,15 +26,7 @@ const MainBlock = styled(Block)`
 `
 
 const Ptz = () => {
-	const [css, theme] = useStyletron()
-	// const [projectType, setProjectType] = useState('')
-	// const [firstPurchase, setFirstPurchase] = useState('')
-	// const [city, setCity] = useState('')
-	// const [livingPeople, setLivingPeople] = useState('')
-	// const [taxRevenue, setTaxRevenue] = useState('')
-	// const [housingType, setHousingType] = useState('')
-	// const [projectCost, setProjectCost] = useState('')
-	// const [personalContribution, setPersonalContribution] = useState('')
+	const [css] = useStyletron()
 
 	return (
 		<FullPageLayout>

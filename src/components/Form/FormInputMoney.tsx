@@ -1,34 +1,38 @@
-import {Question} from '../../types/question.type'
 import {Input} from 'baseui/input'
+import styled from '@emotion/styled'
+import {Block} from 'baseui/block'
+
+const InputMoneyContainer = styled(Block)`
+	display: flex;
+	flex-direction: column;
+	margin: 1em 0;
+	gap: 1em;
+`
 
 type FormInputMoneyProps = {
-	currentQuestion: Question
-	value: string
-	setValue: (value: string) => void
+	placeholder?: string
+	value: number
+	onChange: (value: number) => void
 }
 
 const FormInputMoney = ({
-	currentQuestion,
+	placeholder,
 	value,
-	setValue,
+	onChange,
 }: FormInputMoneyProps) => {
+	const handleChange = (answer: string) => {
+		onChange(Number(answer))
+	}
 	return (
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'column',
-				margin: '1em 0',
-				gap: '1em',
-			}}
-		>
+		<InputMoneyContainer>
 			<Input
 				value={value}
-				onChange={e => setValue(e.currentTarget.value)}
-				placeholder={currentQuestion.placeholder}
+				onChange={e => handleChange(e.currentTarget.value)}
+				placeholder={placeholder}
 				endEnhancer={'€'}
 				clearable
 			/>
-		</div>
+		</InputMoneyContainer>
 	)
 }
 

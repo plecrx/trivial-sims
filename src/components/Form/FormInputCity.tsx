@@ -1,33 +1,33 @@
-import {Question} from '../../types/question.type'
 import {Input} from 'baseui/input'
+import styled from '@emotion/styled'
+import {Block} from 'baseui/block'
+
+const Container = styled(Block)`
+	display: flex;
+	flex-direction: column;
+	margin: 1em 0;
+	gap: 1em;
+`
 
 type FormInputCityProps = {
-	currentQuestion: Question
+	placeholder?: string
 	value: string
-	setValue: (value: string) => void
+	onChange: (value: string) => void
 }
 
-const FormInputCity = ({
-	currentQuestion,
-	value,
-	setValue,
-}: FormInputCityProps) => {
+const FormInputCity = ({placeholder, value, onChange}: FormInputCityProps) => {
+	const handleChange = (answer: string) => {
+		onChange(answer)
+	}
 	return (
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'column',
-				margin: '1em 0',
-				gap: '1em',
-			}}
-		>
+		<Container>
 			<Input
 				value={value}
-				onChange={e => setValue(e.currentTarget.value)}
-				placeholder={currentQuestion.placeholder}
+				onChange={e => handleChange(e.currentTarget.value)}
+				placeholder={placeholder}
 				clearable
 			/>
-		</div>
+		</Container>
 	)
 }
 

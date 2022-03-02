@@ -1,11 +1,11 @@
+import {FullPageLayout} from '../../layouts/fullpage.layout'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
-import {FullPageLayout} from '../../layouts/fullpage.layout'
 import React from 'react'
-import {StyledLink} from 'baseui/link'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
+import {StyledLink} from 'baseui/link'
 
-const LoanContainer = styled(Block)`
+const RachatContainer = styled(Block)`
 	width: 80%;
 	margin: 2.5em 0 5em 0;
 `
@@ -21,14 +21,14 @@ const MainBlock = styled(Block)`
 	align-items: center;
 `
 
-const Loan = () => {
+const Smooth = () => {
 	return (
 		<FullPageLayout>
-			<LoanContainer>
+			<RachatContainer>
 				<Breadcrumbs>
 					<StyledLink href='/'>Home</StyledLink>
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
-					<span>Emprunt</span>
+					<span>Rachat</span>
 				</Breadcrumbs>
 				<MainBlock>
 					<img
@@ -39,8 +39,8 @@ const Loan = () => {
 						alt=''
 					/>
 				</MainBlock>
-			</LoanContainer>
+			</RachatContainer>
 		</FullPageLayout>
 	)
 }
-export default Loan
+export default Smooth

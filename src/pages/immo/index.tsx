@@ -7,6 +7,7 @@ import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
 import {LabelMedium} from 'baseui/typography'
+import {useRouter} from 'next/router'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
@@ -41,6 +42,7 @@ const SimBlock = styled(Block)`
 	padding: 24px;
 	flex: 1 0 242px;
 	transition: border-color 300ms ease-in-out 0s;
+	cursor: pointer;
 `
 
 const SimContent = styled.div`
@@ -54,6 +56,7 @@ const SimContent = styled.div`
 
 const Immo = () => {
 	const [css, theme] = useStyletron()
+	const router = useRouter()
 	const textColor = theme.colors.primary50
 
 	return (
@@ -79,6 +82,7 @@ const Immo = () => {
 							}) => (
 								<SimBlock
 									key={`immo-item-${item.id}`}
+									onClick={() => router.push(item.href)}
 									className={css({
 										backgroundColor: theme.colors.backgroundPrimary,
 									})}

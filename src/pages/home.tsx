@@ -12,6 +12,7 @@ import {FullPageLayout} from '../layouts/fullpage.layout'
 const ItemBlock = styled(Block)`
 	padding: 3em;
 	margin-top: 1.5em;
+	border-radius: 8px;
 	width: 100%;
 `
 

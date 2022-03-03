@@ -10,16 +10,11 @@ const InputMoneyContainer = styled(Block)`
 `
 
 type FormInputMoneyProps = {
-	placeholder?: string
 	value: number
 	onChange: (value: number) => void
 }
 
-const FormInputMoney = ({
-	placeholder,
-	value,
-	onChange,
-}: FormInputMoneyProps) => {
+const FormInputMoney = ({value, onChange}: FormInputMoneyProps) => {
 	const handleChange = (answer: string) => {
 		onChange(Number(answer))
 	}
@@ -28,7 +23,7 @@ const FormInputMoney = ({
 			<Input
 				value={value}
 				onChange={e => handleChange(e.currentTarget.value)}
-				placeholder={placeholder}
+				placeholder={'15228'}
 				endEnhancer={'€'}
 				type='currency'
 				autoFocus

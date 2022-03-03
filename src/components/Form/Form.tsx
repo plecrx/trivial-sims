@@ -69,18 +69,9 @@ const Form = ({form}: FormProps) => {
 				/>
 			),
 			money: () => (
-				<FormInputMoney
-					placeholder={form[currentQuestion].placeholder}
-					value={Number(getValue())}
-					onChange={saveAnswer}
-				/>
+				<FormInputMoney value={Number(getValue())} onChange={saveAnswer} />
 			),
-			city: () => (
-				<FormInputCity
-					placeholder={form[currentQuestion].placeholder}
-					onChange={saveAnswer}
-				/>
-			),
+			city: () => <FormInputCity onSelectChange={saveAnswer} />,
 		}
 		return types[type]()
 	}

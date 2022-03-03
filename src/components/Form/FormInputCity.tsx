@@ -12,11 +12,12 @@ const Container = styled(Block)`
 `
 
 type FormInputCityProps = {
+	city: [{city: string}]
 	onSelectChange: (selectValue: any) => void
 }
 
-const FormInputCity = ({onSelectChange}: FormInputCityProps) => {
-	const [selectValue, setSelectValue] = useState([])
+const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
+	const [selectValue, setSelectValue] = useState(city)
 	const cityOptions = [{city: 'Paris'}, {city: 'Kyiv'}, {city: 'Berlin'}]
 
 	const handleChange = (answer: any) => {

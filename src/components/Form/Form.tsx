@@ -69,9 +69,21 @@ const Form = ({form}: FormProps) => {
 				/>
 			),
 			money: () => (
-				<FormInputMoney value={Number(getValue())} onChange={saveAnswer} />
+				<FormInputMoney
+					value={answers[currentQuestion] && Number(answers[currentQuestion].answer)}
+					onChange={saveAnswer}
+				/>
 			),
-			city: () => <FormInputCity onSelectChange={saveAnswer} />,
+			city: () => (
+				<FormInputCity
+					city={
+						answers[currentQuestion] && [
+							{city: String(answers[currentQuestion].answer)},
+						]
+					}
+					onSelectChange={saveAnswer}
+				/>
+			),
 		}
 		return types[type]()
 	}

@@ -56,7 +56,7 @@ const Form = ({form}: FormProps) => {
 		if (answers[currentQuestion]) {
 			return answers[currentQuestion].answer
 		}
-		return form[currentQuestion].type === 'money' ? 0 : ''
+		return undefined
 	}
 
 	const renderFormInputs = (type: QuestionType) => {

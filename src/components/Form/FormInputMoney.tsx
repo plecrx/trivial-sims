@@ -30,7 +30,8 @@ const FormInputMoney = ({
 				onChange={e => handleChange(e.currentTarget.value)}
 				placeholder={placeholder}
 				endEnhancer={'€'}
-				clearable
+				type='currency'
+				autoFocus
 			/>
 		</InputMoneyContainer>
 	)

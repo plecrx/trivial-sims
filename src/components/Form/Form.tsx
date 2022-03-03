@@ -47,7 +47,6 @@ const Form = ({form}: FormProps) => {
 	}
 
 	const saveAnswer = (answer: string | number) => {
-		console.log(answer)
 		let newArr = [...answers]
 		newArr[currentQuestion] = {question: currentQuestion, answer: answer}
 		setAnswers(newArr)
@@ -64,7 +63,9 @@ const Form = ({form}: FormProps) => {
 			),
 			money: () => (
 				<FormInputMoney
-					value={answers[currentQuestion] && Number(answers[currentQuestion].answer)}
+					value={
+						answers[currentQuestion] ? (answers[currentQuestion].answer as number) : 0
+					}
 					onChange={saveAnswer}
 				/>
 			),

@@ -1,6 +1,8 @@
-import {Input} from 'baseui/input'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
+import {FormControl} from 'baseui/form-control'
+import {OptionsT, Select, Value} from 'baseui/select'
+import {useState} from 'react'
 
 const Container = styled(Block)`
 	display: flex;
@@ -11,22 +13,31 @@ const Container = styled(Block)`
 
 type FormInputCityProps = {
 	placeholder?: string
-	value: string
 	onChange: (value: string) => void
 }
 
-const FormInputCity = ({placeholder, value, onChange}: FormInputCityProps) => {
-	const handleChange = (answer: string) => {
-		onChange(answer)
+const FormInputCity = ({onChange}: FormInputCityProps) => {
+	const [city, setCity] = useState<Value>()
+	const handleChange = (answer: Value) => {
+		setCity(answer)
+		onChange(String(answer))
 	}
+	const cities: OptionsT = []
+
+	//'https://api-adresse.data.gouv.fr/search/?q=creteil&type=municipality&autocomplete=1'
+
 	return (
 		<Container>
-			<Input
-				value={value}
-				onChange={e => handleChange(e.currentTarget.value)}
-				placeholder={placeholder}
-				clearable
-			/>
+			<FormControl>
+				<Select
+					value={city}
+					onChange={({value}) => handleChange(value)}
+					options={cities}
+					valueKey='name'
+					required
+					clearable
+				/>
+			</FormControl>
 		</Container>
 	)
 }

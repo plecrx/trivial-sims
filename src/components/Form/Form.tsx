@@ -78,7 +78,6 @@ const Form = ({form}: FormProps) => {
 			city: () => (
 				<FormInputCity
 					placeholder={form[currentQuestion].placeholder}
-					value={String(getValue())}
 					onChange={saveAnswer}
 				/>
 			),

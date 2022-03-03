@@ -15,9 +15,14 @@ type FormInputMoneyProps = {
 }
 
 const FormInputMoney = ({value, onChange}: FormInputMoneyProps) => {
+	const isNumeric = (val: string): boolean => !isNaN(Number(val))
+
 	const handleChange = (answer: string) => {
-		onChange(Number(answer))
+		if (isNumeric(answer)) {
+			onChange(Number(answer))
+		}
 	}
+
 	return (
 		<InputMoneyContainer>
 			<Input

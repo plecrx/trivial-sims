@@ -47,16 +47,10 @@ const Form = ({form}: FormProps) => {
 	}
 
 	const saveAnswer = (answer: string | number) => {
+		console.log(answer)
 		let newArr = [...answers]
 		newArr[currentQuestion] = {question: currentQuestion, answer: answer}
 		setAnswers(newArr)
-	}
-
-	const getValue = () => {
-		if (answers[currentQuestion]) {
-			return answers[currentQuestion].answer
-		}
-		return undefined
 	}
 
 	const renderFormInputs = (type: QuestionType) => {

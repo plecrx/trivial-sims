@@ -1,7 +1,7 @@
 import FormQuestion from './FormQuestion'
 import React, {useState} from 'react'
 import {Form} from '../../types/form.type'
-import FormSelector from './FormSelector'
+import FormInputSelect from './FormInputSelect'
 import FormActionPrevious from './FormActionPrevious'
 import FormActionNext from './FormActionNext'
 import FormInputMoney from './FormInputMoney'
@@ -62,7 +62,7 @@ const Form = ({form}: FormProps) => {
 	const renderFormInputs = (type: QuestionType) => {
 		const types = {
 			select: () => (
-				<FormSelector
+				<FormInputSelect
 					answerOptions={form[currentQuestion].answerOptions}
 					navigateToNext={navigateToNext}
 					saveAnswer={saveAnswer}

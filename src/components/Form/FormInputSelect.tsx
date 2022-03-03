@@ -22,7 +22,7 @@ type FormInputSelectProps = {
 	saveAnswer: (value: string) => void
 }
 
-const FormSelector = ({
+const FormInputSelect = ({
 	answerOptions,
 	saveAnswer,
 	navigateToNext,
@@ -62,4 +62,4 @@ const FormSelector = ({
 	)
 }
 
-export default FormSelector
+export default FormInputSelect

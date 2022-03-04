@@ -97,7 +97,10 @@ const Form = ({form}: FormProps) => {
 		) : (
 			<FormDoubleActionWrapper>
 				<FormActionPrevious action={navigateToPrevious} />
-				<FormActionNext action={navigateToNext} />
+				<FormActionNext
+					action={navigateToNext}
+					isDisabled={!answers[currentQuestion]}
+				/>
 			</FormDoubleActionWrapper>
 		)
 	}

@@ -36,6 +36,7 @@ const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
 					options={cityOptions}
 					valueKey='city'
 					labelKey='city'
+					clearable={false}
 				/>
 			</FormControl>
 		</Container>

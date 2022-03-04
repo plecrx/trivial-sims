@@ -1,5 +1,5 @@
 import {ArrowLeft} from 'baseui/icon'
-import {Button} from 'baseui/button'
+import {Button, KIND, SHAPE} from 'baseui/button'
 
 type FormActionPreviousProps = {
 	action: () => void
@@ -7,7 +7,23 @@ type FormActionPreviousProps = {
 
 const FormActionPrevious = ({action}: FormActionPreviousProps) => {
 	return (
-		<Button onClick={action} startEnhancer={() => <ArrowLeft size={24} />}>
+		<Button
+			kind={KIND.tertiary}
+			shape={SHAPE.pill}
+			onClick={action}
+			startEnhancer={() => <ArrowLeft size={24} />}
+			overrides={{
+				BaseButton: {
+					style: ({$theme}) => ({
+						backgroundColor: 'transparent',
+						color: $theme.colors.primary50,
+						':hover': {
+							backgroundColor: $theme.colors.backgroundOverlayDark,
+						},
+					}),
+				},
+			}}
+		>
 			Retour
 		</Button>
 	)

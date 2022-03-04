@@ -56,7 +56,7 @@ const Form = ({form}: FormProps) => {
 
 	const saveAnswer = (answer: string | number) => {
 		let newArr = [...answers]
-		newArr[currentQuestion] = {question: currentQuestion, answer: answer}
+		newArr[currentQuestion] = {id: form[currentQuestion].id, answer: answer}
 		setAnswers(newArr)
 	}
 

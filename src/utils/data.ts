@@ -1,4 +1,4 @@
-import { Form } from '../types/form.type'
+import {Form} from '../types/form.type'
 
 export const homeItems = [
 	{
@@ -59,62 +59,59 @@ export const immoItems = [
 
 export const ptz_form: Form = [
 	{
+		id: 'project_type',
 		question: 'Quel est le type de votre projet ?',
 		answerOptions: [
 			'votre résidence principale',
 			'une résidence secondaire',
 			'un investissement locatif',
 		],
-		placeholder: undefined,
 		type: 'select',
 	},
 	{
+		id: 'first_purchase',
 		question: 'Est-ce votre premier achat ?',
 		answerOptions: ['oui', 'non'],
-		placeholder: undefined,
 		type: 'select',
 	},
 	{
+		id: 'city',
 		question: 'Dans quelle ville se situe le logement ?',
 		answerOptions: undefined,
-		placeholder: 'Paris',
 		type: 'city',
 	},
 	{
-		question: 'Combien de personnes habiteront dans le nouveau logement ?',
+		id: 'nbr_people',
+		question: 'Nombre de personnes qui vont habiter votre futur logement ?',
 		answerOptions: ['1', '2', '3', '4', '5', '6', '7', '8+'],
-		placeholder: undefined,
 		type: 'select',
 	},
 	{
+		id: 'tax_revenue',
 		question: "Quel est votre revenu fiscal de référence de l'année N-2 ?",
 		answerOptions: undefined,
-		placeholder: 'revenu fiscal',
 		type: 'money',
 	},
 	{
+		id: 'housing_nature',
 		question: 'Quelle est la nature du logement ?',
 		answerOptions: [
-			'Neuf',
-			'VEFA',
-			'Assimilé neuf',
-			'Ancien avec travaux',
-			'Ancien sans travaux',
-			'Acquisition HLM',
+			'Logement ancien',
+			'Logement neuf ou à construire',
+			'Logement social',
 		],
-		placeholder: undefined,
 		type: 'select',
 	},
 	{
-		question: 'Quel est le coût du projet ?',
+		id: 'operation_cost',
+		question: "Coût total de l'opération à financer ?",
 		answerOptions: undefined,
-		placeholder: 'coût du projet',
 		type: 'money',
 	},
 	{
+		id: 'personal_contribution',
 		question: "A combien s'élève votre apport personnel ?",
 		answerOptions: undefined,
-		placeholder: 'apport personnel',
 		type: 'money',
 	},
 ]

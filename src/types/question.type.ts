@@ -1,8 +1,8 @@
 import {QuestionType} from './questionType.type'
 
 export type Question = {
+	id: string
 	question: string
 	answerOptions?: string[]
-	placeholder?: string
 	type: QuestionType
 }

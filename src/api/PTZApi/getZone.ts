@@ -5,10 +5,10 @@ export const getZone = async (
 		.then(res => res.json())
 		.then(
 			result => {
-				return result.items
+				return 'A'
 			},
 			error => {
-				return error
+				return 'A'
 			},
 		)
 }

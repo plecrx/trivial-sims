@@ -13,17 +13,17 @@ import {
 	ptzZoneB2_revenue_ceiling,
 	ptzZoneC_operationCost_ceiling,
 	ptzZoneC_quotient,
-	ptzZoneC_revenue_ceiling
+	ptzZoneC_revenue_ceiling,
 } from './data'
-import {getZone} from '../services/getZone'
+import {getZone} from '../api/PTZApi/getZone'
 
 type FormData = {
-	project_type: string
-	is_first_purchase: string
+	project_type: number
+	is_first_purchase: boolean
 	city: string
 	nbr_people: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 	tax_revenue: number
-	housing_nature: string
+	housing_nature: number
 	operation_cost: number
 	personal_contribution: number
 }
@@ -55,7 +55,7 @@ export const computePTZ = async (answers: Answer[]) => {
 
 	const currentZone = await getZone(data.city)
 
-	const revenueCeiling = revenueZones[currentZone][`${data.nbr_people}`]
+	const revenueCeiling = revenueZones[currentZone][data.nbr_people]
 
 	const isBelowCeiling = revenueCeiling <= revenue
 
@@ -72,14 +72,9 @@ export const computePTZ = async (answers: Answer[]) => {
 	if (data.operation_cost < maxOperationCost) {
 		const housingNatureQuestion = ptz_form.find(e => e.id === 'housing_nature')
 		const housingNaturesOptions = housingNatureQuestion?.answerOptions
-
-		const index: number = housingNaturesOptions!.findIndex(
-			hn => hn === data.housing_nature,
-		)
 		const quotients = quotientZones[currentZone]
 		return
 	}
-
 }
 
 const getTotalRevenue = (tax_revenue: number, operation_cost: number) =>

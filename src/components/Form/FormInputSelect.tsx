@@ -17,9 +17,9 @@ const InputSelectBlock = styled(Block)`
 `
 
 type FormInputSelectProps = {
-	answerOptions?: string[]
+	answerOptions?: {id: number | boolean | string; label: string}[]
 	navigateToNext: () => void
-	saveAnswer: (value: string) => void
+	saveAnswer: (value: number | boolean | string) => void
 }
 
 const FormInputSelect = ({
@@ -29,7 +29,7 @@ const FormInputSelect = ({
 }: FormInputSelectProps) => {
 	const [css, theme] = useStyletron()
 
-	const handleSelect = (answer: string) => {
+	const handleSelect = (answer: number | boolean | string) => {
 		saveAnswer(answer)
 		navigateToNext()
 	}
@@ -40,9 +40,9 @@ const FormInputSelect = ({
 				<InputSelectBlock
 					key={`form-item-answer-${index}`}
 					className={css({backgroundColor: theme.colors.backgroundPrimary})}
-					onClick={() => handleSelect(answerOption)}
+					onClick={() => handleSelect(answerOption.id)}
 				>
-					{answerOption}
+					{answerOption.label}
 					<Button
 						shape={SHAPE.circle}
 						size={SIZE.mini}

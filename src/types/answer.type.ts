@@ -1,4 +1,4 @@
 export type Answer = {
 	id: string
-	answer: string | number
+	answer: string | number | boolean
 }

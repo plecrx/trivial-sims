@@ -10,6 +10,7 @@ import styled from '@emotion/styled'
 import {Answer} from '../../types/answer.type'
 import {useRouter} from 'next/router'
 import {QuestionType} from '../../types/questionType.type'
+import FormResult from './FormResult'
 
 const FormDoubleActionWrapper = styled.div`
 	display: flex;
@@ -28,12 +29,19 @@ const Form = ({form}: FormProps) => {
 	const [showScore, setShowScore] = useState(false)
 	const [answers, setAnswers] = useState<Answer[]>([])
 
+	const returnToMenu = () => router.push('/immo')
+
+	const resetForm = () => {
+		setShowScore(false)
+		setCurrentQuestion(0)
+	}
+
 	const navigateToPrevious = () => {
 		const previousQuestion = currentQuestion - 1
 		if (previousQuestion >= 0) {
 			setCurrentQuestion(previousQuestion)
 		} else {
-			router.push('/immo')
+			returnToMenu()
 		}
 	}
 
@@ -97,7 +105,11 @@ const Form = ({form}: FormProps) => {
 	return (
 		<>
 			{showScore ? (
-				<div>Résultats</div>
+				<FormResult
+					answers={answers}
+					returnToMenu={returnToMenu}
+					resetForm={resetForm}
+				/>
 			) : (
 				<>
 					<FormQuestion currentQuestion={form[currentQuestion]} />

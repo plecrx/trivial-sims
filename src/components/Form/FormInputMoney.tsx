@@ -1,6 +1,8 @@
 import {Input} from 'baseui/input'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
+import {isNumeric} from '../../utils/isNumeric'
+import {useState} from 'react'
 
 const InputMoneyContainer = styled(Block)`
 	display: flex;
@@ -10,23 +12,23 @@ const InputMoneyContainer = styled(Block)`
 `
 
 type FormInputMoneyProps = {
-	value: number
-	onChange: (value: number) => void
+	value?: string
+	onChange: (value: string) => void
 }
 
 const FormInputMoney = ({value, onChange}: FormInputMoneyProps) => {
-	const isNumeric = (val: string): boolean => !isNaN(Number(val))
-
+	const [currValue, setCurrValue] = useState(value || '')
 	const handleChange = (answer: string) => {
 		if (isNumeric(answer)) {
-			onChange(Number(answer))
+			setCurrValue(answer)
+			onChange(answer)
 		}
 	}
 
 	return (
 		<InputMoneyContainer>
 			<Input
-				value={value}
+				value={currValue}
 				onChange={e => handleChange(e.currentTarget.value)}
 				placeholder={'15228'}
 				endEnhancer={'€'}

@@ -12,8 +12,8 @@ const Container = styled(Block)`
 `
 
 type FormInputCityProps = {
-	city: [{city: string}]
-	onSelectChange: (selectValue: any) => void
+	city: [{city?: string}]
+	onSelectChange: (selectValue: string) => void
 }
 
 const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {

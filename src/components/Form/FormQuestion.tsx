@@ -1,8 +1,7 @@
 import {useStyletron} from 'baseui'
-import {Question} from '../../types/question.type'
 
 type FormQuestionProps = {
-	currentQuestion: Question
+	currentQuestion: string
 }
 
 const FormQuestion = ({currentQuestion}: FormQuestionProps) => {
@@ -10,7 +9,7 @@ const FormQuestion = ({currentQuestion}: FormQuestionProps) => {
 
 	return (
 		<div className={css({color: theme.colors.primary50})}>
-			{currentQuestion.question}
+			{currentQuestion}
 		</div>
 	)
 }

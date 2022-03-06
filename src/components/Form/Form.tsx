@@ -1,16 +1,14 @@
+import React, {useEffect, useState} from 'react'
 import FormQuestion from './FormQuestion'
-import React, {useState} from 'react'
-import {Form} from '../../types/form.type'
-import FormInputSelect from './FormInputSelect'
+import FormInputOption from './FormInputOption'
 import FormActionPrevious from './FormActionPrevious'
 import FormActionNext from './FormActionNext'
 import FormInputMoney from './FormInputMoney'
 import FormInputCity from './FormInputCity'
-import styled from '@emotion/styled'
-import {Answer} from '../../types/answer.type'
-import {useRouter} from 'next/router'
-import {QuestionType} from '../../types/questionType.type'
 import FormResult from './FormResult'
+import styled from '@emotion/styled'
+import {QuestionInfo, QuestionType} from '../../types/question.type'
+import {Answer} from '../../types/answer.type'
 
 const FormDoubleActionWrapper = styled.div`
 	display: flex;
@@ -20,90 +18,101 @@ const FormDoubleActionWrapper = styled.div`
 `
 
 type FormProps = {
-	form: Form
+	form: Record<string, QuestionInfo>
+	returnToMenu: () => void
 }
 
-const Form = ({form}: FormProps) => {
-	const router = useRouter()
-	const [currentQuestion, setCurrentQuestion] = useState(0)
+const Form = ({form, returnToMenu}: FormProps) => {
+	const formKeys = Object.keys(form)
 	const [showScore, setShowScore] = useState(false)
-	const [answers, setAnswers] = useState<Answer[]>([])
+	const [currentIndex, setCurrentIndex] = useState(0)
+	const [answers, setAnswers] = useState<Answer>({})
+	const [currentQuestion, setCurrentQuestion] = useState<QuestionInfo>({
+		answerOptions: [],
+		question: '',
+		type: 'option',
+	})
 
-	const returnToMenu = () => router.push('/immo')
+	useEffect(() => {
+		setCurrentQuestion(form[formKeys[currentIndex]])
+	}, [currentIndex, form, formKeys])
 
 	const resetForm = () => {
 		setShowScore(false)
-		setCurrentQuestion(0)
+		setCurrentIndex(0)
 	}
 
 	const navigateToPrevious = () => {
-		const previousQuestion = currentQuestion - 1
-		if (previousQuestion >= 0) {
-			setCurrentQuestion(previousQuestion)
+		const previousIndex = currentIndex - 1
+		if (previousIndex >= 0) {
+			setCurrentIndex(previousIndex)
 		} else {
 			returnToMenu()
 		}
 	}
 
 	const navigateToNext = () => {
-		const nextQuestion = currentQuestion + 1
-		if (nextQuestion < form.length) {
-			setCurrentQuestion(nextQuestion)
+		const nextIndex = currentIndex + 1
+		if (nextIndex < formKeys.length) {
+			setCurrentIndex(nextIndex)
 		} else {
 			setShowScore(true)
 		}
 	}
 
-	const saveAnswer = (answer: string | number | boolean) => {
+	const saveFormAnswer = (answer: string) => {
+		const updatedValue: {[x: string]: string} = {}
+		updatedValue[formKeys[currentIndex]] = answer
+		setAnswers({
+			...answers,
+			...updatedValue,
+		})
+
+		/**
 		let newArr = [...answers]
-		newArr[currentQuestion] = {id: form[currentQuestion].id, answer: answer}
-		setAnswers(newArr)
+		newArr[currentIndex] = {id: form[currentIndex].id, answer: answer}
+		setFormAnswers(newArr)
+			**/
 	}
 
-	const renderFormInputs = (type: QuestionType) => {
-		const types = {
-			select: () => (
-				<FormInputSelect
-					answerOptions={form[currentQuestion].answerOptions}
+	const renderFormInputs = (type: QuestionType) =>
+		({
+			option: () => (
+				<FormInputOption
+					answerOptions={currentQuestion.answerOptions}
 					navigateToNext={navigateToNext}
-					saveAnswer={saveAnswer}
+					saveAnswer={saveFormAnswer}
 				/>
 			),
 			money: () => (
 				<FormInputMoney
-					value={
-						answers[currentQuestion] ? (answers[currentQuestion].answer as number) : 0
-					}
-					onChange={saveAnswer}
+					key={`${formKeys[currentIndex]}-${currentIndex}`}
+					value={answers && answers[formKeys[currentIndex] as string]}
+					onChange={saveFormAnswer}
 				/>
 			),
 			city: () => (
 				<FormInputCity
-					city={
-						answers[currentQuestion] && [
-							{city: String(answers[currentQuestion].answer)},
-						]
-					}
-					onSelectChange={saveAnswer}
+					onSelectChange={saveFormAnswer}
+					city={[
+						{city: answers && (answers[formKeys[currentIndex] as string] as string)},
+					]}
 				/>
 			),
-		}
-		return types[type]()
-	}
+		}[type]())
 
-	const renderFormActions = (type: QuestionType) => {
-		return type === 'select' ? (
+	const renderFormActions = (type: QuestionType) =>
+		type === 'option' ? (
 			<FormActionPrevious action={navigateToPrevious} />
 		) : (
 			<FormDoubleActionWrapper>
 				<FormActionPrevious action={navigateToPrevious} />
 				<FormActionNext
 					action={navigateToNext}
-					isDisabled={!answers[currentQuestion]}
+					isDisabled={!answers || !answers[formKeys[currentIndex] as string]}
 				/>
 			</FormDoubleActionWrapper>
 		)
-	}
 
 	return (
 		<>
@@ -115,9 +124,9 @@ const Form = ({form}: FormProps) => {
 				/>
 			) : (
 				<>
-					<FormQuestion currentQuestion={form[currentQuestion]} />
-					{renderFormInputs(form[currentQuestion].type)}
-					{renderFormActions(form[currentQuestion].type)}
+					<FormQuestion currentQuestion={currentQuestion.question} />
+					{renderFormInputs(currentQuestion.type)}
+					{renderFormActions(currentQuestion.type)}
 				</>
 			)}
 		</>

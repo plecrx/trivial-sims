@@ -1,4 +1,1 @@
-export type Answer = {
-	id: string
-	answer: string | number | boolean
-}
+export type Answer = {[x: string]: string}

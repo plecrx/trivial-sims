@@ -31,6 +31,7 @@ const Form = ({form, returnToMenu}: FormProps) => {
 		answerOptions: [],
 		question: '',
 		type: 'option',
+		required: [],
 	})
 
 	useEffect(() => {

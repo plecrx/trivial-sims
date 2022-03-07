@@ -81,7 +81,7 @@ export const ptz_form: Record<PTZQuestionIDs, QuestionInfo> = {
 	},
 }
 
-export const ptzZoneA_revenue_ceiling = {
+export const ptzZoneA_resources_ceiling = {
 	1: 37000,
 	2: 51800,
 	3: 62900,
@@ -91,7 +91,7 @@ export const ptzZoneA_revenue_ceiling = {
 	7: 107300,
 	8: 118400,
 }
-export const ptzZoneB1_revenue_ceiling = {
+export const ptzZoneB1_resources_ceiling = {
 	1: 30000,
 	2: 42000,
 	3: 51000,
@@ -101,7 +101,7 @@ export const ptzZoneB1_revenue_ceiling = {
 	7: 87000,
 	8: 96000,
 }
-export const ptzZoneB2_revenue_ceiling = {
+export const ptzZoneB2_resources_ceiling = {
 	1: 27000,
 	2: 37800,
 	3: 45900,
@@ -111,7 +111,7 @@ export const ptzZoneB2_revenue_ceiling = {
 	7: 78300,
 	8: 96400,
 }
-export const ptzZoneC_revenue_ceiling = {
+export const ptzZoneC_resources_ceiling = {
 	1: 24000,
 	2: 33600,
 	3: 40800,
@@ -182,4 +182,72 @@ export const ptzZoneC_quotient = {
 	1: 20,
 	2: 40,
 	3: 10,
+}
+
+export const ptzFamilyRatio = {
+	1: 1.0,
+	2: 1.4,
+	3: 1.7,
+	4: 2.0,
+	5: 2.3,
+	6: 2.6,
+	7: 2.9,
+	8: 3.2,
+}
+
+export const ptzZoneA_loaner_portion = {
+	1: 22000,
+	2: 25000,
+	3: 37000,
+}
+
+export const ptzZoneB1_loaner_portion = {
+	1: 19500,
+	2: 21500,
+	3: 30000,
+}
+
+export const ptzZoneB2_loaner_portion = {
+	1: 16500,
+	2: 18000,
+	3: 27000,
+}
+
+export const ptzZoneC_loaner_portion = {
+	1: 14000,
+	2: 15000,
+	3: 24000,
+}
+
+export const ptz_amortization_schedule = {
+	1: {duration: 25, deferral: 15, amortization: 10},
+	2: {duration: 22, deferral: 10, amortization: 12},
+	3: {duration: 20, deferral: 5, amortization: 15},
+}
+
+export const resourcesZones = {
+	A: ptzZoneA_resources_ceiling,
+	B1: ptzZoneB1_resources_ceiling,
+	B2: ptzZoneB2_resources_ceiling,
+	C: ptzZoneC_resources_ceiling,
+}
+export const operationCostZones = {
+	A: ptzZoneA_operationCost_ceiling,
+	B1: ptzZoneB1_operationCost_ceiling,
+	B2: ptzZoneB2_operationCost_ceiling,
+	C: ptzZoneC_operationCost_ceiling,
+}
+
+export const quotientZones = {
+	A: ptzZoneA_quotient,
+	B1: ptzZoneB1_quotient,
+	B2: ptzZoneB2_quotient,
+	C: ptzZoneC_quotient,
+}
+
+export const loanerPortionZones = {
+	A: ptzZoneA_loaner_portion,
+	B1: ptzZoneB1_loaner_portion,
+	B2: ptzZoneB2_loaner_portion,
+	C: ptzZoneC_loaner_portion,
 }

@@ -5,8 +5,9 @@ import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
-import {ptz_form} from '../../utils/data'
+import {ptz_form} from '../../utils/ptz/ptz_data'
 import Form from '../../components/Form/Form'
+import {useRouter} from 'next/router'
 
 const PtzContainer = styled(Block)`
 	width: 80%;
@@ -26,6 +27,7 @@ const MainBlock = styled(Block)`
 `
 
 const Ptz = () => {
+	const router = useRouter()
 	const [css] = useStyletron()
 
 	return (
@@ -42,7 +44,7 @@ const Ptz = () => {
 							padding: '2em',
 						})}
 					>
-						<Form form={ptz_form} />
+						<Form form={ptz_form} returnToMenu={() => router.push('/immo')} />
 					</Block>
 				</MainBlock>
 			</PtzContainer>

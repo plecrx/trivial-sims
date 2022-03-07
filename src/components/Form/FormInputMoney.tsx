@@ -1,6 +1,8 @@
 import {Input} from 'baseui/input'
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
+import {isNumeric} from '../../utils/isNumeric'
+import {useState} from 'react'
 
 const InputMoneyContainer = styled(Block)`
 	display: flex;
@@ -10,27 +12,28 @@ const InputMoneyContainer = styled(Block)`
 `
 
 type FormInputMoneyProps = {
-	placeholder?: string
-	value: number
-	onChange: (value: number) => void
+	value?: string
+	onChange: (value: string) => void
 }
 
-const FormInputMoney = ({
-	placeholder,
-	value,
-	onChange,
-}: FormInputMoneyProps) => {
+const FormInputMoney = ({value, onChange}: FormInputMoneyProps) => {
+	const [currValue, setCurrValue] = useState(value || '')
 	const handleChange = (answer: string) => {
-		onChange(Number(answer))
+		if (isNumeric(answer)) {
+			setCurrValue(answer)
+			onChange(answer)
+		}
 	}
+
 	return (
 		<InputMoneyContainer>
 			<Input
-				value={value}
+				value={currValue}
 				onChange={e => handleChange(e.currentTarget.value)}
-				placeholder={placeholder}
+				placeholder={'15228'}
 				endEnhancer={'€'}
-				clearable
+				type='currency'
+				autoFocus
 			/>
 		</InputMoneyContainer>
 	)

@@ -17,12 +17,12 @@ const InputSelectBlock = styled(Block)`
 `
 
 type FormInputSelectProps = {
-	answerOptions?: string[]
+	answerOptions?: {id: string; label: string}[]
 	navigateToNext: () => void
 	saveAnswer: (value: string) => void
 }
 
-const FormInputSelect = ({
+const FormInputOption = ({
 	answerOptions,
 	saveAnswer,
 	navigateToNext,
@@ -40,9 +40,9 @@ const FormInputSelect = ({
 				<InputSelectBlock
 					key={`form-item-answer-${index}`}
 					className={css({backgroundColor: theme.colors.backgroundPrimary})}
-					onClick={() => handleSelect(answerOption)}
+					onClick={() => handleSelect(answerOption.id)}
 				>
-					{answerOption}
+					{answerOption.label}
 					<Button
 						shape={SHAPE.circle}
 						size={SIZE.mini}
@@ -62,4 +62,4 @@ const FormInputSelect = ({
 	)
 }
 
-export default FormInputSelect
+export default FormInputOption

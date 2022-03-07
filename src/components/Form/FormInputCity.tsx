@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import {FormControl} from 'baseui/form-control'
-import {OptionsT, Select, Value} from 'baseui/select'
+import {Select} from 'baseui/select'
 import {useState} from 'react'
 
 const Container = styled(Block)`
@@ -12,17 +12,18 @@ const Container = styled(Block)`
 `
 
 type FormInputCityProps = {
-	placeholder?: string
-	onChange: (value: string) => void
+	city: [{city?: string}]
+	onSelectChange: (selectValue: string) => void
 }
 
-const FormInputCity = ({onChange}: FormInputCityProps) => {
-	const [city, setCity] = useState<Value>()
-	const handleChange = (answer: Value) => {
-		setCity(answer)
-		onChange(String(answer))
+const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
+	const [selectValue, setSelectValue] = useState(city)
+	const cityOptions = [{city: 'Paris'}, {city: 'Kyiv'}, {city: 'Berlin'}]
+
+	const handleChange = (answer: any) => {
+		setSelectValue(answer)
+		onSelectChange(answer[0]?.city)
 	}
-	const cities: OptionsT = []
 
 	//'https://api-adresse.data.gouv.fr/search/?q=creteil&type=municipality&autocomplete=1'
 
@@ -30,12 +31,12 @@ const FormInputCity = ({onChange}: FormInputCityProps) => {
 		<Container>
 			<FormControl>
 				<Select
-					value={city}
-					onChange={({value}) => handleChange(value)}
-					options={cities}
-					valueKey='name'
-					required
-					clearable
+					value={selectValue}
+					onChange={({option}) => handleChange([option])}
+					options={cityOptions}
+					valueKey='city'
+					labelKey='city'
+					clearable={false}
 				/>
 			</FormControl>
 		</Container>

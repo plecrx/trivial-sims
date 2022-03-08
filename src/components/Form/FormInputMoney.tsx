@@ -30,7 +30,7 @@ const FormInputMoney = ({value, onChange}: FormInputMoneyProps) => {
 			<Input
 				value={currValue}
 				onChange={e => handleChange(e.currentTarget.value)}
-				placeholder={'15228'}
+				placeholder={'0'}
 				endEnhancer={'€'}
 				type='currency'
 				autoFocus

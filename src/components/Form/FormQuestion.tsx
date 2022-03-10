@@ -8,7 +8,9 @@ const FormQuestion = ({currentQuestion}: FormQuestionProps) => {
 	const [css, theme] = useStyletron()
 
 	return (
-		<div className={css({color: theme.colors.primary50})}>{currentQuestion}</div>
+		<div className={css({color: theme.colors.colorPrimary})}>
+			<strong>{currentQuestion}</strong>
+		</div>
 	)
 }
 

@@ -20,7 +20,6 @@ const MainBlock = styled(Block)`
 	padding-block: 2.5em 1em;
 	margin-top: 1.5em;
 	border-radius: 8px;
-	background: #0c806b;
 `
 
 const SimWrapper = styled(Block)`
@@ -57,7 +56,7 @@ const SimContent = styled.div`
 const Immo = () => {
 	const [css, theme] = useStyletron()
 	const router = useRouter()
-	const textColor = theme.colors.primary50
+	const textColor = theme.colors.colorPrimary
 
 	return (
 		<FullPageLayout>
@@ -66,7 +65,11 @@ const Immo = () => {
 					<StyledLink href='/'>Home</StyledLink>
 					<span>Simulation de crédit immobilier</span>
 				</Breadcrumbs>
-				<MainBlock>
+				<MainBlock
+					className={css({
+						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+					})}
+				>
 					<LabelMedium color={textColor}>
 						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
 					</LabelMedium>

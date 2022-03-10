@@ -23,12 +23,11 @@ const MainBlock = styled(Block)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #0c806b;
 `
 
 const Ptz = () => {
 	const router = useRouter()
-	const [css] = useStyletron()
+	const [css, theme] = useStyletron()
 
 	return (
 		<FullPageLayout>
@@ -38,7 +37,11 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock>
+				<MainBlock
+					className={css({
+						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+					})}
+				>
 					<Block
 						className={css({
 							padding: '2em',

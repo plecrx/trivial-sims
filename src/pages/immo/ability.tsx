@@ -32,7 +32,9 @@ const Loan = () => {
 					<span>Emprunt</span>
 				</Breadcrumbs>
 				<MainBlock
-					className={css({backgroundColor: theme.colors.backgroundOverlayLight})}
+					className={css({
+						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+					})}
 				>
 					<img
 						height='200'

@@ -8,6 +8,7 @@ import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
 import {LabelMedium} from 'baseui/typography'
 import {useRouter} from 'next/router'
+import SmoothList from 'react-smooth-list'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
@@ -22,7 +23,7 @@ const MainBlock = styled(Block)`
 	border-radius: 8px;
 `
 
-const SimWrapper = styled(Block)`
+const SimWrapper = styled(SmoothList)`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -73,7 +74,7 @@ const Immo = () => {
 					<LabelMedium color={textColor}>
 						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
 					</LabelMedium>
-					<SimWrapper>
+					<SimWrapper delay={150} transitionDuration={1000}>
 						{immoItems.map(
 							(item: {
 								id: number

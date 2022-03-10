@@ -8,6 +8,7 @@ import {StyledLink} from 'baseui/link'
 import {ChevronRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
 import {FullPageLayout} from '../layouts/fullpage.layout'
+import SmoothList from 'react-smooth-list'
 
 const ItemBlock = styled(Block)`
 	padding: 3em;
@@ -39,29 +40,32 @@ export const Home = () => {
 				<Breadcrumbs>
 					<span>Home</span>
 				</Breadcrumbs>
-				{homeItems.map((item, index) => (
-					<ItemBlock
-						key={`home-item-${index}`}
-						className={css({backgroundColor: theme.colors.backgroundPrimary})}
-					>
-						<ItemTitle marginBottom='scale500'>
-							<strong>{item.title}</strong>
-						</ItemTitle>
-						<ParagraphMedium>{item.description}</ParagraphMedium>
-						<LabelLarge>
-							<ItemLink
-								href={item.link.url}
-								className={css({
-									color: theme.colors.contentPrimary,
-									paddingBottom: theme.sizing.scale500,
-								})}
-							>
-								<strong>{item.link.label}</strong>
-								<ChevronRight size={30} />
-							</ItemLink>
-						</LabelLarge>
-					</ItemBlock>
-				))}
+				<SmoothList>
+					{homeItems.map((item, index) => (
+						<ItemBlock
+							key={`home-item-${index}`}
+							className={css({backgroundColor: theme.colors.backgroundPrimary})}
+						>
+							<ItemTitle marginBottom='scale500'>
+								<strong>{item.title}</strong>
+							</ItemTitle>
+							<ParagraphMedium>{item.description}</ParagraphMedium>
+							<LabelLarge>
+								<ItemLink
+									href={item.link.url}
+									className={css({
+										color: theme.colors.contentPrimary,
+										paddingBottom: theme.sizing.scale500,
+									})}
+								>
+									<strong>{item.link.label}</strong>
+									<ChevronRight size={30} />
+								</ItemLink>
+							</LabelLarge>
+						</ItemBlock>
+					))}
+				</SmoothList>
+
 			</HomeContainer>
 		</FullPageLayout>
 	)

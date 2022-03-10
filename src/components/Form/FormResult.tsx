@@ -1,10 +1,12 @@
 import {Label1} from 'baseui/typography'
-import {Button} from 'baseui/button'
+import {Button, SHAPE} from 'baseui/button'
 import {computePTZ} from '../../utils/ptz/computePTZ'
 import {Answer} from '../../types/answer.type'
 import {Block} from 'baseui/block'
 import styled from '@emotion/styled'
 import {useStyletron} from 'baseui'
+import {ArrowLeft} from 'baseui/icon'
+import {FaBeer, FaUndo} from 'react-icons/all'
 
 const FormDoubleActionWrapper = styled.div`
 	display: flex;
@@ -61,7 +63,13 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 				)}
 			</Block>
 			<FormDoubleActionWrapper>
-				<Button onClick={resetForm}>Refaire simulation</Button>
+				<Button
+					shape={SHAPE.pill}
+					onClick={resetForm}
+					startEnhancer={() => <FaUndo size={20} />}
+				>
+					Refaire simulation
+				</Button>
 				<Button onClick={returnToMenu}>Menu</Button>
 			</FormDoubleActionWrapper>
 		</div>

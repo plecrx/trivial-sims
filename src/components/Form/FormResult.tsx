@@ -10,16 +10,29 @@ type FormResultProps = {
 }
 
 const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
-	console.log(computePTZ(answers))
+	const {ptzAmount, amortization, deferral, duration} = computePTZ(answers)
 
 	return (
 		<div>
 			<Label1>Résultats</Label1>
-			{Object.keys(answers).map((answer, key) => (
-				<div key={`answer-${answer}-${key}`}>
-					{answer} : {answers[answer]}
+			{ptzAmount !== 0 ? (
+				<div>
+					Vous avez le droit au PTZ
+					<br />
+					{amortization}
+					<br />
+					{deferral}
+					<br />
+					{duration}
+					<br />
 				</div>
-			))}
+			) : (
+				<>
+					Vous ne remplissez pas les conditions pour pouvoir bénéficier du PTZ.
+					<br />
+				</>
+			)}
+
 			<Button onClick={resetForm}>Refaire simulation</Button>
 			<Button onClick={returnToMenu}>Aller au menu</Button>
 		</div>

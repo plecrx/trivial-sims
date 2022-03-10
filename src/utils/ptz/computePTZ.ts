@@ -25,7 +25,12 @@ export const computePTZ = (data: {[x: string]: string}) => {
 	)
 
 	if (isBelowResourcesCeiling(currentZone, nbr_people, revenue)) {
-		return 0
+		return {
+			ptzAmount: 0,
+			duration: 0,
+			deferral: 0,
+			amortization: 0,
+		}
 	}
 
 	const operationCeiling = getOperationCeiling(

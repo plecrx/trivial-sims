@@ -48,6 +48,7 @@
     "prettier": "^2.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "react-location": "^3.3.4",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",

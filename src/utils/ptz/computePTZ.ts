@@ -24,8 +24,17 @@ export const computePTZ = (data: {[x: string]: string}) => {
 		Number(data.operation_cost),
 	)
 
-	if (isBelowResourcesCeiling(currentZone, nbr_people, revenue)) {
-		return 0
+	if (
+		isBelowResourcesCeiling(currentZone, nbr_people, revenue) ||
+		data.is_firstTime_buyer !== 'true' ||
+		data.project_type !== 'principal'
+	) {
+		return {
+			ptzAmount: 0,
+			duration: 0,
+			deferral: 0,
+			amortization: 0,
+		}
 	}
 
 	const operationCeiling = getOperationCeiling(

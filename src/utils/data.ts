@@ -20,12 +20,12 @@ export const homeItems = [
 export const immoItems = [
 	{
 		id: 1,
-		title: "Simulez votre capacité d'emprunt",
+		title: 'Simulez votre prêt à taux zéro',
 		content:
-			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
-		cta: "CALCUL CAPACITE D'EMPRUNT",
-		href: '/immo/ability',
-		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
+			'Vérifiez votre éligibilité et simulez le montant de votre prêt à taux zéro',
+		cta: 'SIMULATION PTZ',
+		href: '/immo/ptz',
+		illustrationSlug: '/discount.svg',
 	},
 	{
 		id: 2,
@@ -46,11 +46,11 @@ export const immoItems = [
 	},
 	{
 		id: 4,
-		title: 'Simulez votre prêt à taux zéro',
+		title: "Simulez votre capacité d'emprunt",
 		content:
-			'Vérifiez votre éligibilité et simulez le montant de votre prêt à taux zéro',
-		cta: 'SIMULATION PTZ',
-		href: '/immo/ptz',
-		illustrationSlug: '/discount.svg',
+			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
+		cta: "CALCUL CAPACITE D'EMPRUNT",
+		href: '/immo/ability',
+		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
 	},
 ]

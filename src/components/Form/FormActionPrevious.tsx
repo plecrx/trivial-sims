@@ -16,7 +16,7 @@ const FormActionPrevious = ({action}: FormActionPreviousProps) => {
 				BaseButton: {
 					style: ({$theme}) => ({
 						backgroundColor: 'transparent',
-						color: $theme.colors.primary50,
+						color: $theme.colors.colorPrimary,
 						':hover': {
 							backgroundColor: $theme.colors.backgroundOverlayDark,
 						},

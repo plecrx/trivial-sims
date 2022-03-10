@@ -17,9 +17,10 @@ const FormActionNext = ({action, isDisabled}: FormActionNextProps) => {
 				BaseButton: {
 					style: ({$theme}) => ({
 						backgroundColor: $theme.colors.backgroundAlwaysDark,
-						color: $theme.colors.primary50,
+						color: $theme.colors.primaryB,
 						':disabled': {
-							backgroundColor: $theme.colors.backgroundOverlayDark,
+							backgroundColor: $theme.colors.backgroundOverlayLight,
+							color: $theme.colors.primary500,
 						},
 					}),
 				},

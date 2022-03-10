@@ -39,7 +39,10 @@ const FormInputOption = ({
 			{answerOptions!.map((answerOption, index) => (
 				<InputSelectBlock
 					key={`form-item-answer-${index}`}
-					className={css({backgroundColor: theme.colors.backgroundPrimary})}
+					className={css({
+						backgroundColor: theme.colors.backgroundPrimary,
+						color: theme.colors.colorPrimary,
+					})}
 					onClick={() => handleSelect(answerOption.id)}
 				>
 					{answerOption.label}
@@ -49,7 +52,7 @@ const FormInputOption = ({
 						overrides={{
 							BaseButton: {
 								style: () => ({
-									backgroundColor: '#0c806b',
+									backgroundColor: '#F9A826',
 								}),
 							},
 						}}

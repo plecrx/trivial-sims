@@ -4,7 +4,7 @@ import {Block} from 'baseui/block'
 import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
-import { useStyletron } from 'baseui'
+import {useStyletron} from 'baseui'
 
 const RachatContainer = styled(Block)`
 	width: 80%;

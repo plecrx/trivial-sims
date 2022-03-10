@@ -10,6 +10,23 @@ import styled from '@emotion/styled'
 import {QuestionInfo, QuestionType} from '../../types/question.type'
 import {Answer} from '../../types/answer.type'
 
+const CustomAnimationDiv = styled.div`
+	animation-duration: 0.5s;
+	animation-name: slidein;
+
+	@keyframes slidein {
+		from {
+			margin-left: 10%;
+			width: 100%;
+		}
+
+		to {
+			margin-left: 0;
+			width: 100%;
+		}
+	}
+`
+
 const FormDoubleActionWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -31,7 +48,6 @@ const Form = ({form, returnToMenu}: FormProps) => {
 		answerOptions: [],
 		question: '',
 		type: 'option',
-		required: [],
 	})
 
 	useEffect(() => {
@@ -124,11 +140,11 @@ const Form = ({form, returnToMenu}: FormProps) => {
 					resetForm={resetForm}
 				/>
 			) : (
-				<>
+				<CustomAnimationDiv>
 					<FormQuestion currentQuestion={currentQuestion.question} />
 					{renderFormInputs(currentQuestion.type)}
 					{renderFormActions(currentQuestion.type)}
-				</>
+				</CustomAnimationDiv>
 			)}
 		</>
 	)

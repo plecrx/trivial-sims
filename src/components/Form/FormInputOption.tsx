@@ -3,6 +3,8 @@ import {Button, SHAPE, SIZE} from 'baseui/button'
 import {ArrowRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
 import styled from '@emotion/styled'
+import SmoothList from 'react-smooth-list';
+
 import React from 'react'
 
 const InputSelectBlock = styled(Block)`
@@ -35,7 +37,7 @@ const FormInputOption = ({
 	}
 
 	return (
-		<>
+		<SmoothList delay={100} transitionDuration={1000}>
 			{answerOptions!.map((answerOption, index) => (
 				<InputSelectBlock
 					key={`form-item-answer-${index}`}
@@ -61,7 +63,7 @@ const FormInputOption = ({
 					</Button>
 				</InputSelectBlock>
 			))}
-		</>
+		</SmoothList>
 	)
 }
 

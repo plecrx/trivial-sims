@@ -5,7 +5,7 @@ import {Answer} from '../../types/answer.type'
 import {Block} from 'baseui/block'
 import styled from '@emotion/styled'
 import {useStyletron} from 'baseui'
-import {FaUndo} from 'react-icons/all'
+import {FaUndo} from 'react-icons/fa'
 
 const WrapperBlock = styled.div`
 	display: flex;
@@ -13,6 +13,26 @@ const WrapperBlock = styled.div`
 	flex-wrap: wrap;
 
 	gap: 0.5rem;
+`
+
+const CustomAnimationBlock = styled(Block)`
+	border-radius: 8px;
+	padding: 2em;
+	margin-block: 2em;
+	animation-duration: 0.5s;
+	animation-name: slidein;
+
+	@keyframes slidein {
+		from {
+			margin-bottom: 5em;
+			width: 100%;
+		}
+
+		to {
+			margin-bottom: 2em;
+			width: 100%;
+		}
+	}
 `
 
 const FormDoubleActionWrapper = styled.div`
@@ -35,7 +55,7 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 	const monthly_payment = (ptzAmount / (amortization * 12)).toFixed(2)
 
 	return (
-		<div>
+		<>
 			<WrapperBlock>
 				{ptzAmount !== 0 && (
 					<img
@@ -47,12 +67,9 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 					/>
 				)}
 				<div>
-					<Block
+					<CustomAnimationBlock
 						className={css({
 							backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-							borderRadius: '8px',
-							padding: '2em',
-							marginBlock: '2em',
 						})}
 					>
 						{ptzAmount !== 0 ? (
@@ -81,7 +98,7 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 								<br />
 							</>
 						)}
-					</Block>
+					</CustomAnimationBlock>
 					<FormDoubleActionWrapper>
 						<Button
 							shape={SHAPE.pill}
@@ -94,7 +111,7 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 					</FormDoubleActionWrapper>
 				</div>
 			</WrapperBlock>
-		</div>
+		</>
 	)
 }
 

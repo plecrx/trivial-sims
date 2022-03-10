@@ -39,7 +39,7 @@ const Ptz = () => {
 				</Breadcrumbs>
 				<MainBlock
 					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+						backgroundColor: theme.colors.tagNeutralBackground,
 					})}
 				>
 					<Block

@@ -2,15 +2,12 @@ import {QuestionInfo} from '../../types/question.type'
 
 type StringPTZQuestionIDs =
 	| 'project_type'
-	| 'is_first_purchase'
+	| 'is_firstTime_buyer'
 	| 'city'
 	| 'nbr_people'
 	| 'housing_nature'
 
-type NumberPTZQuestionIDs =
-	| 'tax_revenue'
-	| 'operation_cost'
-	| 'personal_contribution'
+type NumberPTZQuestionIDs = 'tax_revenue' | 'operation_cost'
 
 type PTZQuestionIDs = NumberPTZQuestionIDs | StringPTZQuestionIDs
 
@@ -23,21 +20,19 @@ export const ptz_form: Record<PTZQuestionIDs, QuestionInfo> = {
 			{id: 'rent', label: 'un investissement locatif'},
 		],
 		type: 'option',
-		required: ['principal', 'secondary', 'rent'],
 	},
-	is_first_purchase: {
-		question: 'Est-ce votre premier achat ?',
+	is_firstTime_buyer: {
+		question:
+			'Avez-vous été propriétaire de votre résidence principale au cours des deux dernières années ?',
 		answerOptions: [
-			{id: 'true', label: 'Oui'},
-			{id: 'false', label: 'Non'},
+			{id: 'false', label: 'Oui'},
+			{id: 'true', label: 'Non'},
 		],
 		type: 'option',
-		required: ['true', 'false'],
 	},
 	city: {
 		question: 'Dans quelle ville se situe le logement ?',
 		type: 'city',
-		required: [],
 	},
 	nbr_people: {
 		question: 'Nombre de personnes qui vont habiter votre futur logement ?',
@@ -52,12 +47,10 @@ export const ptz_form: Record<PTZQuestionIDs, QuestionInfo> = {
 			{id: '8', label: '8+'},
 		],
 		type: 'option',
-		required: ['1', '2', '3', '4', '5', '6', '7', '8'],
 	},
 	tax_revenue: {
 		question: "Quel est votre revenu fiscal de référence de l'année N-2 ?",
 		type: 'money',
-		required: [],
 	},
 	housing_nature: {
 		question: 'Quelle est la nature du logement ?',
@@ -67,17 +60,10 @@ export const ptz_form: Record<PTZQuestionIDs, QuestionInfo> = {
 			{id: 'social', label: 'Logement social'},
 		],
 		type: 'option',
-		required: ['old', 'new', 'social'],
 	},
 	operation_cost: {
 		question: "Coût total de l'opération à financer ?",
 		type: 'money',
-		required: [],
-	},
-	personal_contribution: {
-		question: "A combien s'élève votre apport personnel ?",
-		type: 'money',
-		required: [],
 	},
 }
 

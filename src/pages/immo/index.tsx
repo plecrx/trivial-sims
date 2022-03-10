@@ -67,7 +67,7 @@ const Immo = () => {
 				</Breadcrumbs>
 				<MainBlock
 					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+						backgroundColor: theme.colors.tagNeutralBackground,
 					})}
 				>
 					<LabelMedium color={textColor}>

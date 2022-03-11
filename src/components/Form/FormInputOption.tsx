@@ -3,7 +3,7 @@ import {Button, SHAPE, SIZE} from 'baseui/button'
 import {ArrowRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
 import styled from '@emotion/styled'
-import SmoothList from 'react-smooth-list';
+import SmoothList from 'react-smooth-list'
 
 import React from 'react'
 

@@ -65,7 +65,6 @@ export const Home = () => {
 						</ItemBlock>
 					))}
 				</SmoothList>
-
 			</HomeContainer>
 		</FullPageLayout>
 	)

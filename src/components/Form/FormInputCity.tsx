@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import {FormControl} from 'baseui/form-control'
-import {Select} from 'baseui/select'
-import {useState} from 'react'
+import {Select, TYPE, Value} from 'baseui/select'
+import {useEffect, useState} from 'react'
 
 const Container = styled(Block)`
 	display: flex;
@@ -12,30 +12,43 @@ const Container = styled(Block)`
 `
 
 type FormInputCityProps = {
-	city: [{city?: string}]
-	onSelectChange: (selectValue: string) => void
+	city: {nom: string; code: number; _score: number}[]
+	onSelectChange: (selectValue: any) => void
 }
 
 const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
-	const [selectValue, setSelectValue] = useState(city)
-	const cityOptions = [{city: 'Paris'}, {city: 'Kyiv'}, {city: 'Berlin'}]
+	const [selectValue, setSelectValue] = useState<Value>(city)
+	const [inputValue, setInputValue] = useState<string>('')
+	const [cityOptions, setCityOptions] = useState<
+		{nom: string; code: number; _score: number}[]
+	>([])
 
-	const handleChange = (answer: any) => {
-		setSelectValue(answer)
-		onSelectChange(answer[0]?.city)
+	useEffect(() => {
+		setInputValue(selectValue[0].nom)
+	}, [city, selectValue])
+
+	useEffect(() => {
+		fetch(`https://geo.api.gouv.fr/communes?nom=${inputValue}&fields=nom&limit=5`)
+			.then(async res => setCityOptions(await res.json()))
+			.catch(error => console.log(error))
+	}, [inputValue])
+
+	const handleSelectChange = (value: Value) => {
+		setSelectValue(value)
+		onSelectChange(value)
 	}
-
-	//'https://api-adresse.data.gouv.fr/search/?q=creteil&type=municipality&autocomplete=1'
 
 	return (
 		<Container>
 			<FormControl>
 				<Select
 					value={selectValue}
-					onChange={({option}) => handleChange([option])}
+					onInputChange={event => setInputValue(event.currentTarget.value)}
+					onChange={({value}) => handleSelectChange(value)}
 					options={cityOptions}
-					valueKey='city'
-					labelKey='city'
+					type={TYPE.search}
+					valueKey='nom'
+					labelKey='nom'
 					clearable={false}
 				/>
 			</FormControl>

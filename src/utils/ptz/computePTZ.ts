@@ -15,9 +15,9 @@ enum HousingQuotient {
 
 type NbrPeopleDigits = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
-export const computePTZ = (data: {[x: string]: string}) => {
+export const computePTZ = (data: {[x: string]: any}) => {
 	const nbr_people = Number(data.nbr_people) as NbrPeopleDigits
-	const currentZone = 'A' //getZone(data.city)
+	const currentZone = 'A' //getZone(data.city[0].nom)
 
 	const revenue = getTotalRevenue(
 		Number(data.tax_revenue),

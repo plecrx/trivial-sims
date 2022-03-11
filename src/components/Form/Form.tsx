@@ -111,9 +111,7 @@ const Form = ({form, returnToMenu}: FormProps) => {
 			city: () => (
 				<FormInputCity
 					onSelectChange={saveFormAnswer}
-					city={[
-						{city: answers && (answers[formKeys[currentIndex] as string] as string)},
-					]}
+					city={answers && answers[formKeys[currentIndex] as string]}
 				/>
 			),
 		}[type]())

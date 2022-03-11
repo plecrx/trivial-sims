@@ -1,1 +1,1 @@
-export type Answer = {[x: string]: string}
+export type Answer = {[x: string]: any}

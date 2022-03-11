@@ -84,6 +84,7 @@ const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => {
 								<br />
 								Période de différé total : {deferral} ans
 								<br />
+								{/* eslint-disable-next-line react/no-unescaped-entities */}
 								Période d'amortissement : {amortization} ans
 								<br />
 								Mensualité première période hors assurance : 0 €

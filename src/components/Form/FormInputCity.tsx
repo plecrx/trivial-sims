@@ -24,8 +24,8 @@ const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
 	>([])
 
 	useEffect(() => {
-		setInputValue(selectValue[0].nom)
-	}, [city, selectValue])
+		setInputValue((city && city[0].nom) || '')
+	}, [city])
 
 	useEffect(() => {
 		fetch(`https://geo.api.gouv.fr/communes?nom=${inputValue}&fields=nom&limit=5`)

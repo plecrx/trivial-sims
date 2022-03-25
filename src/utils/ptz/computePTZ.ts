@@ -6,6 +6,7 @@ import {
 	quotientZones,
 	resourcesZones,
 } from './ptz_data'
+import axios from 'axios'
 
 enum HousingQuotient {
 	'new' = 1,
@@ -15,9 +16,12 @@ enum HousingQuotient {
 
 type NbrPeopleDigits = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
-export const computePTZ = (data: {[x: string]: any}) => {
+export const computePTZ = async (data: {[x: string]: any}) => {
 	const nbr_people = Number(data.nbr_people) as NbrPeopleDigits
 	const currentZone = 'A' //getZone(data.city[0].nom)
+
+	const res = await fetch(`/api/cities/${data.city[0].nom}`)
+	console.log('ttt', await res.json())
 
 	const revenue = getTotalRevenue(
 		Number(data.tax_revenue),

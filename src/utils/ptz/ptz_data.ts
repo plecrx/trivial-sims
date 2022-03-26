@@ -213,12 +213,14 @@ export const ptz_amortization_schedule = {
 
 export const resourcesZones = {
 	A: ptzZoneA_resources_ceiling,
+	Abis: ptzZoneA_resources_ceiling,
 	B1: ptzZoneB1_resources_ceiling,
 	B2: ptzZoneB2_resources_ceiling,
 	C: ptzZoneC_resources_ceiling,
 }
 export const operationCostZones = {
 	A: ptzZoneA_operationCost_ceiling,
+	Abis: ptzZoneA_operationCost_ceiling,
 	B1: ptzZoneB1_operationCost_ceiling,
 	B2: ptzZoneB2_operationCost_ceiling,
 	C: ptzZoneC_operationCost_ceiling,
@@ -226,6 +228,7 @@ export const operationCostZones = {
 
 export const quotientZones = {
 	A: ptzZoneA_quotient,
+	Abis: ptzZoneA_quotient,
 	B1: ptzZoneB1_quotient,
 	B2: ptzZoneB2_quotient,
 	C: ptzZoneC_quotient,
@@ -233,6 +236,7 @@ export const quotientZones = {
 
 export const loanerPortionZones = {
 	A: ptzZoneA_loaner_portion,
+	Abis: ptzZoneA_loaner_portion,
 	B1: ptzZoneB1_loaner_portion,
 	B2: ptzZoneB2_loaner_portion,
 	C: ptzZoneC_loaner_portion,

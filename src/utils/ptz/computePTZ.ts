@@ -6,7 +6,6 @@ import {
 	quotientZones,
 	resourcesZones,
 } from './ptz_data'
-import axios from 'axios'
 
 enum HousingQuotient {
 	'new' = 1,
@@ -14,14 +13,17 @@ enum HousingQuotient {
 	'social',
 }
 
+type Zone = 'A' | 'Abis' | 'B1' | 'B2' | 'C'
+
 type NbrPeopleDigits = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
 export const computePTZ = async (data: {[x: string]: any}) => {
 	const nbr_people = Number(data.nbr_people) as NbrPeopleDigits
-	const currentZone = 'A' //getZone(data.city[0].nom)
+	const cityName = data.city[0].nom
 
-	const res = await fetch(`/api/cities/${data.city[0].nom}`)
-	console.log('ttt', await res.json())
+	const res = await fetch(`/api/cities/${cityName}`)
+	const jsonResult = await res.json()
+	const currentZone = jsonResult[0].zone_ptz
 
 	const revenue = getTotalRevenue(
 		Number(data.tax_revenue),
@@ -69,7 +71,7 @@ const getTotalRevenue = (tax_revenue: number, operation_cost: number) =>
 	tax_revenue > operation_cost / 9 ? tax_revenue : operation_cost
 
 const isBelowResourcesCeiling = (
-	currentZone: 'A' | 'B1' | 'B2' | 'C',
+	currentZone: Zone,
 	nbr_people: NbrPeopleDigits,
 	revenue: number,
 ) => {
@@ -85,7 +87,7 @@ const isBelowResourcesCeiling = (
 }
 
 const getOperationCeiling = (
-	currentZone: 'A' | 'B1' | 'B2' | 'C',
+	currentZone: Zone,
 	nbr_people: NbrPeopleDigits,
 	operation_cost: number,
 ) => {
@@ -101,7 +103,7 @@ const getOperationCeiling = (
 }
 
 const getQuotient = (
-	currentZone: 'A' | 'B1' | 'B2' | 'C',
+	currentZone: Zone,
 	housing_nature: keyof typeof HousingQuotient,
 ) => {
 	const num = HousingQuotient[housing_nature]
@@ -109,7 +111,7 @@ const getQuotient = (
 }
 
 const getPortion = (
-	currentZone: 'A' | 'B1' | 'B2' | 'C',
+	currentZone: Zone,
 	nbr_people: NbrPeopleDigits,
 	revenue: number,
 ) => {

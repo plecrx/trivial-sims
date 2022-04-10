@@ -9,7 +9,7 @@ type StringPTZQuestionIDs =
 
 type NumberPTZQuestionIDs = 'tax_revenue' | 'operation_cost'
 
-type PTZQuestionIDs = NumberPTZQuestionIDs | StringPTZQuestionIDs
+export type PTZQuestionIDs = NumberPTZQuestionIDs | StringPTZQuestionIDs
 
 export const ptz_form: Record<PTZQuestionIDs, QuestionInfo> = {
 	project_type: {

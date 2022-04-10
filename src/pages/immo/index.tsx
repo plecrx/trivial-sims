@@ -74,7 +74,7 @@ const Immo = () => {
 					<LabelMedium color={textColor}>
 						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
 					</LabelMedium>
-					<SimWrapper delay={150} transitionDuration={1000}>
+					<SimWrapper delay={80} transitionDuration={400}>
 						{immoItems.map(
 							(item: {
 								id: number

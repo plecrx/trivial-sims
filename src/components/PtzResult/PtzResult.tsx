@@ -8,10 +8,7 @@ import {isBelowResourcesCeiling} from '../../utils/ptz/isBelowResourcesCeiling'
 import {getOperationCeiling} from '../../utils/ptz/getOperationCeiling'
 import {getQuotient} from '../../utils/ptz/getQuotient'
 import {getPortion} from '../../utils/ptz/getPortion'
-import {
-	ptz_amortization_schedule,
-	PTZQuestionIDs,
-} from '../../utils/ptz/ptz_data'
+import {ptz_amortization_schedule, PTZQuestionIDs} from '../../utils/ptz/data'
 
 const WrapperBlock = styled.div`
 	display: flex;
@@ -49,14 +46,13 @@ enum HousingQuotient {
 
 type NbrPeopleDigits = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
-type PtzResultProps = {
+export type PtzResultProps = {
 	data: {[x in PTZQuestionIDs]: any}
 }
 
 const PtzResult = ({data}: PtzResultProps) => {
 	const [currentZone, setCurrentZone] = useState()
 	const [css, theme] = useStyletron()
-
 	const nbr_people = Number(data.nbr_people) as NbrPeopleDigits
 	const cityName = data.city[0].nom
 	const revenue = getTotalRevenue(

@@ -8,7 +8,7 @@ import FormInputCity from './FormInputCity'
 import FormResult from './FormResult'
 import styled from '@emotion/styled'
 import {QuestionInfo, QuestionType} from '../../types/question.type'
-import {Answer} from '../../types/answer.type'
+import {PtzResultProps} from '../PtzResult/PtzResult'
 
 const CustomAnimationDiv = styled.div`
 	animation-duration: 0.5s;
@@ -36,14 +36,15 @@ const FormDoubleActionWrapper = styled.div`
 
 type FormProps = {
 	form: Record<string, QuestionInfo>
+	FormResultTopic: React.FC<PtzResultProps>
 	returnToMenu: () => void
 }
 
-const Form = ({form, returnToMenu}: FormProps) => {
+const Form = ({form, returnToMenu, FormResultTopic}: FormProps) => {
 	const formKeys = Object.keys(form)
 	const [showScore, setShowScore] = useState(false)
 	const [currentIndex, setCurrentIndex] = useState(0)
-	const [answers, setAnswers] = useState<Answer>({})
+	const [answers, setAnswers] = useState<any>({})
 	const [currentQuestion, setCurrentQuestion] = useState<QuestionInfo>({
 		answerOptions: [],
 		question: '',
@@ -132,11 +133,9 @@ const Form = ({form, returnToMenu}: FormProps) => {
 	return (
 		<>
 			{showScore ? (
-				<FormResult
-					answers={answers}
-					returnToMenu={returnToMenu}
-					resetForm={resetForm}
-				/>
+				<FormResult returnToMenu={returnToMenu} resetForm={resetForm}>
+					<FormResultTopic data={answers} />
+				</FormResult>
 			) : (
 				<CustomAnimationDiv>
 					<FormQuestion currentQuestion={currentQuestion.question} />

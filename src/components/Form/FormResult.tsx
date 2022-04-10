@@ -1,7 +1,6 @@
 import {Button, SHAPE} from 'baseui/button'
 import styled from '@emotion/styled'
 import {FaUndo} from 'react-icons/fa'
-import PtzResult from '../PtzResult/PtzResult'
 
 const FormDoubleActionWrapper = styled.div`
 	display: flex;
@@ -11,14 +10,14 @@ const FormDoubleActionWrapper = styled.div`
 `
 
 type FormResultProps = {
-	answers: any
+	children: JSX.Element
 	returnToMenu: () => void
 	resetForm: () => void
 }
 
-const FormResult = ({answers, resetForm, returnToMenu}: FormResultProps) => (
+const FormResult = ({children, resetForm, returnToMenu}: FormResultProps) => (
 	<div>
-		<PtzResult data={answers} />
+		{children}
 		<FormDoubleActionWrapper>
 			<Button
 				shape={SHAPE.pill}

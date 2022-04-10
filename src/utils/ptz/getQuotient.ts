@@ -1,4 +1,4 @@
-import {quotientZones} from './ptz_data'
+import {quotientZones} from './data'
 import {HousingQuotient, Zone} from './ptz.types'
 
 export const getQuotient = (

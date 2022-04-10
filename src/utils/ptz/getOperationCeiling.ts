@@ -1,4 +1,4 @@
-import {operationCostZones} from './ptz_data'
+import {operationCostZones} from './data'
 import {NbrPeopleDigits, Zone} from './ptz.types'
 
 export const getOperationCeiling = (

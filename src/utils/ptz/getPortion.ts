@@ -1,4 +1,4 @@
-import {loanerPortionZones, ptzFamilyRatio} from './ptz_data'
+import {loanerPortionZones, ptzFamilyRatio} from './data'
 import {NbrPeopleDigits, Zone} from './ptz.types'
 
 export const getPortion = (

@@ -1,4 +1,4 @@
-import {resourcesZones} from './ptz_data'
+import {resourcesZones} from './data'
 
 type Zone = 'A' | 'Abis' | 'B1' | 'B2' | 'C'
 

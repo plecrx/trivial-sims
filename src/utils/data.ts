@@ -54,3 +54,34 @@ export const immoItems = [
 		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
 	},
 ]
+
+export const menuItems = [
+	{
+		title: 'Immobilier',
+		itemId: 'immo',
+		subNav: [
+			{
+				title: 'Prêt à taux zéro',
+				itemId: '/immo/ptz',
+			},
+			{
+				title: 'Lissage de prêt',
+				itemId: '/immo/smooth',
+				subNav: [
+					{
+						title: 'Frais de notaire',
+						itemId: '/immo/notaire',
+					},
+					{
+						title: "Capacité d'emprunt",
+						itemId: '/immo/ability',
+					},
+				],
+			},
+		],
+	},
+	{
+		title: 'Freelance',
+		itemId: '/freelance',
+	},
+]

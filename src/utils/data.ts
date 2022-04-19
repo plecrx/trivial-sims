@@ -57,17 +57,21 @@ export const immoItems = [
 
 export const menuItems = [
 	{
-		title: 'Immobilier',
-		itemId: 'immo',
+		title: 'Tableau de bord',
+		itemId: '/',
 		subNav: [
 			{
-				title: 'Prêt à taux zéro',
-				itemId: '/immo/ptz',
-			},
-			{
-				title: 'Lissage de prêt',
-				itemId: '/immo/smooth',
+				title: 'Immobilier',
+				itemId: 'immo',
 				subNav: [
+					{
+						title: 'Prêt à taux zéro',
+						itemId: '/immo/ptz',
+					},
+					{
+						title: 'Lissage de prêt',
+						itemId: '/immo/smooth',
+					},
 					{
 						title: 'Frais de notaire',
 						itemId: '/immo/notaire',
@@ -83,5 +87,9 @@ export const menuItems = [
 	{
 		title: 'Freelance',
 		itemId: '/freelance',
+	},
+	{
+		title: 'Revenir au portfolio',
+		itemId: 'https://plecrx.io',
 	},
 ]

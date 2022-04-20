@@ -1,6 +1,6 @@
 ## About The Project
 
-A website to help people simulate their real estate & freelance project.
+A website to help people to simulate their real estate & freelance project.
 
 ### Built With
 

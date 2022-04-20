@@ -22,8 +22,8 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* Install Git
-http://git-scm.com/download/win
+* Install Git via this link : http://git-scm.com/download/win
+
 * Install NPM
 ```sh
 npm install npm@latest -g

@@ -34,7 +34,7 @@ npm install npm@latest -g
 1. Clone the repo
 ```sh
 git clone https://github.com/plecrx/trivial-sims
-
+```
 2. Install NPM packages 
 ```sh
 npm install

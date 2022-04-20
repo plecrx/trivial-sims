@@ -50,4 +50,4 @@ npm start
 
 prescilla@plecrx.io
 
-Project Link: [https://github.com/plecrx/trivial-sims](https://github.com/plecrx/trivial-sims)
+Project Link: [https://trivial-sims.plecrx.io](https://trivial-sims.plecrx.io)

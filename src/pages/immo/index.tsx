@@ -34,6 +34,7 @@ const SimWrapper = styled(SmoothList)`
 
 const SimBlock = styled(Block)`
 	display: flex;
+	min-height: 360px;
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;

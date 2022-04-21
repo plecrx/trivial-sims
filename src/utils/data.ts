@@ -28,6 +28,15 @@ export const immoItems = [
 		illustrationSlug: '/discount.svg',
 	},
 	{
+		id: 4,
+		title: "Simulez votre capacité d'emprunt",
+		content:
+			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
+		cta: "CALCUL CAPACITE D'EMPRUNT",
+		href: '/immo/ability',
+		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
+	},
+	{
 		id: 2,
 		title: 'Simulez votre lissage de crédit',
 		content: 'Calculez vos mensualités lissées.',
@@ -43,15 +52,6 @@ export const immoItems = [
 		cta: 'CALCUL FRAIS DE NOTAIRE',
 		href: '/immo/notaire',
 		illustrationSlug: '/buy_house_orange.svg',
-	},
-	{
-		id: 4,
-		title: "Simulez votre capacité d'emprunt",
-		content:
-			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
-		cta: "CALCUL CAPACITE D'EMPRUNT",
-		href: '/immo/ability',
-		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
 	},
 ]
 

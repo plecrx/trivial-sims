@@ -24,7 +24,6 @@ const MainBlock = styled(Block)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-		background-color: rgb(0, 104, 85);
 `
 
 const Ptz = () => {
@@ -41,7 +40,7 @@ const Ptz = () => {
 				</Breadcrumbs>
 				<MainBlock
 					className={css({
-						backgroundColor: theme.colors.tagNeutralBackground,
+						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
 					})}
 				>
 					<Block

@@ -21,6 +21,7 @@ const MainBlock = styled(Block)`
 	padding-block: 2.5em 1em;
 	margin-top: 1.5em;
 	border-radius: 8px;
+		background-color: rgb(0, 104, 85);
 `
 
 const SimWrapper = styled(SmoothList)`

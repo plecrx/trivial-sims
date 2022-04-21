@@ -5,7 +5,12 @@ import React, {useState} from 'react'
 import {StyledLink} from 'baseui/link'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {useStyletron} from 'baseui'
-import {DisplayMedium, HeadingXXLarge, LabelLarge} from 'baseui/typography'
+import {
+	DisplayMedium,
+	HeadingXSmall,
+	HeadingXXLarge,
+	LabelLarge,
+} from 'baseui/typography'
 import {Button} from 'baseui/button'
 import {Radio, RadioGroup} from 'baseui/radio'
 import Slider from '../../components/Slider/Slider'
@@ -19,14 +24,20 @@ const LoanContainer = styled(Block)`
 const MainBlock = styled(Block)`
 	padding-left: calc(8.33333%);
 	padding-right: calc(8.33333%);
-	margin-top: 1.5em;
-	border-radius: 8px;
+	border-radius: 0 0 8px 8px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: start;
 	flex-wrap: wrap;
 	gap: 24px;
+`
+const HeroContainer = styled(Block)`
+	border-radius: 8px 8px 0 0;
+	margin: 16px 0 8px 0;
+	padding-left: calc(8.33333%);
+	padding-right: calc(8.33333%);
+	padding-block: 16px;
 `
 
 const ResultContainer = styled(Block)`
@@ -71,13 +82,28 @@ const Loan = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Emprunt</span>
 				</Breadcrumbs>
+				<HeroContainer
+					className={css({
+						backgroundColor: theme.colors.backgroundPrimary,
+					})}
+				>
+					<DisplayMedium>
+						<strong>Simulation capacité d'emprunt :</strong>
+					</DisplayMedium>
+					<HeadingXSmall>
+						Calculez votre capacité d'emprunt en quleques minutes grâce à ce
+						simulateur rapide et simple.
+					</HeadingXSmall>
+				</HeroContainer>
 				<MainBlock
 					className={css({
 						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
 					})}
 				>
-					<div>
-						<HeadingXXLarge>Votre projet</HeadingXXLarge>
+					<div style={{paddingInline: 'calc(8.33333%)'}}>
+						<HeadingXXLarge>
+							<strong>Votre projet</strong>
+						</HeadingXXLarge>
 						<ResultContainer
 							className={css({
 								backgroundColor: theme.colors.warning400,
@@ -123,7 +149,9 @@ const Loan = () => {
 						</ResultContainer>
 					</div>
 					<div>
-						<HeadingXXLarge>Votre capacité</HeadingXXLarge>
+						<HeadingXXLarge>
+							<strong>Votre capacité</strong>
+						</HeadingXXLarge>
 						<ResultContainer
 							className={css({
 								backgroundColor: 'rgb(0, 104, 85)',

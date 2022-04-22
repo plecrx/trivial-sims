@@ -11,7 +11,7 @@ import Slider from '../../components/Slider/Slider'
 import Divider from '../../components/Divider/Divider'
 import {getMaxLoan} from '../../utils/ability/getMaxLoan'
 import {ArrowRight} from 'baseui/icon'
-import { router } from 'next/client'
+import {router} from 'next/client'
 import HeroLabel from '../../components/HeroLabel/HeroLabel'
 
 const LoanContainer = styled(Block)`
@@ -114,7 +114,9 @@ const Loan = () => {
 							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>APPORT PERSONNEL</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>
+										APPORT PERSONNEL
+									</LabelLarge>
 									<div>{contribution} €</div>
 								</Wrapper>
 								<Slider
@@ -127,7 +129,9 @@ const Loan = () => {
 							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>DUREE DU PRÊT</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>
+										DUREE DU PRÊT
+									</LabelLarge>
 									<div>{duration} ans</div>
 								</Wrapper>
 								<Slider
@@ -145,7 +149,9 @@ const Loan = () => {
 							<strong>Votre capacité</strong>
 						</HeadingXXLarge>
 						<ResultContainer backgroundColor={'rgb(0, 104, 85)'}>
-							<LabelLarge color={theme.colors.primary100}>CAPACITE D'EMPRUNT</LabelLarge>
+							<LabelLarge color={theme.colors.primary100}>
+								CAPACITE D'EMPRUNT
+							</LabelLarge>
 							<DisplayMedium color={theme.colors.primary100}>
 								<strong>{loanAbility} €</strong>
 							</DisplayMedium>

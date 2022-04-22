@@ -26,7 +26,7 @@ const Menu = ({isOpen, isDark, onClose, setTheme}: MenuProps) => {
 					DrawerBody: {
 						style: ({$theme}) => ({
 							zIndex: 1000,
-							position: 'absolute'
+							position: 'absolute',
 						}),
 					},
 				}}

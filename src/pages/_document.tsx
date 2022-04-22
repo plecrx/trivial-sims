@@ -29,7 +29,6 @@ class MyDocument extends Document<{stylesheets: Sheet[]}> {
 							key={i}
 						/>
 					))}
-					<title>Trivial Sims - Prescilla Lecurieux</title>
 				</Head>
 				<body>
 					<Main />

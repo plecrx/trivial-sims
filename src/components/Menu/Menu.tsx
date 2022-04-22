@@ -24,7 +24,7 @@ const Menu = ({isOpen, isDark, onClose, setTheme}: MenuProps) => {
 				anchor={'right'}
 				overrides={{
 					DrawerBody: {
-						style: ({$theme}) => ({
+						style: () => ({
 							zIndex: 1000,
 							position: 'absolute',
 						}),

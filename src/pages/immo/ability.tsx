@@ -11,10 +11,10 @@ import Slider from '../../components/Slider/Slider'
 import Divider from '../../components/Divider/Divider'
 import {getMaxLoan} from '../../utils/ability/getMaxLoan'
 import {ArrowRight} from 'baseui/icon'
-import {router} from 'next/client'
+import {useRouter} from 'next/router'
 import HeroLabel from '../../components/HeroLabel/HeroLabel'
 
-const LoanContainer = styled(Block)`
+const AbilityContainer = styled(Block)`
 	width: 80%;
 	margin: 2.5em 0 5em 0;
 `
@@ -55,8 +55,9 @@ const Wrapper = styled.div`
 	gap: 150px;
 `
 
-const Loan = () => {
+const Ability = () => {
 	const [css, theme] = useStyletron()
+	const router = useRouter()
 	const [revenue, setRevenue] = useState([100])
 	const [duration, setDuration] = useState([15])
 	const [expanses, setExpanses] = useState([0])
@@ -70,7 +71,7 @@ const Loan = () => {
 
 	return (
 		<FullPageLayout>
-			<LoanContainer>
+			<AbilityContainer>
 				<Breadcrumbs>
 					<StyledLink href='/'>Home</StyledLink>
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
@@ -181,8 +182,8 @@ const Loan = () => {
 						</Button>
 					</div>
 				</MainBlock>
-			</LoanContainer>
+			</AbilityContainer>
 		</FullPageLayout>
 	)
 }
-export default Loan
+export default Ability

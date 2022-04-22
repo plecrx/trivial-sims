@@ -39,8 +39,7 @@ export const immoItems = [
 	{
 		id: 4,
 		title: 'Simulez votre prêt immobilier',
-		content:
-			'Estimez votre prêt immobilier en un temps record',
+		content: 'Estimez votre prêt immobilier en un temps record',
 		cta: 'CALCUL PRÊT IMMOBILIER',
 		href: '/immo/loan',
 		illustrationSlug: '/undraw_home_settings_re_pkya.svg',
@@ -86,8 +85,12 @@ export const menuItems = [
 						itemId: '/immo/notaire',
 					},
 					{
-						title: "Capacité d'emprunt",
+						title: 'Capacité demprunt',
 						itemId: '/immo/ability',
+					},
+					{
+						title: 'Simulation prêt',
+						itemId: '/immo/loan',
 					},
 				],
 			},

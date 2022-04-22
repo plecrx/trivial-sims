@@ -10,8 +10,15 @@ import {useStyletron} from 'baseui'
 import {Button} from 'baseui/button'
 
 const Card = styled(Block)`
-	min-height: 360px;
-	width: 80%;
+	flex: 1;
+	min-height: fit-content;
+	width: 90%;
+	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+		rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+		rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+		rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+		rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+	border-radius: 8px;
 	border: 1px solid rgb(211, 211, 211);
 	padding: 24px;
 	transition: border-color 300ms ease-in-out 0s;
@@ -23,6 +30,7 @@ const SimContent = styled.div`
 	flex-direction: column;
 	align-items: start;
 	width: 100%;
+	color: white;
 	gap: 15px;
 `
 
@@ -34,7 +42,6 @@ const PreviousButton = styled(Button)`
 	top: 0;
 	left: 0;
 	height: 100%;
-	background: linear-gradient(to right, #596275, 20%, transparent);
 `
 
 const NextButton = styled(Button)`
@@ -83,7 +90,16 @@ const Carousel = ({items}: CarouselProps) => {
 
 	return (
 		<div style={{position: 'relative'}}>
-			<PreviousButton onClick={sliderRef?.slickPrev}>
+			<PreviousButton
+				onClick={sliderRef?.slickPrev}
+				overrides={{
+					BaseButton: {
+						style: ({$theme}) => ({
+							background: `linear-gradient(to right, ${$theme.colors.primaryA}, 20%, transparent)`,
+						}),
+					},
+				}}
+			>
 				<FaChevronLeft />
 			</PreviousButton>
 			<div>
@@ -97,10 +113,13 @@ const Carousel = ({items}: CarouselProps) => {
 							href: string
 							cta: string
 						}) => (
-							<div key={`immo-item-${item.id}`} style={{width: '100%'}}>
+							<div
+								key={`immo-item-${item.id}`}
+								style={{width: '100%', display: 'flex'}}
+							>
 								<Card
 									onClick={() => router.push(item.href)}
-									backgroundColor={theme.colors.backgroundTertiary}
+									backgroundColor='rgb(0, 104, 85)'
 								>
 									<SimContent>
 										<img
@@ -120,7 +139,16 @@ const Carousel = ({items}: CarouselProps) => {
 					)}
 				</Slider>
 			</div>
-			<NextButton onClick={sliderRef?.slickNext}>
+			<NextButton
+				onClick={sliderRef?.slickNext}
+				overrides={{
+					BaseButton: {
+						style: ({$theme}) => ({
+							background: `linear-gradient(to left, ${$theme.colors.primaryA}, 20%, transparent)`,
+						}),
+					},
+				}}
+			>
 				<FaChevronRight />
 			</NextButton>
 		</div>

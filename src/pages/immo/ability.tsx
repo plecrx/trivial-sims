@@ -11,6 +11,7 @@ import Slider from '../../components/Slider/Slider'
 import Divider from '../../components/Divider/Divider'
 import {getMaxLoan} from '../../utils/ability/getMaxLoan'
 import {ArrowRight} from 'baseui/icon'
+import { router } from 'next/client'
 
 const LoanContainer = styled(Block)`
 	width: 80%;
@@ -59,7 +60,6 @@ const Wrapper = styled.div`
 
 const Loan = () => {
 	const [css, theme] = useStyletron()
-	const primaryColor = theme.colors.primary100
 	const [revenue, setRevenue] = useState([100])
 	const [duration, setDuration] = useState([15])
 	const [expanses, setExpanses] = useState([0])
@@ -152,13 +152,13 @@ const Loan = () => {
 							<strong>Votre capacité</strong>
 						</HeadingXXLarge>
 						<ResultContainer backgroundColor={'rgb(0, 104, 85)'}>
-							<LabelLarge color={primaryColor}>CAPACITE D'EMPRUNT</LabelLarge>
-							<DisplayMedium color={primaryColor}>
+							<LabelLarge color={theme.colors.primary100}>CAPACITE D'EMPRUNT</LabelLarge>
+							<DisplayMedium color={theme.colors.primary100}>
 								<strong>{loanAbility} €</strong>
 							</DisplayMedium>
 							<Divider />
-							<Wrapper style={{marginBottom: '24px', color: primaryColor}}>
-								<LabelLarge color={primaryColor}>MENSUALITE</LabelLarge>
+							<Wrapper style={{marginBottom: '24px', color: theme.colors.primary100}}>
+								<LabelLarge color={theme.colors.primary100}>MENSUALITE</LabelLarge>
 								<div>{monthlyLoanAbility} €</div>
 							</Wrapper>
 						</ResultContainer>
@@ -175,6 +175,7 @@ const Loan = () => {
 							size={SIZE.large}
 							endEnhancer={() => <ArrowRight size={24} />}
 							shape={SHAPE.pill}
+							onClick={() => router.push('/immo')}
 						>
 							Retourner au menu
 						</Button>

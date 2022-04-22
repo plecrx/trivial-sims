@@ -38,16 +38,8 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock
-					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-					})}
-				>
-					<Block
-						className={css({
-							padding: '2em',
-						})}
-					>
+				<MainBlock backgroundColor={theme.colors.tagPrimaryOutlinedHover}>
+					<Block padding={'2em'}>
 						<Form
 							form={ptz_form}
 							returnToMenu={() => router.push('/immo')}

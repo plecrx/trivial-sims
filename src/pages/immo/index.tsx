@@ -28,10 +28,10 @@ const SimWrapper = styled(SmoothList)`
 	flex-wrap: wrap;
 	flex-direction: row;
 	border-radius: 8px;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	background-color: #f19164;
 	padding: 48px;
-	gap: 24px;
+	gap: 32px;
 `
 
 const SimBlock = styled(Block)`

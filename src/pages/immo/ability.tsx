@@ -15,6 +15,7 @@ import {Button} from 'baseui/button'
 import {Radio, RadioGroup} from 'baseui/radio'
 import Slider from '../../components/Slider/Slider'
 import Divider from '../../components/Divider/Divider'
+import { getMaxLoan } from '../../utils/ability/getMaxLoan'
 
 const LoanContainer = styled(Block)`
 	width: 80%;
@@ -72,8 +73,15 @@ const Wrapper = styled.div`
 const Loan = () => {
 	const [css, theme] = useStyletron()
 	const [isSolo, setIsSolo] = useState('true')
-	const [revenue, setRevenue] = useState([0])
+	const [revenue, setRevenue] = useState([100])
 	const [duration, setDuration] = useState([15])
+	const [expanses, setExpanses] = useState([0])
+	const {loanAbility, monthlyLoanAbility} = getMaxLoan(
+		revenue[0],
+		expanses[0],
+		duration[0],
+	)
+
 	return (
 		<FullPageLayout>
 			<LoanContainer>
@@ -123,14 +131,27 @@ const Loan = () => {
 							<ColumnWrapper>
 								<Wrapper>
 									<LabelLarge>REVENUS</LabelLarge>
-									<div>{revenue} €</div>
+									<div>{revenue} € /mois</div>
 								</Wrapper>
 								<Slider
 									value={revenue}
-									min={0}
+									min={100}
 									max={15000}
 									step={100}
 									onChangeValue={setRevenue}
+								/>
+							</ColumnWrapper>
+							<ColumnWrapper>
+								<Wrapper>
+									<LabelLarge>CHARGES</LabelLarge>
+									<div>{expanses} €</div>
+								</Wrapper>
+								<Slider
+									value={expanses}
+									min={0}
+									max={revenue[0]}
+									step={100}
+									onChangeValue={setExpanses}
 								/>
 							</ColumnWrapper>
 							<ColumnWrapper>
@@ -140,7 +161,7 @@ const Loan = () => {
 								</Wrapper>
 								<Slider
 									value={duration}
-									min={0}
+									min={7}
 									max={25}
 									step={1}
 									onChangeValue={setDuration}
@@ -158,11 +179,11 @@ const Loan = () => {
 							})}
 						>
 							<LabelLarge>CAPACITE D'EMPRUNT</LabelLarge>
-							<DisplayMedium>298000€</DisplayMedium>
+							<DisplayMedium>{loanAbility} €</DisplayMedium>
 							<Divider />
 							<Wrapper style={{marginBottom: '24px'}}>
 								<LabelLarge>MENSUALITE</LabelLarge>
-								<div>1400 €</div>
+								<div>{monthlyLoanAbility} €</div>
 							</Wrapper>
 							<Button>Retourner au menu</Button>
 						</ResultContainer>

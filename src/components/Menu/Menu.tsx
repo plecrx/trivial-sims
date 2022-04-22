@@ -18,7 +18,19 @@ const Menu = ({isOpen, isDark, onClose, setTheme}: MenuProps) => {
 	const [location, setLocation] = useState(router.pathname)
 	return (
 		<Fragment>
-			<Drawer onClose={onClose} isOpen={isOpen} anchor={'right'}>
+			<Drawer
+				onClose={onClose}
+				isOpen={isOpen}
+				anchor={'right'}
+				overrides={{
+					DrawerBody: {
+						style: ({$theme}) => ({
+							zIndex: 1000,
+							position: 'absolute'
+						}),
+					},
+				}}
+			>
 				<Navigation
 					items={menuItems}
 					activeItemId={location}

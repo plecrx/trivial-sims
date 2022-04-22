@@ -2,10 +2,13 @@ export const getMaxLoan = (
 	revenue: number,
 	expanses: number,
 	duration: number,
-	contribution: number = 0,
+	contribution: number,
 ) => {
-	const monthlyLoanAbility = (revenue * 33) / 100 - expanses
-	const loanAbility = monthlyLoanAbility * 12 * duration - contribution
+	const monthlyLoanAbility = Math.round(0.33 * revenue) - expanses
+	const loanAbility = monthlyLoanAbility * 12 * duration + contribution
 
+	if (monthlyLoanAbility <= 0) {
+		return {loanAbility: 0, monthlyLoanAbility: 0}
+	}
 	return {loanAbility, monthlyLoanAbility}
 }

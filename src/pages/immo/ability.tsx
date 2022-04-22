@@ -5,17 +5,12 @@ import React, {useState} from 'react'
 import {StyledLink} from 'baseui/link'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {useStyletron} from 'baseui'
-import {
-	DisplayMedium,
-	HeadingXSmall,
-	HeadingXXLarge,
-	LabelLarge,
-} from 'baseui/typography'
-import {Button} from 'baseui/button'
-import {Radio, RadioGroup} from 'baseui/radio'
+import {DisplayMedium, HeadingXXLarge, LabelLarge} from 'baseui/typography'
+import {Button, SHAPE, SIZE} from 'baseui/button'
 import Slider from '../../components/Slider/Slider'
 import Divider from '../../components/Divider/Divider'
-import { getMaxLoan } from '../../utils/ability/getMaxLoan'
+import {getMaxLoan} from '../../utils/ability/getMaxLoan'
+import {ArrowRight} from 'baseui/icon'
 
 const LoanContainer = styled(Block)`
 	width: 80%;
@@ -23,30 +18,21 @@ const LoanContainer = styled(Block)`
 `
 
 const MainBlock = styled(Block)`
-	padding-left: calc(8.33333%);
-	padding-right: calc(8.33333%);
-	border-radius: 0 0 8px 8px;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: start;
 	flex-wrap: wrap;
-	gap: 24px;
 `
 const HeroContainer = styled(Block)`
-	border-radius: 8px 8px 0 0;
 	margin: 16px 0 8px 0;
-	padding-left: calc(8.33333%);
-	padding-right: calc(8.33333%);
 	padding-block: 16px;
 `
 
 const ResultContainer = styled(Block)`
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 40px;
-	width: 500px;
 	align-items: flex-start;
+	margin-bottom: 48px;
 	box-sizing: border-box;
 	box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
 	border: 1px solid rgb(211, 211, 211);
@@ -68,18 +54,20 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	gap: 150px;
 `
 
 const Loan = () => {
 	const [css, theme] = useStyletron()
-	const [isSolo, setIsSolo] = useState('true')
 	const [revenue, setRevenue] = useState([100])
 	const [duration, setDuration] = useState([15])
 	const [expanses, setExpanses] = useState([0])
+	const [contribution, setContribution] = useState([0])
 	const {loanAbility, monthlyLoanAbility} = getMaxLoan(
 		revenue[0],
 		expanses[0],
 		duration[0],
+		contribution[0],
 	)
 
 	return (
@@ -90,44 +78,21 @@ const Loan = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Emprunt</span>
 				</Breadcrumbs>
-				<HeroContainer
-					className={css({
-						backgroundColor: theme.colors.backgroundPrimary,
-					})}
-				>
+				<HeroContainer>
 					<DisplayMedium>
 						<strong>Simulation capacité d'emprunt :</strong>
 					</DisplayMedium>
-					<HeadingXSmall>
-						Calculez votre capacité d'emprunt en quleques minutes grâce à ce
-						simulateur rapide et simple.
-					</HeadingXSmall>
 				</HeroContainer>
-				<MainBlock
-					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-					})}
-				>
+				<MainBlock>
 					<div style={{paddingInline: 'calc(8.33333%)'}}>
 						<HeadingXXLarge>
 							<strong>Votre projet</strong>
 						</HeadingXXLarge>
 						<ResultContainer
 							className={css({
-								backgroundColor: theme.colors.warning400,
+								backgroundColor: theme.colors.positive100,
 							})}
 						>
-							<ColumnWrapper>
-								<LabelLarge>EMPRUNTEUR(S)</LabelLarge>
-								<RadioGroup
-									value={isSolo}
-									align='horizontal'
-									onChange={event => setIsSolo(event.currentTarget.value)}
-								>
-									<Radio value='true'>Seul</Radio>
-									<Radio value='false'>A deux</Radio>
-								</RadioGroup>
-							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
 									<LabelLarge>REVENUS</LabelLarge>
@@ -144,7 +109,7 @@ const Loan = () => {
 							<ColumnWrapper>
 								<Wrapper>
 									<LabelLarge>CHARGES</LabelLarge>
-									<div>{expanses} €</div>
+									<div>{expanses} € /mois</div>
 								</Wrapper>
 								<Slider
 									value={expanses}
@@ -152,6 +117,19 @@ const Loan = () => {
 									max={revenue[0]}
 									step={100}
 									onChangeValue={setExpanses}
+								/>
+							</ColumnWrapper>
+							<ColumnWrapper>
+								<Wrapper>
+									<LabelLarge>APPORT PERSONNEL</LabelLarge>
+									<div>{contribution} €</div>
+								</Wrapper>
+								<Slider
+									value={contribution}
+									min={0}
+									max={100000}
+									step={100}
+									onChangeValue={setContribution}
 								/>
 							</ColumnWrapper>
 							<ColumnWrapper>
@@ -179,14 +157,31 @@ const Loan = () => {
 							})}
 						>
 							<LabelLarge>CAPACITE D'EMPRUNT</LabelLarge>
-							<DisplayMedium>{loanAbility} €</DisplayMedium>
+							<DisplayMedium>
+								<strong>{loanAbility} €</strong>
+							</DisplayMedium>
 							<Divider />
 							<Wrapper style={{marginBottom: '24px'}}>
 								<LabelLarge>MENSUALITE</LabelLarge>
 								<div>{monthlyLoanAbility} €</div>
 							</Wrapper>
-							<Button>Retourner au menu</Button>
 						</ResultContainer>
+					</div>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							flexDirection: 'column',
+							justifyContent: 'center',
+						}}
+					>
+						<Button
+							size={SIZE.large}
+							endEnhancer={() => <ArrowRight size={24} />}
+							shape={SHAPE.pill}
+						>
+							Retourner au menu
+						</Button>
 					</div>
 				</MainBlock>
 			</LoanContainer>

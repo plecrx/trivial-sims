@@ -59,6 +59,7 @@ const Wrapper = styled.div`
 
 const Loan = () => {
 	const [css, theme] = useStyletron()
+	const primaryColor = theme.colors.primary100
 	const [revenue, setRevenue] = useState([100])
 	const [duration, setDuration] = useState([15])
 	const [expanses, setExpanses] = useState([0])
@@ -89,13 +90,12 @@ const Loan = () => {
 							<strong>Votre projet</strong>
 						</HeadingXXLarge>
 						<ResultContainer
-							className={css({
-								backgroundColor: theme.colors.positive100,
-							})}
+							backgroundColor={theme.colors.positive100}
+							color={theme.colors.colorSecondary}
 						>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge>REVENUS</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>REVENUS</LabelLarge>
 									<div>{revenue} € /mois</div>
 								</Wrapper>
 								<Slider
@@ -108,7 +108,7 @@ const Loan = () => {
 							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge>CHARGES</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>CHARGES</LabelLarge>
 									<div>{expanses} € /mois</div>
 								</Wrapper>
 								<Slider
@@ -121,7 +121,7 @@ const Loan = () => {
 							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge>APPORT PERSONNEL</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>APPORT PERSONNEL</LabelLarge>
 									<div>{contribution} €</div>
 								</Wrapper>
 								<Slider
@@ -134,7 +134,7 @@ const Loan = () => {
 							</ColumnWrapper>
 							<ColumnWrapper>
 								<Wrapper>
-									<LabelLarge>DUREE DU PRÊT</LabelLarge>
+									<LabelLarge color={theme.colors.colorSecondary}>DUREE DU PRÊT</LabelLarge>
 									<div>{duration} ans</div>
 								</Wrapper>
 								<Slider
@@ -151,18 +151,14 @@ const Loan = () => {
 						<HeadingXXLarge>
 							<strong>Votre capacité</strong>
 						</HeadingXXLarge>
-						<ResultContainer
-							className={css({
-								backgroundColor: 'rgb(0, 104, 85)',
-							})}
-						>
-							<LabelLarge>CAPACITE D'EMPRUNT</LabelLarge>
-							<DisplayMedium>
+						<ResultContainer backgroundColor={'rgb(0, 104, 85)'}>
+							<LabelLarge color={primaryColor}>CAPACITE D'EMPRUNT</LabelLarge>
+							<DisplayMedium color={primaryColor}>
 								<strong>{loanAbility} €</strong>
 							</DisplayMedium>
 							<Divider />
-							<Wrapper style={{marginBottom: '24px'}}>
-								<LabelLarge>MENSUALITE</LabelLarge>
+							<Wrapper style={{marginBottom: '24px', color: primaryColor}}>
+								<LabelLarge color={primaryColor}>MENSUALITE</LabelLarge>
 								<div>{monthlyLoanAbility} €</div>
 							</Wrapper>
 						</ResultContainer>

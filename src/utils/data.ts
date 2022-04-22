@@ -37,6 +37,15 @@ export const immoItems = [
 		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
 	},
 	{
+		id: 4,
+		title: 'Simulez votre prêt immobilier',
+		content:
+			'Estimez votre prêt immobilier en un temps record',
+		cta: 'CALCUL PRÊT IMMOBILIER',
+		href: '/immo/loan',
+		illustrationSlug: '/undraw_home_settings_re_pkya.svg',
+	},
+	{
 		id: 2,
 		title: 'Simulez votre lissage de crédit',
 		content: 'Calculez vos mensualités lissées.',

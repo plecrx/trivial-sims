@@ -18,7 +18,7 @@ const PtzContainer = styled(Block)`
 const MainBlock = styled(Block)`
 	padding-left: calc(8.33333%);
 	padding-right: calc(8.33333%);
-	min-height: 56.5vh;
+	min-height: 50vh;
 	margin-top: 1.5em;
 	border-radius: 8px;
 	display: flex;
@@ -38,7 +38,7 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock backgroundColor={theme.colors.tagPrimaryOutlinedHover}>
+				<MainBlock backgroundColor={'#f19164'}>
 					<Block padding={'2em'}>
 						<Form
 							form={ptz_form}

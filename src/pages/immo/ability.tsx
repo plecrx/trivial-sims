@@ -12,6 +12,7 @@ import Divider from '../../components/Divider/Divider'
 import {getMaxLoan} from '../../utils/ability/getMaxLoan'
 import {ArrowRight} from 'baseui/icon'
 import { router } from 'next/client'
+import HeroLabel from '../../components/HeroLabel/HeroLabel'
 
 const LoanContainer = styled(Block)`
 	width: 80%;
@@ -23,10 +24,6 @@ const MainBlock = styled(Block)`
 	justify-content: space-evenly;
 	align-items: start;
 	flex-wrap: wrap;
-`
-const HeroContainer = styled(Block)`
-	margin: 16px 0 8px 0;
-	padding-block: 16px;
 `
 
 const ResultContainer = styled(Block)`
@@ -79,11 +76,7 @@ const Loan = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Emprunt</span>
 				</Breadcrumbs>
-				<HeroContainer>
-					<DisplayMedium>
-						<strong>Simulation capacité d'emprunt :</strong>
-					</DisplayMedium>
-				</HeroContainer>
+				<HeroLabel label={"Simulation capacité d'emprunt :"} />
 				<MainBlock>
 					<div style={{paddingInline: 'calc(8.33333%)'}}>
 						<HeadingXXLarge>

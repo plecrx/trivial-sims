@@ -6,9 +6,10 @@ import {Block} from 'baseui/block'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
-import {LabelMedium} from 'baseui/typography'
+import {DisplayMedium, LabelMedium} from 'baseui/typography'
 import {useRouter} from 'next/router'
 import SmoothList from 'react-smooth-list'
+import HeroLabel from '../../components/HeroLabel/HeroLabel'
 
 const ImmoContainer = styled(Block)`
 	width: 80%;
@@ -16,7 +17,6 @@ const ImmoContainer = styled(Block)`
 `
 
 const MainBlock = styled(Block)`
-	padding-left: calc(8.33333%);
 	padding-right: calc(8.33333%);
 	padding-block: 2.5em 1em;
 	margin-top: 1.5em;
@@ -27,9 +27,11 @@ const SimWrapper = styled(SmoothList)`
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	margin: 2em 0;
+	border-radius: 8px;
+	justify-content: space-evenly;
+	background-color: #f19164;
+	padding: 48px;
 	gap: 24px;
-	padding: 0 0 24px;
 `
 
 const SimBlock = styled(Block)`
@@ -58,7 +60,6 @@ const SimContent = styled.div`
 const Immo = () => {
 	const [css, theme] = useStyletron()
 	const router = useRouter()
-	const textColor = theme.colors.colorPrimary
 
 	return (
 		<FullPageLayout>
@@ -67,14 +68,10 @@ const Immo = () => {
 					<StyledLink href='/'>Home</StyledLink>
 					<span>Simulation de crédit immobilier</span>
 				</Breadcrumbs>
-				<MainBlock
-					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-					})}
-				>
-					<LabelMedium color={textColor}>
-						REUSSISSEZ VOTRE PRÊT IMMO GRÂCE AUX SIMULATEURS !
-					</LabelMedium>
+				<HeroLabel
+					label={'Réussissez votre prêt immobilier grâce aux simulateurs :'}
+				/>
+				<MainBlock>
 					<SimWrapper delay={80} transitionDuration={400}>
 						{immoItems.map(
 							(item: {

@@ -150,6 +150,7 @@ const Loan = () => {
 						</HeadingXXLarge>
 						<ResultContainer backgroundColor={'rgb(0, 104, 85)'}>
 							<LabelLarge color={theme.colors.primary100}>
+								{/* eslint-disable-next-line react/no-unescaped-entities */}
 								CAPACITE D'EMPRUNT
 							</LabelLarge>
 							<DisplayMedium color={theme.colors.primary100}>

@@ -13,6 +13,7 @@ import {getMaxLoan} from '../../utils/ability/getMaxLoan'
 import {ArrowRight} from 'baseui/icon'
 import {useRouter} from 'next/router'
 import HeroLabel from '../../components/HeroLabel/HeroLabel'
+import {isNumeric} from '../../utils/isNumeric'
 
 const AbilityContainer = styled(Block)`
 	width: 80%;
@@ -40,6 +41,36 @@ const ResultContainer = styled(Block)`
 	transition: border-color 300ms ease-in-out 0s;
 `
 
+const InputWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 96px;
+	padding: 0 4px;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNCAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSIjMDA2ODU1Ii8+PC9zdmc+');
+	background-repeat: repeat-x;
+	background-position: 0 100%;
+	background-size: 4px 2px;
+`
+
+const StyledInput = styled.input`
+	text-align: center;
+	background-color: transparent;
+	max-width: 50px;
+	font-size: 16px;
+	border: 0 none;
+	color: rgb(0, 104, 85);
+	caret-color: rgb(0, 104, 85);
+	&::-webkit-inner-spin-button,
+	::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+	}
+
+	&:focus {
+		outline: transparent;
+	}
+`
+
 const ColumnWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -51,15 +82,16 @@ const ColumnWrapper = styled.div`
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
-	gap: 150px;
+	-moz-box-align: center;
+	align-items: center;
+	-moz-box-pack: justify;
 `
 
 const Ability = () => {
 	const [css, theme] = useStyletron()
 	const router = useRouter()
-	const [revenue, setRevenue] = useState([100])
-	const [duration, setDuration] = useState([15])
+	const [revenue, setRevenue] = useState([4000])
+	const [duration, setDuration] = useState([25])
 	const [expanses, setExpanses] = useState([0])
 	const [contribution, setContribution] = useState([0])
 	const {loanAbility, monthlyLoanAbility} = getMaxLoan(
@@ -68,6 +100,12 @@ const Ability = () => {
 		duration[0],
 		contribution[0],
 	)
+
+	const handleChange = (answer: string, fn: (nbr: number[]) => void) => {
+		if (isNumeric(answer)) {
+			fn([Number(answer)])
+		}
+	}
 
 	return (
 		<FullPageLayout>
@@ -90,11 +128,33 @@ const Ability = () => {
 							<ColumnWrapper>
 								<Wrapper>
 									<LabelLarge color={theme.colors.colorSecondary}>REVENUS</LabelLarge>
-									<div>{revenue} € /mois</div>
+									<span
+										style={{
+											display: 'flex',
+											flex: '1 1 auto',
+											justifyContent: 'flex-end',
+										}}
+									>
+										<div style={{display: 'inline-flex', alignItems: 'center'}}>
+											<InputWrapper>
+												<StyledInput
+													type={'text'}
+													value={revenue[0] || ''}
+													onChange={e => handleChange(e.target.value, setRevenue)}
+													placeholder={'0'}
+													maxLength={5}
+													step={100}
+													min={0}
+													max={15000}
+												/>
+											</InputWrapper>
+											€ /mois
+										</div>
+									</span>
 								</Wrapper>
 								<Slider
-									value={revenue}
-									min={100}
+									value={revenue || 0}
+									min={0}
 									max={15000}
 									step={100}
 									onChangeValue={setRevenue}
@@ -103,12 +163,26 @@ const Ability = () => {
 							<ColumnWrapper>
 								<Wrapper>
 									<LabelLarge color={theme.colors.colorSecondary}>CHARGES</LabelLarge>
-									<div>{expanses} € /mois</div>
+									<div style={{display: 'inline-flex', alignItems: 'flex-end'}}>
+										<InputWrapper>
+											<StyledInput
+												type={'text'}
+												value={expanses[0] || ''}
+												onChange={e => handleChange(e.target.value, setExpanses)}
+												placeholder={'0'}
+												maxLength={5}
+												step={100}
+												min={0}
+												max={15000}
+											/>
+										</InputWrapper>
+										€ /mois
+									</div>
 								</Wrapper>
 								<Slider
-									value={expanses}
+									value={expanses || 0}
 									min={0}
-									max={revenue[0]}
+									max={100000}
 									step={100}
 									onChangeValue={setExpanses}
 								/>
@@ -118,10 +192,24 @@ const Ability = () => {
 									<LabelLarge color={theme.colors.colorSecondary}>
 										APPORT PERSONNEL
 									</LabelLarge>
-									<div>{contribution} €</div>
+									<div style={{display: 'flex', gap: '2px'}}>
+										<InputWrapper>
+											<StyledInput
+												type={'text'}
+												value={contribution[0] || ''}
+												onChange={e => handleChange(e.target.value, setContribution)}
+												placeholder={'0'}
+												maxLength={5}
+												step={100}
+												min={0}
+												max={15000}
+											/>
+										</InputWrapper>
+										€
+									</div>
 								</Wrapper>
 								<Slider
-									value={contribution}
+									value={contribution || 0}
 									min={0}
 									max={100000}
 									step={100}
@@ -133,11 +221,25 @@ const Ability = () => {
 									<LabelLarge color={theme.colors.colorSecondary}>
 										DUREE DU PRÊT
 									</LabelLarge>
-									<div>{duration} ans</div>
+									<div style={{display: 'flex', gap: '2px'}}>
+										<InputWrapper>
+											<StyledInput
+												type={'text'}
+												value={duration[0] || ''}
+												onChange={e => handleChange(e.target.value, setDuration)}
+												placeholder={'0'}
+												maxLength={2}
+												step={100}
+												min={0}
+												max={15000}
+											/>
+										</InputWrapper>
+										ans
+									</div>
 								</Wrapper>
 								<Slider
-									value={duration}
-									min={7}
+									value={duration || 0}
+									min={5}
 									max={25}
 									step={1}
 									onChangeValue={setDuration}
@@ -149,7 +251,7 @@ const Ability = () => {
 						<HeadingXXLarge>
 							<strong>Votre capacité</strong>
 						</HeadingXXLarge>
-						<ResultContainer backgroundColor={'rgb(0, 104, 85)'}>
+						<ResultContainer backgroundColor={'rgb(0, 104, 85)'} width={'400px'}>
 							<LabelLarge color={theme.colors.primary100}>
 								{/* eslint-disable-next-line react/no-unescaped-entities */}
 								CAPACITE D'EMPRUNT
@@ -158,10 +260,12 @@ const Ability = () => {
 								<strong>{loanAbility} €</strong>
 							</DisplayMedium>
 							<Divider />
-							<Wrapper style={{marginBottom: '24px', color: theme.colors.primary100}}>
-								<LabelLarge color={theme.colors.primary100}>MENSUALITE</LabelLarge>
-								<div>{monthlyLoanAbility} €</div>
-							</Wrapper>
+							<ColumnWrapper>
+								<Wrapper style={{color: theme.colors.primary100}}>
+									<LabelLarge color={theme.colors.primary100}>MENSUALITE</LabelLarge>
+									<div>{monthlyLoanAbility} €</div>
+								</Wrapper>
+							</ColumnWrapper>
 						</ResultContainer>
 					</div>
 					<div

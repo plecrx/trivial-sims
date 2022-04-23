@@ -9,6 +9,7 @@ import {getOperationCeiling} from '../../utils/ptz/getOperationCeiling'
 import {getQuotient} from '../../utils/ptz/getQuotient'
 import {getPortion} from '../../utils/ptz/getPortion'
 import {ptz_amortization_schedule, PTZQuestionIDs} from '../../utils/ptz/data'
+import {SIZE, Spinner} from 'baseui/spinner'
 
 const WrapperBlock = styled.div`
 	display: flex;
@@ -53,6 +54,7 @@ export type PtzResultProps = {
 const PtzResult = ({data}: PtzResultProps) => {
 	const [currentZone, setCurrentZone] = useState()
 	const [css, theme] = useStyletron()
+	const [loading, setLoading] = useState(true)
 	const nbr_people = Number(data.nbr_people) as NbrPeopleDigits
 	const cityName = data.city[0].nom
 	const revenue = getTotalRevenue(
@@ -66,10 +68,21 @@ const PtzResult = ({data}: PtzResultProps) => {
 			.then(jsonResult => {
 				if (jsonResult.length !== 0) {
 					setCurrentZone(jsonResult[0].zone_ptz)
+					setLoading(false)
 				}
 			})
 			.catch(error => console.log(error))
 	})
+
+	if (loading) {
+		return (
+			<WrapperBlock>
+				<CustomAnimationBlock>
+					<Spinner size={SIZE.large} />
+				</CustomAnimationBlock>
+			</WrapperBlock>
+		)
+	}
 
 	if (
 		!currentZone ||

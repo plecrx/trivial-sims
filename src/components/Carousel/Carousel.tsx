@@ -9,31 +9,6 @@ import {Block} from 'baseui/block'
 import {useStyletron} from 'baseui'
 import {Button} from 'baseui/button'
 
-const Card = styled(Block)`
-	flex: 1;
-	min-height: fit-content;
-	width: 90%;
-	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-		rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-		rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-		rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-		rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-	border-radius: 8px;
-	border: 1px solid rgb(211, 211, 211);
-	padding: 24px;
-	transition: border-color 300ms ease-in-out 0s;
-	cursor: pointer;
-`
-
-const SimContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	width: 100%;
-	color: white;
-	gap: 15px;
-`
-
 const PreviousButton = styled(Button)`
 	z-index: 2;
 	position: absolute;
@@ -52,6 +27,33 @@ const NextButton = styled(Button)`
 	right: 0;
 	height: 100%;
 	background: linear-gradient(to left, #596275, 20%, transparent);
+`
+
+const CustomSlider = styled(Slider)`
+	background-color: rgb(0, 104, 85);
+	height: 400px;
+	display: flex;
+	align-items: center;
+`
+
+const Wrapper = styled.div`
+	width: 272px;
+	height: 320px;
+	padding: 8px;
+`
+
+const Card = styled(Block)`
+	height: 100%;
+	border-radius: 8px;
+	border: 1px solid rgb(211, 211, 211);
+	padding: 24px;
+	transition: border-color 300ms ease-in-out 0s;
+`
+
+const CardContent = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 `
 
 type CarouselProps = {
@@ -103,7 +105,7 @@ const Carousel = ({items}: CarouselProps) => {
 				<FaChevronLeft />
 			</PreviousButton>
 			<div>
-				<Slider ref={setSliderRef} {...sliderSettings}>
+				<CustomSlider ref={setSliderRef} {...sliderSettings}>
 					{items.map(
 						(item: {
 							id: number
@@ -113,15 +115,13 @@ const Carousel = ({items}: CarouselProps) => {
 							href: string
 							cta: string
 						}) => (
-							<div
-								key={`immo-item-${item.id}`}
-								style={{width: '100%', display: 'flex'}}
-							>
+							<Wrapper key={`immo-item-${item.id}`}>
 								<Card
 									onClick={() => router.push(item.href)}
-									backgroundColor='rgb(0, 104, 85)'
+									backgroundColor={theme.colors.backgroundPrimary}
+									color={theme.colors.primary}
 								>
-									<SimContent>
+									<CardContent>
 										<img
 											height='88'
 											width='130'
@@ -132,12 +132,12 @@ const Carousel = ({items}: CarouselProps) => {
 										<strong>{item.title}</strong>
 										{item.content}
 										<a href={item.href}>{item.cta}</a>
-									</SimContent>
+									</CardContent>
 								</Card>
-							</div>
+							</Wrapper>
 						),
 					)}
-				</Slider>
+				</CustomSlider>
 			</div>
 			<NextButton
 				onClick={sliderRef?.slickNext}

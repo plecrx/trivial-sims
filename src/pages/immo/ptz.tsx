@@ -38,7 +38,7 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock backgroundColor={'#f19164'}>
+				<MainBlock backgroundColor={theme.colors.primary200}>
 					<Block padding={'2em'}>
 						<Form
 							form={ptz_form}

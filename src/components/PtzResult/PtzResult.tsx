@@ -78,7 +78,14 @@ const PtzResult = ({data}: PtzResultProps) => {
 		data.project_type !== 'principal'
 	) {
 		return (
-			<>Vous ne remplissez pas les conditions pour pouvoir bénéficier du PTZ.</>
+			<WrapperBlock>
+				<CustomAnimationBlock
+					backgroundColor={theme.colors.backgroundSecondary}
+					color={theme.colors.primaryA}
+				>
+					<>Vous ne remplissez pas les conditions pour pouvoir bénéficier du PTZ.</>
+				</CustomAnimationBlock>
+			</WrapperBlock>
 		)
 	}
 
@@ -112,12 +119,11 @@ const PtzResult = ({data}: PtzResultProps) => {
 				alt=''
 			/>
 			<CustomAnimationBlock
-				className={css({
-					backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-				})}
+				backgroundColor={theme.colors.positive400}
+				color={theme.colors.primary50}
 			>
 				<br />
-				<Label1>
+				<Label1 color={theme.colors.warning400}>
 					Bonne nouvelle, vous êtes éligible au PTZ pour un montant de{' '}
 					<strong>{ptzAmount} €</strong>
 				</Label1>

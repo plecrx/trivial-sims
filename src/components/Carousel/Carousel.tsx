@@ -79,6 +79,7 @@ const CTAButton = styled(Button)`
 	align-self: start;
 	max-height: 50px;
 	font-weight: bold;
+	border-radius: 8px;
 `
 
 type CarouselProps = {

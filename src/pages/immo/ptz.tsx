@@ -4,7 +4,6 @@ import {FullPageLayout} from '../../layouts/fullpage.layout'
 import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
-import {useStyletron} from 'baseui'
 import {ptz_form} from '../../utils/ptz/data'
 import Form from '../../components/Form/Form'
 import {useRouter} from 'next/router'
@@ -28,7 +27,6 @@ const MainBlock = styled(Block)`
 
 const Ptz = () => {
 	const router = useRouter()
-	const [css, theme] = useStyletron()
 
 	return (
 		<FullPageLayout>
@@ -38,7 +36,7 @@ const Ptz = () => {
 					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
 					<span>Prêt à taux zéro</span>
 				</Breadcrumbs>
-				<MainBlock backgroundColor={theme.colors.primary200}>
+				<MainBlock>
 					<Block padding={'2em'}>
 						<Form
 							form={ptz_form}

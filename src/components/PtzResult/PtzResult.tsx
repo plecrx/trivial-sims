@@ -80,7 +80,7 @@ const PtzResult = ({data}: PtzResultProps) => {
 		return (
 			<WrapperBlock>
 				<CustomAnimationBlock
-					backgroundColor={theme.colors.backgroundSecondary}
+					backgroundColor={theme.colors.backgroundPrimary}
 					color={theme.colors.primaryA}
 				>
 					<>Vous ne remplissez pas les conditions pour pouvoir bénéficier du PTZ.</>

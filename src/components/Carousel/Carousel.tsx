@@ -8,6 +8,7 @@ import styled from '@emotion/styled'
 import {Block} from 'baseui/block'
 import {useStyletron} from 'baseui'
 import {Button} from 'baseui/button'
+import {ChevronRight} from 'baseui/icon'
 
 const PreviousButton = styled(Button)`
 	z-index: 2;
@@ -30,34 +31,54 @@ const NextButton = styled(Button)`
 `
 
 const CustomSlider = styled(Slider)`
-	background-color: rgb(0, 104, 85);
-	height: 400px;
-	display: flex;
-	align-items: center;
+	background-color: #F19164;
 `
 
 const Wrapper = styled.div`
-	width: 272px;
-	height: 320px;
-	padding: 8px;
+	display: flex !important;
+	margin: 32px 0;
+	padding: 16px;
+	height: 384px;
+	width: 240px;
 `
 
 const Card = styled(Block)`
-	height: 100%;
+	height: auto;
+	width: 100%;
 	border-radius: 8px;
 	border: 1px solid rgb(211, 211, 211);
 	padding: 24px;
-	transition: border-color 300ms ease-in-out 0s;
+	transition: all 300ms ease-in-out;
+
+	:hover {
+		transform: translateY(-8px) scale(1.01);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
 `
 
 const CardContent = styled.div`
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	justify-content: space-between;
+	gap: 16px;
+`
+
+const CTAButton = styled(Button)`
+	align-self: start;
+	max-height: 50px;
+	font-weight: bold;
 `
 
 type CarouselProps = {
-	items: any[]
+	items: {
+		id: number
+		title: string
+		description: string
+		cta: string
+		href: string
+		illustrationSlug: string
+	}[]
 }
 
 const Carousel = ({items}: CarouselProps) => {
@@ -105,23 +126,15 @@ const Carousel = ({items}: CarouselProps) => {
 				<FaChevronLeft />
 			</PreviousButton>
 			<div>
-				<CustomSlider ref={setSliderRef} {...sliderSettings}>
-					{items.map(
-						(item: {
-							id: number
-							illustrationSlug: string
-							title: string
-							content: string
-							href: string
-							cta: string
-						}) => (
-							<Wrapper key={`immo-item-${item.id}`}>
-								<Card
-									onClick={() => router.push(item.href)}
-									backgroundColor={theme.colors.backgroundPrimary}
-									color={theme.colors.primary}
-								>
-									<CardContent>
+				<CustomSlider ref={setSliderRef} {...sliderSettings} >
+					{items.map(item => (
+						<Wrapper key={`immo-item-${item.id}`}>
+							<Card
+								backgroundColor={theme.colors.backgroundPrimary}
+								color={theme.colors.primary}
+							>
+								<CardContent>
+									<div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
 										<img
 											height='88'
 											width='130'
@@ -130,13 +143,18 @@ const Carousel = ({items}: CarouselProps) => {
 											alt=''
 										/>
 										<strong>{item.title}</strong>
-										{item.content}
-										<a href={item.href}>{item.cta}</a>
-									</CardContent>
-								</Card>
-							</Wrapper>
-						),
-					)}
+										{item.description}
+									</div>
+									<CTAButton
+										endEnhancer={() => <ChevronRight size={24} />}
+										onClick={() => router.push(item.href)}
+									>
+										{item.cta}
+									</CTAButton>
+								</CardContent>
+							</Card>
+						</Wrapper>
+					))}
 				</CustomSlider>
 			</div>
 			<NextButton

@@ -21,43 +21,43 @@ export const immoItems = [
 	{
 		id: 1,
 		title: 'Simulez votre prêt à taux zéro',
-		content:
+		description:
 			'Vérifiez votre éligibilité et simulez le montant de votre prêt à taux zéro',
-		cta: 'SIMULATION PTZ',
+		cta: 'Simulation PTZ',
 		href: '/immo/ptz',
 		illustrationSlug: '/discount.svg',
 	},
 	{
 		id: 4,
 		title: "Simulez votre capacité d'emprunt",
-		content:
+		description:
 			'Estimez le montant que vous pouvez emprunter pour financer votre achat',
-		cta: "CALCUL CAPACITE D'EMPRUNT",
+		cta: "Calcul capacité d'emprunt",
 		href: '/immo/ability',
 		illustrationSlug: '/undraw_personal_finance_tqcd.svg',
 	},
 	{
 		id: 4,
 		title: 'Simulez votre prêt immobilier',
-		content: 'Estimez votre prêt immobilier en un temps record',
-		cta: 'CALCUL PRÊT IMMOBILIER',
+		description: 'Estimez votre prêt immobilier en un temps record',
+		cta: 'Calcul prêt immobilier',
 		href: '/immo/loan',
 		illustrationSlug: '/undraw_home_settings_re_pkya.svg',
 	},
 	{
 		id: 2,
 		title: 'Simulez votre lissage de crédit',
-		content: 'Calculez vos mensualités lissées.',
-		cta: 'SIMULATION LISSAGE DE CREDIT',
+		description: 'Calculez vos mensualités lissées.',
+		cta: 'Calcul lissage de crédit',
 		href: '/immo/smooth',
 		illustrationSlug: '/stepping.svg',
 	},
 	{
 		id: 3,
 		title: 'Estimez le montant de vos frais de notaire',
-		content:
+		description:
 			"Simulez le montant des frais d'acquisition de votre achat immobilier.",
-		cta: 'CALCUL FRAIS DE NOTAIRE',
+		cta: 'Calcul frais de notaire',
 		href: '/immo/notaire',
 		illustrationSlug: '/buy_house_orange.svg',
 	},
@@ -85,7 +85,7 @@ export const menuItems = [
 						itemId: '/immo/notaire',
 					},
 					{
-						title: 'Capacité demprunt',
+						title: "Capacité d'emprunt",
 						itemId: '/immo/ability',
 					},
 					{

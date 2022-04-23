@@ -31,7 +31,7 @@ const NextButton = styled(Button)`
 `
 
 const CustomSlider = styled(Slider)`
-	background-color: #F19164;
+	background-color: #f19164;
 `
 
 const Wrapper = styled.div`
@@ -126,7 +126,7 @@ const Carousel = ({items}: CarouselProps) => {
 				<FaChevronLeft />
 			</PreviousButton>
 			<div>
-				<CustomSlider ref={setSliderRef} {...sliderSettings} >
+				<CustomSlider ref={setSliderRef} {...sliderSettings}>
 					{items.map(item => (
 						<Wrapper key={`immo-item-${item.id}`}>
 							<Card

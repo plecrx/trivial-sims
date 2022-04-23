@@ -23,6 +23,7 @@ const CarouselWrapper = styled.div`
 
 const PreviousButton = styled(Button)`
 	z-index: 2;
+	width: 8%;
 	position: absolute;
 	border-radius: 8px 0 0 8px;
 	opacity: 0.5;
@@ -35,6 +36,7 @@ const NextButton = styled(Button)`
 	position: absolute;
 	border-radius: 0 8px 8px 0;
 	opacity: 0.5;
+	width: 8%;
 	top: 0;
 	right: 0;
 	height: 100%;
@@ -43,6 +45,7 @@ const NextButton = styled(Button)`
 
 const CustomSlider = styled(Slider)`
 	background-color: #f19164;
+	border-radius: 8px;
 `
 
 const Wrapper = styled.div`

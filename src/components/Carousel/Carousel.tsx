@@ -10,6 +10,17 @@ import {useStyletron} from 'baseui'
 import {Button} from 'baseui/button'
 import {ChevronRight} from 'baseui/icon'
 
+const CarouselWrapper = styled.div`
+	position: relative;
+
+	@media only screen and (min-width: 1025px) {
+		width: 70%;
+	}
+	@media only screen and (max-width: 1024px) {
+		width: 110%;
+	}
+`
+
 const PreviousButton = styled(Button)`
 	z-index: 2;
 	position: absolute;
@@ -44,7 +55,7 @@ const Wrapper = styled.div`
 
 const Card = styled(Block)`
 	height: auto;
-	width: 100%;
+	width: 240px;
 	border-radius: 8px;
 	border: 1px solid rgb(211, 211, 211);
 	padding: 24px;
@@ -92,12 +103,11 @@ const Carousel = ({items}: CarouselProps) => {
 		speed: 500,
 		arrows: false,
 		centerMode: true,
-		centerPadding: '60px',
 		slidesToShow: 3,
 		slidesToScroll: 1,
 		responsive: [
 			{
-				breakpoint: 1024,
+				breakpoint: 1744,
 				settings: {
 					slidesToShow: 2,
 				},
@@ -112,7 +122,7 @@ const Carousel = ({items}: CarouselProps) => {
 	}
 
 	return (
-		<div style={{position: 'relative'}}>
+		<CarouselWrapper>
 			<PreviousButton
 				onClick={sliderRef?.slickPrev}
 				overrides={{
@@ -125,7 +135,7 @@ const Carousel = ({items}: CarouselProps) => {
 			>
 				<FaChevronLeft />
 			</PreviousButton>
-			<div>
+			<div style={{width: '100%'}}>
 				<CustomSlider ref={setSliderRef} {...sliderSettings}>
 					{items.map(item => (
 						<Wrapper key={`immo-item-${item.id}`}>
@@ -169,7 +179,7 @@ const Carousel = ({items}: CarouselProps) => {
 			>
 				<FaChevronRight />
 			</NextButton>
-		</div>
+		</CarouselWrapper>
 	)
 }
 

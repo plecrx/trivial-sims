@@ -14,8 +14,10 @@ const ImmoContainer = styled(Block)`
 `
 
 const MainBlock = styled(Block)`
-	padding-right: calc(8.33333%);
-	padding-block: 2.5em 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-block: 2.5em;
 	margin-top: 1.5em;
 `
 

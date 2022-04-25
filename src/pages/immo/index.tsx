@@ -21,7 +21,7 @@ const Immo = () => {
 			/>
 			<MainLayout
 				className={css({
-					backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+					backgroundColor: 'transparent',
 				})}
 			>
 				<Carousel items={immoItems} />

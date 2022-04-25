@@ -20,7 +20,7 @@ const RowWrapper = styled.div`
 	-moz-box-align: center;
 	align-items: center;
 	-moz-box-pack: justify;
-  gap: 160px;
+	gap: 160px;
 `
 
 const InputContainer = styled.div`

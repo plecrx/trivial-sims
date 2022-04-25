@@ -7,7 +7,6 @@ import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
 import MainLayout from '../../layouts/main.layout'
 
-
 const Notaire = () => {
 	const [css, theme] = useStyletron()
 

@@ -14,10 +14,12 @@ import InputSlider from '../../components/inputSlider/inputSlider'
 import ColumnResultLabelXL from '../../components/resultLabel/columnResultLabelXL.component'
 import RowResultLabelL from '../../components/resultLabel/rowResultLabelL.component'
 import Card from '../../components/card/card.component'
+import {useStyletron} from 'baseui'
 
 const StyledMainLayout = styled(MainLayout)`
 	align-items: start;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	padding: 48px;
 `
 
 const GoToMenuButton = styled(Button)`
@@ -27,6 +29,7 @@ const GoToMenuButton = styled(Button)`
 
 const Ability = () => {
 	const router = useRouter()
+	const [css, theme] = useStyletron()
 	const [revenue, setRevenue] = useState([4000])
 	const [duration, setDuration] = useState([25])
 	const [expanses, setExpanses] = useState([0])
@@ -46,7 +49,11 @@ const Ability = () => {
 				<span>Emprunt</span>
 			</Breadcrumbs>
 			<HeroLabel label={"Simulation capacité d'emprunt :"} />
-			<StyledMainLayout>
+			<StyledMainLayout
+				className={css({
+					backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+				})}
+			>
 				<Card title={'Votre projet'}>
 					<InputSlider
 						label={'revenus'}

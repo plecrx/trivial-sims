@@ -14,18 +14,7 @@ import {ArrowRight} from 'baseui/icon'
 import {useRouter} from 'next/router'
 import HeroLabel from '../../components/HeroLabel/HeroLabel'
 import {isNumeric} from '../../utils/isNumeric'
-
-const AbilityContainer = styled(Block)`
-	width: 80%;
-	margin: 2.5em 0 5em 0;
-`
-
-const MainBlock = styled(Block)`
-	display: flex;
-	justify-content: space-evenly;
-	align-items: start;
-	flex-wrap: wrap;
-`
+import MainLayout from '../../layouts/main.layout'
 
 const ResultContainer = styled(Block)`
 	display: flex;
@@ -87,6 +76,10 @@ const Wrapper = styled.div`
 	-moz-box-pack: justify;
 `
 
+const GoToMenuButton = styled(Button)`
+	margin: 40px;
+`
+
 const Ability = () => {
 	const [css, theme] = useStyletron()
 	const router = useRouter()
@@ -109,66 +102,37 @@ const Ability = () => {
 
 	return (
 		<FullPageLayout>
-			<AbilityContainer>
-				<Breadcrumbs>
-					<StyledLink href='/'>Home</StyledLink>
-					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
-					<span>Emprunt</span>
-				</Breadcrumbs>
-				<HeroLabel label={"Simulation capacité d'emprunt :"} />
-				<MainBlock>
-					<div style={{paddingInline: 'calc(8.33333%)'}}>
-						<HeadingXXLarge>
-							<strong>Votre projet</strong>
-						</HeadingXXLarge>
-						<ResultContainer
-							backgroundColor={theme.colors.positive100}
-							color={theme.colors.colorSecondary}
-						>
-							<ColumnWrapper>
-								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>REVENUS</LabelLarge>
-									<span
-										style={{
-											display: 'flex',
-											flex: '1 1 auto',
-											justifyContent: 'flex-end',
-										}}
-									>
-										<div style={{display: 'inline-flex', alignItems: 'center'}}>
-											<InputWrapper>
-												<StyledInput
-													type={'text'}
-													value={revenue[0] || ''}
-													onChange={e => handleChange(e.target.value, setRevenue)}
-													placeholder={'0'}
-													maxLength={5}
-													step={100}
-													min={0}
-													max={15000}
-												/>
-											</InputWrapper>
-											€ /mois
-										</div>
-									</span>
-								</Wrapper>
-								<Slider
-									value={revenue || 0}
-									min={0}
-									max={15000}
-									step={100}
-									onChangeValue={setRevenue}
-								/>
-							</ColumnWrapper>
-							<ColumnWrapper>
-								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>CHARGES</LabelLarge>
-									<div style={{display: 'inline-flex', alignItems: 'flex-end'}}>
+			<Breadcrumbs>
+				<StyledLink href='/'>Home</StyledLink>
+				<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
+				<span>Emprunt</span>
+			</Breadcrumbs>
+			<HeroLabel label={"Simulation capacité d'emprunt :"} />
+			<MainLayout>
+				<div style={{paddingInline: 'calc(8.33333%)'}}>
+					<HeadingXXLarge>
+						<strong>Votre projet</strong>
+					</HeadingXXLarge>
+					<ResultContainer
+						backgroundColor={theme.colors.positive100}
+						color={theme.colors.colorSecondary}
+					>
+						<ColumnWrapper>
+							<Wrapper>
+								<LabelLarge color={theme.colors.colorSecondary}>REVENUS</LabelLarge>
+								<span
+									style={{
+										display: 'flex',
+										flex: '1 1 auto',
+										justifyContent: 'flex-end',
+									}}
+								>
+									<div style={{display: 'inline-flex', alignItems: 'center'}}>
 										<InputWrapper>
 											<StyledInput
 												type={'text'}
-												value={expanses[0] || ''}
-												onChange={e => handleChange(e.target.value, setExpanses)}
+												value={revenue[0] || ''}
+												onChange={e => handleChange(e.target.value, setRevenue)}
 												placeholder={'0'}
 												maxLength={5}
 												step={100}
@@ -178,96 +142,123 @@ const Ability = () => {
 										</InputWrapper>
 										€ /mois
 									</div>
-								</Wrapper>
-								<Slider
-									value={expanses || 0}
-									min={0}
-									max={100000}
-									step={100}
-									onChangeValue={setExpanses}
-								/>
-							</ColumnWrapper>
-							<ColumnWrapper>
-								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>
-										APPORT PERSONNEL
-									</LabelLarge>
-									<div style={{display: 'flex', gap: '2px'}}>
-										<InputWrapper>
-											<StyledInput
-												type={'text'}
-												value={contribution[0] || ''}
-												onChange={e => handleChange(e.target.value, setContribution)}
-												placeholder={'0'}
-												maxLength={5}
-												step={100}
-												min={0}
-												max={15000}
-											/>
-										</InputWrapper>
-										€
-									</div>
-								</Wrapper>
-								<Slider
-									value={contribution || 0}
-									min={0}
-									max={100000}
-									step={100}
-									onChangeValue={setContribution}
-								/>
-							</ColumnWrapper>
-							<ColumnWrapper>
-								<Wrapper>
-									<LabelLarge color={theme.colors.colorSecondary}>
-										DUREE DU PRÊT
-									</LabelLarge>
-									<div style={{display: 'flex', gap: '2px'}}>
-										<InputWrapper>
-											<StyledInput
-												type={'text'}
-												value={duration[0] || ''}
-												onChange={e => handleChange(e.target.value, setDuration)}
-												placeholder={'0'}
-												maxLength={2}
-												step={100}
-												min={0}
-												max={15000}
-											/>
-										</InputWrapper>
-										ans
-									</div>
-								</Wrapper>
-								<Slider
-									value={duration || 0}
-									min={5}
-									max={25}
-									step={1}
-									onChangeValue={setDuration}
-								/>
-							</ColumnWrapper>
-						</ResultContainer>
-					</div>
-					<div>
-						<HeadingXXLarge>
-							<strong>Votre capacité</strong>
-						</HeadingXXLarge>
-						<ResultContainer backgroundColor={'rgb(0, 104, 85)'} width={'400px'}>
-							<LabelLarge color={theme.colors.primary100}>
-								{/* eslint-disable-next-line react/no-unescaped-entities */}
-								CAPACITE D'EMPRUNT
-							</LabelLarge>
-							<DisplayMedium color={theme.colors.primary100}>
-								<strong>{loanAbility} €</strong>
-							</DisplayMedium>
-							<Divider />
-							<ColumnWrapper>
-								<Wrapper style={{color: theme.colors.primary100}}>
-									<LabelLarge color={theme.colors.primary100}>MENSUALITE</LabelLarge>
-									<div>{monthlyLoanAbility} €</div>
-								</Wrapper>
-							</ColumnWrapper>
-						</ResultContainer>
-					</div>
+								</span>
+							</Wrapper>
+							<Slider
+								value={revenue || 0}
+								min={0}
+								max={15000}
+								step={100}
+								onChangeValue={setRevenue}
+							/>
+						</ColumnWrapper>
+						<ColumnWrapper>
+							<Wrapper>
+								<LabelLarge color={theme.colors.colorSecondary}>CHARGES</LabelLarge>
+								<div style={{display: 'inline-flex', alignItems: 'flex-end'}}>
+									<InputWrapper>
+										<StyledInput
+											type={'text'}
+											value={expanses[0] || ''}
+											onChange={e => handleChange(e.target.value, setExpanses)}
+											placeholder={'0'}
+											maxLength={5}
+											step={100}
+											min={0}
+											max={15000}
+										/>
+									</InputWrapper>
+									€ /mois
+								</div>
+							</Wrapper>
+							<Slider
+								value={expanses || 0}
+								min={0}
+								max={100000}
+								step={100}
+								onChangeValue={setExpanses}
+							/>
+						</ColumnWrapper>
+						<ColumnWrapper>
+							<Wrapper>
+								<LabelLarge color={theme.colors.colorSecondary}>
+									APPORT PERSONNEL
+								</LabelLarge>
+								<div style={{display: 'flex', gap: '2px'}}>
+									<InputWrapper>
+										<StyledInput
+											type={'text'}
+											value={contribution[0] || ''}
+											onChange={e => handleChange(e.target.value, setContribution)}
+											placeholder={'0'}
+											maxLength={5}
+											step={100}
+											min={0}
+											max={15000}
+										/>
+									</InputWrapper>
+									€
+								</div>
+							</Wrapper>
+							<Slider
+								value={contribution || 0}
+								min={0}
+								max={100000}
+								step={100}
+								onChangeValue={setContribution}
+							/>
+						</ColumnWrapper>
+						<ColumnWrapper>
+							<Wrapper>
+								<LabelLarge color={theme.colors.colorSecondary}>
+									DUREE DU PRÊT
+								</LabelLarge>
+								<div style={{display: 'flex', gap: '2px'}}>
+									<InputWrapper>
+										<StyledInput
+											type={'text'}
+											value={duration[0] || ''}
+											onChange={e => handleChange(e.target.value, setDuration)}
+											placeholder={'0'}
+											maxLength={2}
+											step={100}
+											min={0}
+											max={15000}
+										/>
+									</InputWrapper>
+									ans
+								</div>
+							</Wrapper>
+							<Slider
+								value={duration || 0}
+								min={5}
+								max={25}
+								step={1}
+								onChangeValue={setDuration}
+							/>
+						</ColumnWrapper>
+					</ResultContainer>
+				</div>
+				<div>
+					<HeadingXXLarge>
+						<strong>Votre capacité</strong>
+					</HeadingXXLarge>
+					<ResultContainer backgroundColor={'rgb(0, 104, 85)'} width={'400px'}>
+						<LabelLarge color={theme.colors.primary100}>
+							{/* eslint-disable-next-line react/no-unescaped-entities */}
+							CAPACITE D'EMPRUNT
+						</LabelLarge>
+						<DisplayMedium color={theme.colors.primary100}>
+							<strong>{loanAbility} €</strong>
+						</DisplayMedium>
+						<Divider />
+						<ColumnWrapper>
+							<Wrapper style={{color: theme.colors.primary100}}>
+								<LabelLarge color={theme.colors.primary100}>MENSUALITE</LabelLarge>
+								<div>{monthlyLoanAbility} €</div>
+							</Wrapper>
+						</ColumnWrapper>
+					</ResultContainer>
 					<div
 						style={{
 							display: 'flex',
@@ -276,17 +267,18 @@ const Ability = () => {
 							justifyContent: 'center',
 						}}
 					>
-						<Button
+						<GoToMenuButton
 							size={SIZE.large}
 							endEnhancer={() => <ArrowRight size={24} />}
 							shape={SHAPE.pill}
 							onClick={() => router.push('/immo')}
 						>
 							Retourner au menu
-						</Button>
+						</GoToMenuButton>
 					</div>
-				</MainBlock>
-			</AbilityContainer>
+				</div>
+
+			</MainLayout>
 		</FullPageLayout>
 	)
 }

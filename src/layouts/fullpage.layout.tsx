@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Menu from '../components/Menu/Menu'
 import * as React from 'react'
 import styled from '@emotion/styled'
+import BodyLayout from './body.layout'
 
 const Container = styled(Block)`
 	display: flex;
@@ -16,17 +17,6 @@ const Header = styled(Block)`
 	position: sticky;
 	left: 0;
 	top: 0;
-`
-
-const Body = styled(Block)`
-	display: flex;
-	justify-content: start;
-	flex-direction: column;
-	align-items: center;
-	min-height: 100vh;
-	padding-top: 2em;
-
-	width: 100%;
 `
 
 const THEME = {
@@ -65,7 +55,7 @@ export const FullPageLayout = ({children}: FullPageLayoutProps) => {
 						isDark={theme === THEME.dark}
 					/>
 				</Header>
-				<Body>{children}</Body>
+				<BodyLayout>{children}</BodyLayout>
 			</Container>
 		</ThemeProvider>
 	)

@@ -44,7 +44,7 @@ const NextButton = styled(Button)`
 `
 
 const CustomSlider = styled(Slider)`
-	background-color: #f19164;
+	background: lightgrey;
 	border-radius: 8px;
 `
 

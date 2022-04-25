@@ -5,47 +5,32 @@ import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {useStyletron} from 'baseui'
+import MainLayout from '../../layouts/main.layout'
 
-const NotaireContainer = styled(Block)`
-	width: 80%;
-	margin: 2.5em 0 5em 0;
-`
-
-const MainBlock = styled(Block)`
-	padding-left: calc(8.33333%);
-	padding-right: calc(8.33333%);
-	margin-top: 1.5em;
-	border-radius: 8px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
 
 const Notaire = () => {
 	const [css, theme] = useStyletron()
 
 	return (
 		<FullPageLayout>
-			<NotaireContainer>
-				<Breadcrumbs>
-					<StyledLink href='/'>Home</StyledLink>
-					<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
-					<span>Notaire</span>
-				</Breadcrumbs>
-				<MainBlock
-					className={css({
-						backgroundColor: theme.colors.tagPrimaryOutlinedHover,
-					})}
-				>
-					<img
-						height='200'
-						width='200'
-						loading='lazy'
-						src={'/warning_orange.svg'}
-						alt=''
-					/>
-				</MainBlock>
-			</NotaireContainer>
+			<Breadcrumbs>
+				<StyledLink href='/'>Home</StyledLink>
+				<StyledLink href='/immo'>Simulation de crédit immobilier</StyledLink>
+				<span>Notaire</span>
+			</Breadcrumbs>
+			<MainLayout
+				className={css({
+					backgroundColor: theme.colors.tagPrimaryOutlinedHover,
+				})}
+			>
+				<img
+					height='200'
+					width='200'
+					loading='lazy'
+					src={'/warning_orange.svg'}
+					alt=''
+				/>
+			</MainLayout>
 		</FullPageLayout>
 	)
 }

@@ -1,28 +1,10 @@
-import {Block} from 'baseui/block'
+import React from 'react'
+import SmoothList from 'react-smooth-list'
 import {Button, SHAPE, SIZE} from 'baseui/button'
 import {ArrowRight} from 'baseui/icon'
 import {useStyletron} from 'baseui'
-import styled from '@emotion/styled'
-import SmoothList from 'react-smooth-list'
-
-import React from 'react'
-
-const InputSelectBlock = styled(Block)`
-	cursor: pointer;
-	margin: 1em 0;
-	padding: 1em;
-	text-align: center;
-	border-radius: 8px;
-	display: flex;
-	justify-content: space-between;
-	gap: 15px;
-`
-
-type FormInputSelectProps = {
-	answerOptions?: {id: string; label: string}[]
-	navigateToNext: () => void
-	saveAnswer: (value: string) => void
-}
+import {FormInputSelectProps} from './form.types'
+import {InputSelectBlock} from './form.styles'
 
 const FormInputOption = ({
 	answerOptions,

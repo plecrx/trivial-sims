@@ -6,39 +6,9 @@ import FormActionNext from './formActionNext.component'
 import FormInputMoney from './formInputMoney.component'
 import FormInputCity from './formInputCity.component'
 import FormResult from './formResult.component'
-import styled from '@emotion/styled'
 import {QuestionInfo, QuestionType} from '../../types/question.type'
-import {PtzResultProps} from '../ptzResult/ptzResult.component'
-
-const CustomAnimationDiv = styled.div`
-	animation-duration: 0.5s;
-	animation-name: slidein;
-
-	@keyframes slidein {
-		from {
-			margin-left: 10%;
-			width: 100%;
-		}
-
-		to {
-			margin-left: 0;
-			width: 100%;
-		}
-	}
-`
-
-const FormDoubleActionWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	gap: 10px;
-`
-
-type FormProps = {
-	form: Record<string, QuestionInfo>
-	FormResultTopic: React.FC<PtzResultProps>
-	returnToMenu: () => void
-}
+import {CustomAnimationDiv, FormDoubleActionWrapper} from './form.styles'
+import {FormProps} from './form.types'
 
 const Form = ({form, returnToMenu, FormResultTopic}: FormProps) => {
 	const formKeys = Object.keys(form)

@@ -1,20 +1,8 @@
-import styled from '@emotion/styled'
-import {Block} from 'baseui/block'
+import {useEffect, useState} from 'react'
 import {FormControl} from 'baseui/form-control'
 import {Select, TYPE, Value} from 'baseui/select'
-import {useEffect, useState} from 'react'
-
-const Container = styled(Block)`
-	display: flex;
-	flex-direction: column;
-	margin: 1em 0;
-	gap: 1em;
-`
-
-type FormInputCityProps = {
-	city: {nom: string; code: number; _score: number}[]
-	onSelectChange: (selectValue: any) => void
-}
+import {InputCityContainer} from './form.styles'
+import {FormInputCityProps} from './form.types'
 
 const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
 	const [selectValue, setSelectValue] = useState<Value>(city)
@@ -39,7 +27,7 @@ const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
 	}
 
 	return (
-		<Container>
+		<InputCityContainer>
 			<FormControl>
 				<Select
 					value={selectValue}
@@ -52,7 +40,7 @@ const FormInputCity = ({onSelectChange, city}: FormInputCityProps) => {
 					clearable={false}
 				/>
 			</FormControl>
-		</Container>
+		</InputCityContainer>
 	)
 }
 

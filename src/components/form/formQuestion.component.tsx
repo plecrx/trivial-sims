@@ -1,8 +1,5 @@
 import {useStyletron} from 'baseui'
-
-type FormQuestionProps = {
-	currentQuestion: string
-}
+import {FormQuestionProps} from './form.types'
 
 const FormQuestion = ({currentQuestion}: FormQuestionProps) => {
 	const [css, theme] = useStyletron()

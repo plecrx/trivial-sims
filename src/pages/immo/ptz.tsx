@@ -4,9 +4,9 @@ import React from 'react'
 import {Breadcrumbs} from 'baseui/breadcrumbs'
 import {StyledLink} from 'baseui/link'
 import {ptz_form} from '../../utils/ptz/data'
-import Form from '../../components/Form/Form'
+import Form from '../../components/form/form.component'
 import {useRouter} from 'next/router'
-import PtzResult from '../../components/PtzResult/PtzResult'
+import PtzResult from '../../components/ptzResult/ptzResult.component'
 import MainLayout from '../../layouts/main.layout'
 
 const Ptz = () => {

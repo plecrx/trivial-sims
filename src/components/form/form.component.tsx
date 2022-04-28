@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import FormQuestion from './FormQuestion'
-import FormInputOption from './FormInputOption'
-import FormActionPrevious from './FormActionPrevious'
-import FormActionNext from './FormActionNext'
-import FormInputMoney from './FormInputMoney'
-import FormInputCity from './FormInputCity'
-import FormResult from './FormResult'
+import FormQuestion from './formQuestion.component'
+import FormInputOption from './formInputOption.component'
+import FormActionPrevious from './formActionPrevious.component'
+import FormActionNext from './formActionNext.component'
+import FormInputMoney from './formInputMoney.component'
+import FormInputCity from './formInputCity.component'
+import FormResult from './formResult.component'
 import styled from '@emotion/styled'
 import {QuestionInfo, QuestionType} from '../../types/question.type'
-import {PtzResultProps} from '../PtzResult/PtzResult'
+import {PtzResultProps} from '../ptzResult/ptzResult.component'
 
 const CustomAnimationDiv = styled.div`
 	animation-duration: 0.5s;

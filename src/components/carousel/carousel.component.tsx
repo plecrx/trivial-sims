@@ -4,11 +4,12 @@ import {useStyletron} from 'baseui'
 import {ChevronRight} from 'baseui/icon'
 import {
 	Card,
-	CardContent, CarouselWrapper,
+	CardContent,
+	CarouselWrapper,
 	Container,
 	CTAButton,
 	CustomSlider,
-	Wrapper
+	Wrapper,
 } from './carousel.styles'
 import {CarouselProps} from './carousel.types'
 import CarouselButton from './carouselButton.component'

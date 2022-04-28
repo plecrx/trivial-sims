@@ -1,10 +1,9 @@
 import {QuestionInfo} from '../../types/question.type'
 import React from 'react'
-import {PtzResultProps} from '../ptzResult/ptzResult.component'
 
 export type FormProps = {
 	form: Record<string, QuestionInfo>
-	FormResultTopic: React.FC<PtzResultProps>
+	FormResultTopic: React.FC<any>
 	returnToMenu: () => void
 }
 

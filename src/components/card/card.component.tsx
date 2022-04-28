@@ -1,32 +1,8 @@
-import React, {ReactNode} from 'react'
+import React from 'react'
 import HeadingTitle from '../headingTitle/headingTitle.component'
-import styled from '@emotion/styled'
-import {Block} from 'baseui/block'
 import {useStyletron} from 'baseui'
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-`
-
-const Content = styled(Block)`
-	display: flex;
-	flex-direction: column;
-	box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
-	border: 1px solid rgb(211, 211, 211);
-	border-radius: 8px;
-	padding: 32px;
-	transition: border-color 300ms ease-in-out 0s;
-	&:focus {
-		outline: transparent;
-	}
-`
-
-type CardProps = {
-	title?: string
-	children: ReactNode | ReactNode[]
-	backgroundColor?: string
-}
+import {Container, Content} from './card.styles'
+import {CardProps} from './card.types'
 
 const Card = ({title, backgroundColor, children}: CardProps) => {
 	const [css, theme] = useStyletron()

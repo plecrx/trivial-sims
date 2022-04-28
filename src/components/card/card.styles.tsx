@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Block } from 'baseui/block'
+import {Block} from 'baseui/block'
 
 export const Container = styled.div`
 	display: flex;

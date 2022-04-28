@@ -4,7 +4,7 @@ import {useStyletron} from 'baseui'
 import {Container, Content} from './card.styles'
 import {CardProps} from './card.types'
 
-const Card = ({title, backgroundColor, children}: CardProps) => {
+const Card = ({title, image, backgroundColor, children}: CardProps) => {
 	const [css, theme] = useStyletron()
 
 	return (

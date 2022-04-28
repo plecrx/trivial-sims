@@ -9,7 +9,8 @@ const Container = styled(Block)`
 	align-items: center;
 	min-height: 100vh;
 	padding-top: 2em;
-	width: 100%;
+	margin-inline: auto;
+	width: 80%;
 `
 
 const Wrapper = styled.div`

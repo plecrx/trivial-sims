@@ -7,11 +7,16 @@ import HeroLabel from '../../components/HeroLabel/HeroLabel'
 import Carousel from '../../components/Carousel/Carousel'
 import MainLayout from '../../layouts/main.layout'
 import {useStyletron} from 'baseui'
+import styled from '@emotion/styled'
+
+const StyledFullPageLayout = styled(FullPageLayout)`
+	margin-inline: calc(100% - 20px);
+`
 
 const Immo = () => {
 	const [css, theme] = useStyletron()
 	return (
-		<FullPageLayout>
+		<StyledFullPageLayout>
 			<Breadcrumbs>
 				<StyledLink href='/'>Home</StyledLink>
 				<span>Simulation de crédit immobilier</span>
@@ -26,7 +31,7 @@ const Immo = () => {
 			>
 				<Carousel items={immoItems} />
 			</MainLayout>
-		</FullPageLayout>
+		</StyledFullPageLayout>
 	)
 }
 

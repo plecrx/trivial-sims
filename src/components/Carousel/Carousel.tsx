@@ -14,10 +14,10 @@ const CarouselWrapper = styled.div`
 	position: relative;
 
 	@media only screen and (min-width: 1025px) {
-		width: 70%;
+		width: 85%;
 	}
 	@media only screen and (max-width: 1024px) {
-		width: 110%;
+		width: 140%;
 	}
 `
 
@@ -52,8 +52,8 @@ const Wrapper = styled.div`
 	display: flex !important;
 	margin: 32px 0;
 	padding: 16px;
-	height: 384px;
-	width: 240px;
+	height: 424px;
+	width: auto;
 `
 
 const Card = styled(Block)`
@@ -80,8 +80,9 @@ const CardContent = styled.div`
 
 const CTAButton = styled(Button)`
 	align-self: start;
-	max-height: 50px;
+	max-height: 60px;
 	font-weight: bold;
+	font-size: 14px;
 	border-radius: 8px;
 `
 

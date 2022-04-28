@@ -1,9 +1,6 @@
-import {HeadingXXLarge} from 'baseui/typography'
 import React from 'react'
-
-type HeadingTitleProps = {
-	title: string
-}
+import {HeadingXXLarge} from 'baseui/typography'
+import {HeadingTitleProps} from './headingTitle.types'
 
 const HeadingTitle = ({title}: HeadingTitleProps) => {
 	return (

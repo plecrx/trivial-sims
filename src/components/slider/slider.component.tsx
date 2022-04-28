@@ -1,13 +1,6 @@
 import React from 'react'
 import {Slider as BaseWebSlider} from 'baseui/slider'
-
-type SliderProps = {
-	min: number
-	max: number
-	step: number
-	value: number[]
-	onChangeValue: (value: number[]) => void
-}
+import {SliderProps} from './slider.types'
 
 const Slider = ({min, max, step, value, onChangeValue}: SliderProps) => {
 	return (

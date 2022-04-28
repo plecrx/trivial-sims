@@ -1,21 +1,8 @@
-import {LabelLarge} from 'baseui/typography'
 import React from 'react'
-import styled from '@emotion/styled'
 import {useStyletron} from 'baseui'
-
-const RowWrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-	-moz-box-align: center;
-	align-items: center;
-	-moz-box-pack: justify;
-	gap: 160px;
-`
-
-type RowResultLabelLProps = {
-	label: string
-	value: string
-}
+import {LabelLarge} from 'baseui/typography'
+import {RowResultLabelLProps} from './resultLabel.types'
+import {RowWrapper} from './resultLabel.styles'
 
 const RowResultLabelL = ({label, value}: RowResultLabelLProps) => {
 	const [css, theme] = useStyletron()

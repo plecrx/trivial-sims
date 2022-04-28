@@ -8,10 +8,7 @@ import {
 import {Button, KIND} from 'baseui/button'
 import {Menu} from 'baseui/icon'
 import {H4, Label1} from 'baseui/typography'
-
-type NavbarProps = {
-	onOpen: () => void
-}
+import {NavbarProps} from './navbar.types'
 
 const Navbar = ({onOpen}: NavbarProps) => {
 	return (

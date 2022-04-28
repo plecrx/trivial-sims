@@ -1,15 +1,11 @@
 import MainLayout from '../../layouts/main.layout'
 import React from 'react'
 import {useStyletron} from 'baseui'
-import {Button, SIZE} from 'baseui/button'
+import {SIZE} from 'baseui/button'
 import {ArrowRight} from 'baseui/icon'
 import {useRouter} from 'next/router'
-import styled from '@emotion/styled'
 
-const StyledButton = styled(Button)`
-	border-radius: 8px;
-`
-
+import {StyledButton} from './noPageFound.styles'
 const NoPageFound = () => {
 	const [css, theme] = useStyletron()
 	const router = useRouter()

@@ -5,13 +5,7 @@ import {Checkbox, STYLE_TYPE} from 'baseui/checkbox'
 import {Navigation} from 'baseui/side-navigation'
 import {useRouter} from 'next/router'
 import {menuItems} from '../../utils/data'
-
-type MenuProps = {
-	isOpen: boolean
-	onClose: () => void
-	isDark: boolean
-	setTheme: () => void
-}
+import {MenuProps} from './menu.types'
 
 const Menu = ({isOpen, isDark, onClose, setTheme}: MenuProps) => {
 	const router = useRouter()

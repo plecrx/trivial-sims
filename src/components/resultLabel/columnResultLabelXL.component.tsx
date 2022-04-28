@@ -1,11 +1,7 @@
 import {DisplayMedium, LabelLarge} from 'baseui/typography'
 import React from 'react'
 import {useStyletron} from 'baseui'
-
-type ColumnResultLabelXLProps = {
-	label: string
-	value: string
-}
+import {ColumnResultLabelXLProps} from './resultLabel.types'
 
 const ColumnResultLabelXL = ({label, value}: ColumnResultLabelXLProps) => {
 	const [css, theme] = useStyletron()

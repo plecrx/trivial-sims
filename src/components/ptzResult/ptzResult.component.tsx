@@ -1,55 +1,19 @@
 import {useEffect, useState} from 'react'
-import styled from '@emotion/styled'
-import {Label1} from 'baseui/typography'
 import {useStyletron} from 'baseui'
-import {Block} from 'baseui/block'
+import {Label1} from 'baseui/typography'
+import {SIZE, Spinner} from 'baseui/spinner'
 import {getTotalRevenue} from '../../utils/ptz/getTotalRevenue'
 import {isBelowResourcesCeiling} from '../../utils/ptz/isBelowResourcesCeiling'
 import {getOperationCeiling} from '../../utils/ptz/getOperationCeiling'
 import {getQuotient} from '../../utils/ptz/getQuotient'
 import {getPortion} from '../../utils/ptz/getPortion'
-import {ptz_amortization_schedule, PTZQuestionIDs} from '../../utils/ptz/data'
-import {SIZE, Spinner} from 'baseui/spinner'
-
-const WrapperBlock = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-
-	gap: 0.5rem;
-`
-
-const CustomAnimationBlock = styled(Block)`
-	border-radius: 8px;
-	padding: 2em;
-	margin-block: 2em;
-	animation-duration: 0.5s;
-	animation-name: slidein;
-
-	@keyframes slidein {
-		from {
-			margin-bottom: 5em;
-			width: 100%;
-		}
-
-		to {
-			margin-bottom: 2em;
-			width: 100%;
-		}
-	}
-`
-
-enum HousingQuotient {
-	'new' = 1,
-	'old',
-	'social',
-}
-
-type NbrPeopleDigits = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-
-export type PtzResultProps = {
-	data: {[x in PTZQuestionIDs]: any}
-}
+import {ptz_amortization_schedule} from '../../utils/ptz/data'
+import {CustomAnimationBlock, WrapperBlock} from './ptzResult.styles'
+import {
+	HousingQuotient,
+	NbrPeopleDigits,
+	PtzResultProps,
+} from './ptzResult.types'
 
 const PtzResult = ({data}: PtzResultProps) => {
 	const [currentZone, setCurrentZone] = useState()

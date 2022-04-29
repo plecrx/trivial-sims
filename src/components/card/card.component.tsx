@@ -21,6 +21,7 @@ const Card = ({headerImage, title, children, actionButton}: CardProps) => {
 		<CardContainer
 			className={css({
 				backgroundColor: theme.colors.backgroundPrimary,
+				color: theme.colors.primary,
 			})}
 		>
 			<CardHeader>

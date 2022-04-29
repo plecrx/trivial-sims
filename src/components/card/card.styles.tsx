@@ -3,8 +3,11 @@ import {Block} from 'baseui/block'
 import {Button} from 'baseui/button'
 
 export const CardContainer = styled(Block)`
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 	height: auto;
-	width: 240px;
+	min-width: 220px;
 	border-radius: 8px;
 	border: 1px solid rgb(211, 211, 211);
 	padding: 24px;
@@ -24,12 +27,11 @@ export const CardHeader = styled.div`
 
 export const HeaderImage = styled.img`
 	height: 88px;
-	width: auto;
+	width: 130px;
 	margin-bottom: 20px;
 `
 
 export const CardBody = styled.div`
-	height: 65%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

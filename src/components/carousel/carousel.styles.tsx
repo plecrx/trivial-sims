@@ -1,18 +1,17 @@
 import styled from '@emotion/styled'
 import {Button} from 'baseui/button'
 import Slider from 'react-slick'
-import {Block} from 'baseui/block'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 export const Container = styled.div`
 	position: relative;
 
-	@media only screen and (min-width: 1025px) {
-		width: 85%;
+	@media only screen and (min-width: 1245px) {
+		width: 80%;
 	}
-	@media only screen and (max-width: 1024px) {
-		width: 140%;
+	@media only screen and (max-width: 1244px) {
+		width: 120%;
 	}
 `
 

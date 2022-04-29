@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {useRouter} from 'next/router'
 import {useStyletron} from 'baseui'
 import {
 	CarouselWrapper,
@@ -31,7 +30,7 @@ const Carousel = ({items}: CarouselProps) => {
 				},
 			},
 			{
-				breakpoint: 800,
+				breakpoint: 1245,
 				settings: {
 					slidesToShow: 1,
 				},

@@ -1,23 +1,19 @@
 import React, {useState} from 'react'
 import {useRouter} from 'next/router'
 import {useStyletron} from 'baseui'
-import {ChevronRight} from 'baseui/icon'
 import {
-	Card,
-	CardContent,
 	CarouselWrapper,
 	Container,
-	CTAButton,
 	CustomSlider,
 	Wrapper,
 } from './carousel.styles'
 import {CarouselProps} from './carousel.types'
 import CarouselButton from './carouselButton.component'
+import Card from '../card/card.component'
 
 const Carousel = ({items}: CarouselProps) => {
 	const [sliderRef, setSliderRef] = useState<any>(null)
 	const [css, theme] = useStyletron()
-	const router = useRouter()
 
 	const sliderSettings = {
 		dots: true,
@@ -51,28 +47,13 @@ const Carousel = ({items}: CarouselProps) => {
 					{items.map(item => (
 						<Wrapper key={`immo-item-${item.id}`}>
 							<Card
+								title={item.title}
+								headerImage={item.illustrationSlug}
 								backgroundColor={theme.colors.backgroundPrimary}
 								color={theme.colors.primary}
+								actionButton={{href: item.href, label: item.cta}}
 							>
-								<CardContent>
-									<div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
-										<img
-											height='88'
-											width='130'
-											loading='lazy'
-											src={item.illustrationSlug}
-											alt=''
-										/>
-										<strong>{item.title}</strong>
-										{item.description}
-									</div>
-									<CTAButton
-										endEnhancer={() => <ChevronRight size={24} />}
-										onClick={() => router.push(item.href)}
-									>
-										{item.cta}
-									</CTAButton>
-								</CardContent>
+								{item.description}
 							</Card>
 						</Wrapper>
 					))}

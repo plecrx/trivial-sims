@@ -1,8 +1,13 @@
 import {ReactNode} from 'react'
 
 export type CardProps = {
-	title?: string
-	image?: string
+	headerImage: string
+	title: string
+	actionButton: {
+		label: string
+		href: string
+	}
 	children: ReactNode | ReactNode[]
-	backgroundColor?: string
+	backgroundColor: string
+	color: string
 }

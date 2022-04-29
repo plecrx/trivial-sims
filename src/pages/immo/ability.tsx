@@ -13,7 +13,7 @@ import HeroLabel from '../../components/heroLabel/heroLabel.component'
 import InputSlider from '../../components/inputSlider/inputSlider.component'
 import ColumnResultLabelXL from '../../components/resultLabel/columnResultLabelXL.component'
 import RowResultLabelL from '../../components/resultLabel/rowResultLabelL.component'
-import Card from '../../components/card/card.component'
+import Panel from '../../components/panel/panel.component'
 import {useStyletron} from 'baseui'
 
 const StyledMainLayout = styled(MainLayout)`
@@ -54,7 +54,7 @@ const Ability = () => {
 					backgroundColor: theme.colors.tagPrimaryOutlinedHover,
 				})}
 			>
-				<Card title={'Votre projet'}>
+				<Panel title={'Votre projet'}>
 					<InputSlider
 						label={'revenus'}
 						value={revenue}
@@ -84,9 +84,9 @@ const Ability = () => {
 						step={1}
 						max={25}
 					/>
-				</Card>
+				</Panel>
 				<div>
-					<Card title={'Votre capacité'} backgroundColor={'rgb(0, 104, 85)'}>
+					<Panel title={'Votre capacité'} backgroundColor={'rgb(0, 104, 85)'}>
 						<ColumnResultLabelXL
 							label={"capacité d'emprunt"}
 							value={loanAbility.toString()}
@@ -96,7 +96,7 @@ const Ability = () => {
 							label={'mensualité'}
 							value={monthlyLoanAbility.toString()}
 						/>
-					</Card>
+					</Panel>
 					<GoToMenuButton
 						size={SIZE.large}
 						endEnhancer={() => <ArrowRight size={24} />}

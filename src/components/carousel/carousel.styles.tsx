@@ -54,33 +54,3 @@ export const Wrapper = styled.div`
 	height: 424px;
 	width: auto;
 `
-
-export const Card = styled(Block)`
-	height: auto;
-	width: 240px;
-	border-radius: 8px;
-	border: 1px solid rgb(211, 211, 211);
-	padding: 24px;
-	transition: all 300ms ease-in-out;
-
-	:hover {
-		transform: translateY(-8px) scale(1.01);
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	}
-`
-
-export const CardContent = styled.div`
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	gap: 16px;
-`
-
-export const CTAButton = styled(Button)`
-	align-self: start;
-	max-height: 60px;
-	font-weight: bold;
-	font-size: 14px;
-	border-radius: 8px;
-`

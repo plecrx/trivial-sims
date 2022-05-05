@@ -1,17 +1,19 @@
 export const homeItems = [
 	{
 		title: 'Simulateur de crédit immobilier',
-		description: 'Simulateur de crédit immobilier',
+		description:
+			'La première étape avant l’achat est de prévoir vos coûts d’investissement afin de mieux l’appréhender. Cela comprend le taux d’endettement, vos mensualités, vos frais de notaire et évidemment, le remboursement de votre crédit. Anticipez-les grâce aux différents simulateurs.',
 		link: {
 			label: 'Simulateur de crédit immobilier',
 			url: '/immo',
 		},
 	},
 	{
-		title: 'Simulateur de coût SASU',
-		description: 'Simulateur de coût SASU',
+		title: 'Simulateurs administratifs pour freelance',
+		description:
+			"Déclaration de chiffre d'affaires, de Cotisation Foncière d'Entreprise (CFE) ou impôts : les simulateurs vous guideront pas à pas dans vos formalités",
 		link: {
-			label: 'Simulateur de coût SASU',
+			label: 'Simulateurs administratifs pour freelance',
 			url: '/freelance',
 		},
 	},

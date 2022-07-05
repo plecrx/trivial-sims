@@ -9,6 +9,7 @@ A website to help people to simulate their real estate & freelance project.
 * 🐙 Typescript
 * 🐙 Emotion
 * 🐙 Base Web React UI
+* 🐙 NetSlider
 * 🐙 EsLint
 * 🐙 Prettier
 * 🐙 Mongoose
